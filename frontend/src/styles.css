@@ -1,0 +1,116 @@
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --border: #262b36;
+  --text: #e6e8ec;
+  --muted: #8b93a3;
+  --accent: #6ea8fe;
+  --hit: #3fb950;
+  --miss: #f85149;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --border: #dfe3ea;
+    --text: #14171c;
+    --muted: #5f6775;
+    --accent: #1f6feb;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app { max-width: 1200px; margin: 0 auto; padding: 24px 20px 64px; }
+
+header { display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+header h1 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
+
+nav { display: flex; gap: 4px; }
+nav button, .controls button {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+nav button.active { border-color: var(--accent); color: var(--accent); }
+.controls button { background: var(--accent); color: #fff; border-color: transparent; font-weight: 600; }
+.controls button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.controls { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.controls input, .controls select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.controls input { flex: 1; min-width: 260px; }
+.controls input.narrow { flex: 0 0 180px; min-width: 0; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+.panel h3 { margin: 0 0 12px; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+.panel h4 { margin: 16px 0 8px; font-size: 13px; color: var(--muted); }
+.panel.refused { border-color: var(--miss); }
+.panel.err, .err { color: var(--miss); }
+
+.split { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 900px) { .split:has(> * + *) { grid-template-columns: 1fr 1fr; } }
+
+.muted { color: var(--muted); font-size: 13px; }
+
+.results { list-style: none; padding: 0; margin: 0; }
+.results li { padding: 12px 0; border-top: 1px solid var(--border); }
+.results li:first-child { border-top: none; }
+
+.row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.score { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }
+
+.badge {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.badge.line { border-color: var(--accent); color: var(--accent); }
+.badge.err { border-color: var(--miss); color: var(--miss); }
+
+.clause { font-size: 13px; margin-top: 4px; }
+.chunkid { font-size: 11px; color: var(--muted); word-break: break-all; }
+.snippet { font-size: 13px; color: var(--muted); margin: 6px 0 0; line-height: 1.5; }
+
+.answer, pre { white-space: pre-wrap; word-wrap: break-word; font-size: 13px; line-height: 1.6; margin: 0; }
+
+.citations { list-style: none; padding: 0; margin: 0; font-size: 13px; }
+.citations li { padding: 6px 0; border-top: 1px solid var(--border); }
+.citations code { font-size: 11px; color: var(--accent); }
+
+.scores { display: flex; gap: 16px; margin-bottom: 16px; }
+.scorecard { border: 1px solid var(--border); border-radius: 10px; padding: 12px 20px; text-align: center; }
+.scorecard .big { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+table.eval { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.eval th, table.eval td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.eval th { color: var(--muted); font-weight: 600; font-size: 12px; }
+td.hit { color: var(--hit); white-space: nowrap; }
+td.miss { color: var(--miss); white-space: nowrap; }

@@ -1,0 +1,155 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ---------- Virtual environments ----------
+.venv/
+venv/
+env/
+ENV/
+# NOTE: backend/.python-version is committed on purpose — it pins 3.12.
+
+# ---------- Secrets / config ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# ---------- Testing / coverage / linting ----------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+.hypothesis/
+
+# ---------- Notebooks ----------
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# ---------- ML / RAG artifacts ----------
+# Vector stores & indexes (rebuildable from source docs — never commit)
+.chroma/
+chroma_db/
+*/chroma_db/
+faiss_index/
+*.faiss
+*.index
+*.usearch
+lancedb/
+qdrant_storage/
+
+# Embedding / model caches
+# NOT `models/` — backend/app/models/ is source code.
+.cache/
+.hf_cache/
+/models/
+checkpoints/
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.gguf
+*.bin
+!**/tokenizer.bin
+
+# Datasets & large binaries
+# data/endorsements/ IS committed — it is the corpus under test.
+data/raw/
+data/interim/
+data/processed/
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.npz
+
+# Run outputs
+# evals/search-dumps/ IS committed — the search-only dump is a deliverable.
+runs/
+outputs/
+logs/
+*.log
+
+# Experiment tracking
+mlruns/
+wandb/
+.neptune/
+lightning_logs/
+.dvc/cache/
+
+# ---------- Node / frontend (yarn only) ----------
+node_modules/
+
+# yarn.lock and .yarnrc.yml are COMMITTED. If you move to Yarn Berry, the
+# cache is ignored below but releases/patches/plugins stay in the repo.
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.pnp.*
+
+yarn-debug.log*
+yarn-error.log*
+
+# Not our package manager — if these appear, something ran the wrong CLI.
+package-lock.json
+pnpm-lock.yaml
+npm-debug.log*
+
+# Vite / build output
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+*.local
+
+# Frontend env (Vite exposes anything VITE_* to the browser — keep keys out)
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Tooling caches
+.eslintcache
+.parcel-cache/
+.turbo/
+.next/
+storybook-static/
+
+# ---------- Editors / OS ----------
+.vscode/
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ---------- Claude Code ----------
+.claude/settings.local.json

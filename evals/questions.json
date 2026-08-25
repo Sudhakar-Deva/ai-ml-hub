@@ -1,0 +1,31 @@
+{
+  "_instructions": [
+    "Write these from the ENDORSEMENTS FIRST, before running any search.",
+    "Writing them after seeing what retrieval returns measures your question-writing, not your chunker.",
+    "Exactly 8 questions. At least 3 must depend on a row INSIDE an exclusions table (table_row: true).",
+    "Every id here must have a matching entry in expected.json."
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "Does exclusion E-17 apply to water damage from a burst supply line under HO-0304 ed. 03-24?",
+      "table_row": true
+    },
+    { "id": "Q2", "question": "PLACEHOLDER — second exclusions-table row question", "table_row": true },
+    { "id": "Q3", "question": "PLACEHOLDER — third exclusions-table row question", "table_row": true },
+    { "id": "Q4", "question": "PLACEHOLDER — effective / edition date question", "table_row": false },
+    { "id": "Q5", "question": "PLACEHOLDER — definitions clause, e.g. what 'sudden and accidental' means", "table_row": false },
+    { "id": "Q6", "question": "PLACEHOLDER — a question two endorsements could plausibly answer", "table_row": false },
+    { "id": "Q7", "question": "PLACEHOLDER — limit / sub-limit question", "table_row": false },
+    { "id": "Q8", "question": "PLACEHOLDER — conditions / duties-after-loss question", "table_row": false }
+  ],
+  "out_of_corpus": [
+    {
+      "id": "X1",
+      "question": "What is the reserve-setting threshold for claim CLM-2024-88431?",
+      "lives_in": "adjuster system — never indexed"
+    },
+    { "id": "X2", "question": "PLACEHOLDER — e.g. the named insured's current premium", "lives_in": "PLACEHOLDER" },
+    { "id": "X3", "question": "PLACEHOLDER — e.g. state filing approval date for this endorsement", "lives_in": "PLACEHOLDER" }
+  ]
+}

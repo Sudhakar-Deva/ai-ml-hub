@@ -1,0 +1,24 @@
+{
+  "_instructions": [
+    "The answer you already know, before any search runs.",
+    "form_number: the form the answer actually lives in — this is what scores the hit.",
+    "clause_contains: a lowercase substring that must appear in the retrieved chunk's clause or text.",
+    "known_answer: prose, for results.md. Not used by the scorer."
+  ],
+  "expected": {
+    "Q1": {
+      "form_number": "HO-0304",
+      "edition_date": "03-24",
+      "clause": "SECTION I — EXCLUSIONS / E-17",
+      "clause_contains": "e-17",
+      "known_answer": "PLACEHOLDER — write it from the form, not from memory."
+    },
+    "Q2": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
+    "Q3": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
+    "Q4": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
+    "Q5": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
+    "Q6": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
+    "Q7": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
+    "Q8": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" }
+  }
+}
