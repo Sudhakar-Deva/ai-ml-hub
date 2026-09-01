@@ -1,21 +1,28 @@
 import { useState } from 'react'
-import { ask, evaluate, search } from './api/client.js'
+import { ask, evaluate, hitrate, inspect, search } from './api/client.js'
 import ResultList from './components/ResultList.jsx'
 import AnswerPanel from './components/AnswerPanel.jsx'
 import EvalTable from './components/EvalTable.jsx'
+import InspectionView from './components/InspectionView.jsx'
+import HitRateTable from './components/HitRateTable.jsx'
 
 const STRATEGIES = ['current', 'structure_aware']
-const TABS = ['Search', 'Ask', 'Bench']
+const RETRIEVERS = ['dense', 'hybrid']
+const TABS = ['Search', 'Ask', 'Inspect', 'hit-rate@3', 'Bench (wk3)']
 
 export default function App() {
-  const [tab, setTab] = useState('Search')
+  const [tab, setTab] = useState('Inspect')
   const [query, setQuery] = useState('')
   const [strategy, setStrategy] = useState('structure_aware')
+  const [retriever, setRetriever] = useState('dense')
   const [policyLine, setPolicyLine] = useState('')
+  const [withAnswers, setWithAnswers] = useState(false)
   const [unfiltered, setUnfiltered] = useState(null)
   const [filtered, setFiltered] = useState(null)
   const [answer, setAnswer] = useState(null)
   const [evalData, setEvalData] = useState(null)
+  const [report, setReport] = useState(null)
+  const [rates, setRates] = useState(null)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
 
@@ -36,15 +43,21 @@ export default function App() {
   const doSearch = () =>
     run(async () => {
       const [u, f] = await Promise.all([
-        search({ query, strategy }),
-        policyLine ? search({ query, strategy, policy_line: policyLine }) : Promise.resolve(null),
+        search({ query, strategy, retriever }),
+        policyLine
+          ? search({ query, strategy, retriever, policy_line: policyLine })
+          : Promise.resolve(null),
       ])
       setUnfiltered(u.results)
       setFiltered(f?.results ?? null)
     })
 
-  const doAsk = () => run(async () => setAnswer(await ask({ question: query, strategy })))
+  const doAsk = () =>
+    run(async () => setAnswer(await ask({ question: query, strategy, retriever })))
   const doEval = () => run(async () => setEvalData(await evaluate()))
+  const doInspect = () =>
+    run(async () => setReport(await inspect({ retriever, strategy, k: 3, answers: withAnswers })))
+  const doRates = () => run(async () => setRates(await hitrate('dense,hybrid')))
 
   return (
     <div className="app">
@@ -61,16 +74,19 @@ export default function App() {
 
       {error && <div className="panel err">{error}</div>}
 
-      {tab !== 'Bench' && (
+      {(tab === 'Search' || tab === 'Ask') && (
         <div className="controls">
           <input
             value={query}
-            placeholder="e.g. does E-17 apply to water damage from a burst supply line?"
+            placeholder="e.g. does E-17 apply under HO-0304 ed. 03-24?"
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && (tab === 'Search' ? doSearch() : doAsk())}
           />
           <select value={strategy} onChange={(e) => setStrategy(e.target.value)}>
             {STRATEGIES.map((s) => <option key={s} value={s}>{s}</option>)}
+          </select>
+          <select value={retriever} onChange={(e) => setRetriever(e.target.value)}>
+            {RETRIEVERS.map((r) => <option key={r} value={r}>{r}</option>)}
           </select>
           {tab === 'Search' && (
             <input
@@ -88,16 +104,49 @@ export default function App() {
 
       {tab === 'Search' && (
         <div className="split">
-          <ResultList title="Unfiltered" results={unfiltered} loading={busy} />
+          <ResultList title={`Unfiltered · ${retriever}`} results={unfiltered} loading={busy} />
           {policyLine && (
-            <ResultList title={`Filtered · policy_line=${policyLine}`} results={filtered} loading={busy} />
+            <ResultList
+              title={`Filtered · policy_line=${policyLine}`}
+              results={filtered}
+              loading={busy}
+            />
           )}
         </div>
       )}
 
       {tab === 'Ask' && <AnswerPanel result={answer} loading={busy} />}
 
-      {tab === 'Bench' && (
+      {tab === 'Inspect' && (
+        <>
+          <div className="controls">
+            <select value={retriever} onChange={(e) => setRetriever(e.target.value)}>
+              {RETRIEVERS.map((r) => <option key={r} value={r}>{r}</option>)}
+            </select>
+            <label className="check">
+              <input
+                type="checkbox"
+                checked={withAnswers}
+                onChange={(e) => setWithAnswers(e.target.checked)}
+              />
+              run the answer pass (needed to tell R from G — costs one LLM call per question)
+            </label>
+            <button onClick={doInspect} disabled={busy}>Inspect all 12</button>
+          </div>
+          <InspectionView report={report} loading={busy} />
+        </>
+      )}
+
+      {tab === 'hit-rate@3' && (
+        <>
+          <div className="controls">
+            <button onClick={doRates} disabled={busy}>Measure dense vs hybrid</button>
+          </div>
+          <HitRateTable data={rates} loading={busy} />
+        </>
+      )}
+
+      {tab === 'Bench (wk3)' && (
         <>
           <div className="controls">
             <button onClick={doEval} disabled={busy}>Run all 8 questions × 2 chunkers</button>

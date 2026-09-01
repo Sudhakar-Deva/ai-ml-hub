@@ -12,4 +12,4 @@ pyyaml==6.0.2
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
 
-rank-bm25==0.2.2      # unused today; hybrid search needs it next
+rank-bm25==0.2.2      # the lexical arm of hybrid search (app/retrieval/lexical.py)

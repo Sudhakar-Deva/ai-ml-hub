@@ -54,8 +54,16 @@ def _format_context(hits: list[dict]) -> str:
     )
 
 
-def answer(question: str, strategy: str = "structure_aware", k: int = config.TOP_K) -> dict:
-    hits = search(question, strategy, k)
+def answer(
+    question: str,
+    strategy: str = "structure_aware",
+    k: int = config.TOP_K,
+    retriever: str = config.SHIPPED_RETRIEVER,
+) -> dict:
+    """`retriever` is passed through, never assumed: the inspection view labels a
+    failure R or G by what the model was actually handed, so the answer has to
+    come from the same retriever the label is about."""
+    hits = search(question, strategy, k, retriever=retriever)
     if not config.LLM_API_KEY:
         raise MissingAPIKey("LLM_API_KEY is not set — copy .env.example to .env and fill it in.")
     client = anthropic.Anthropic(api_key=config.LLM_API_KEY)
@@ -95,6 +103,8 @@ def answer(question: str, strategy: str = "structure_aware", k: int = config.TOP
     return {
         "question": question,
         "strategy": strategy,
+        "retriever": retriever,
+        "k": k,
         "answer": text,
         "refused": text.startswith(REFUSAL_SENTINEL),
         "citations": citations,
@@ -107,11 +117,13 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("question")
     ap.add_argument("--strategy", choices=config.STRATEGIES, default="structure_aware")
+    ap.add_argument("--retriever", choices=config.RETRIEVERS, default=config.SHIPPED_RETRIEVER)
+    ap.add_argument("--k", type=int, default=config.TOP_K)
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args()
 
     try:
-        result = answer(a.question, a.strategy)
+        result = answer(a.question, a.strategy, a.k, a.retriever)
     except MissingAPIKey as e:
         raise SystemExit(str(e)) from e
     if a.json:

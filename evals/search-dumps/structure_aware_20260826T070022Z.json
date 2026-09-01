@@ -1,0 +1,449 @@
+{
+  "strategy": "structure_aware",
+  "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "k": 5,
+  "hits": 8,
+  "total": 8,
+  "records": [
+    {
+      "id": "Q1",
+      "question": "Does exclusion E-17 apply to water damage from a burst supply line under HO-0304?",
+      "expected": {
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "clause": "SECTION I \u2014 EXCLUSIONS / E-17",
+        "clause_contains": "e-17",
+        "known_answer": "No. E-17 is listed as Excluded? = No. Water damage from a sudden and accidental rupture of a plumbing supply line is covered, subject to the deductible. The failed section of supply line itself is not covered."
+      },
+      "hit": true,
+      "hit_rank": 1,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.731,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-20",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | E-15 | Flood, surface water, waves, tidal water, or overflow of a body of water | Yes | No exception. Separate flood policy required. | | E-16 | Water below the"
+        },
+        {
+          "rank": 2,
+          "score": 0.7206,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-21",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | E-16 | Water below the surface of the ground, including water that exerts pressure on a foundation | Yes | Includes hydrostatic pressure and seepage through a b"
+        },
+        {
+          "rank": 3,
+          "score": 0.7119,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-22",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0009",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | E-17 | Water damage resulting from the \"sudden and accidental\" discharge, rupture, or burst of a plumbing supply line within the dwelling | No | This exclusion "
+        },
+        {
+          "rank": 4,
+          "score": 0.6962,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-19",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | ---- | ---------------------- | --------- | ----- | | E-15 | Flood, surface water, waves, tidal water, or overflow of a body of water | Yes | No exception. Sepa"
+        },
+        {
+          "rank": 5,
+          "score": 0.6955,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-18",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-15 | Flood, surface water, waves, tidal water, or "
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "Is continuous seepage of water over a period of 14 days or more excluded?",
+      "expected": {
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "clause": "SECTION I \u2014 EXCLUSIONS / E-19",
+        "clause_contains": "e-19",
+        "known_answer": "Yes. E-19 excludes continuous or repeated seepage or leakage over 14 days or more from a plumbing, heating, air conditioning or sprinkler system. The 14-day clock runs from first escape of water, not from discovery."
+      },
+      "hit": true,
+      "hit_rank": 4,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.4982,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-19",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0003",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-17 | Water damage from the discharge, rupture, "
+        },
+        {
+          "rank": 2,
+          "score": 0.494,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-23",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0004",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-17 | Water damage from the discharge, rupture, "
+        },
+        {
+          "rank": 3,
+          "score": 0.4902,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-24",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0005",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-17 | Water damage from the discharge, rupture, "
+        },
+        {
+          "rank": 4,
+          "score": 0.4683,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-22",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0009",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | E-17 | Water damage resulting from the \"sudden and accidental\" discharge, rupture, or burst of a plumbing supply line within the dwelling | No | This exclusion "
+        },
+        {
+          "rank": 5,
+          "score": 0.467,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT Reporting. The insured must report a water loss within 30 days of discovery. Failure to report within that window does not by itsel"
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "question": "Does E-21 exclude mold remediation when the mold results from a covered water loss?",
+      "expected": {
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "clause": "SECTION I \u2014 EXCLUSIONS / E-21",
+        "clause_contains": "e-21",
+        "known_answer": "Yes. E-21 excludes fungi, wet or dry rot and bacteria including remediation, and applies even where the fungi results from an otherwise covered water loss. HO-0521 then grants back a limited $10,000 aggregate."
+      },
+      "hit": true,
+      "hit_rank": 3,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.5425,
+          "form_number": "HO-0521",
+          "clause": "A. Remediation of \"fungi\", wet or dry rot, or bacteria",
+          "chunk_id": "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+          "snippet": "[HO-0521 ed. 06-24 | homeowners | HO-0521-ed-06-24.md] A. Remediation of \"fungi\", wet or dry rot, or bacteria Notwithstanding exclusion E-21 of HO-0304, we will pay up to $10,000 in the aggregate per policy period for the remediation of \"fu"
+        },
+        {
+          "rank": 2,
+          "score": 0.5014,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT Reporting. The insured must report a water loss within 30 days of discovery. Failure to report within that window does not by itsel"
+        },
+        {
+          "rank": 3,
+          "score": 0.4647,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-22",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0009",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | E-17 | Water damage resulting from the \"sudden and accidental\" discharge, rupture, or burst of a plumbing supply line within the dwelling | No | This exclusion "
+        },
+        {
+          "rank": 4,
+          "score": 0.4463,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-18",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-15 | Flood, surface water, waves, tidal water, or "
+        },
+        {
+          "rank": 5,
+          "score": 0.4463,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-17",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-15 | Flood, surface water, waves, tidal water, or "
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "question": "What is the edition date of the water damage and seepage endorsement?",
+      "expected": {
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "clause": "header",
+        "clause_contains": "03-24",
+        "known_answer": "HO-0304, edition 03-24, effective 03-01-2024."
+      },
+      "hit": true,
+      "hit_rank": 1,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.6725,
+          "form_number": "HO-0304",
+          "clause": "WATER DAMAGE AND SEEPAGE ENDORSEMENT",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0001",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] WATER DAMAGE AND SEEPAGE ENDORSEMENT Policy_line: homeowners Effective: 03-01-2024 This endorsement amends SECTION I \u2014 PROPERTY COVERAGES of the homeowners policy to which it is attache"
+        },
+        {
+          "rank": 2,
+          "score": 0.5879,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT Reporting. The insured must report a water loss within 30 days of discovery. Failure to report within that window does not by itsel"
+        },
+        {
+          "rank": 3,
+          "score": 0.4951,
+          "form_number": "HO-0608",
+          "clause": "C. Proof of loss. Send to us, within 60 days after our request, a signed and",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0005",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] C. Proof of loss. Send to us, within 60 days after our request, a signed and sworn proof of loss setting out the time and cause of loss, the interest of all insureds in the property, ot"
+        },
+        {
+          "rank": 4,
+          "score": 0.4792,
+          "form_number": "HO-0608",
+          "clause": "D. Records and examination. Show the damaged property, provide records and",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0006",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] D. Records and examination. Show the damaged property, provide records and documents we request, and submit to examination under oath while not in the presence of any other insured."
+        },
+        {
+          "rank": 5,
+          "score": 0.4756,
+          "form_number": "DP-0110",
+          "clause": "WATER AND SEEPAGE EXCLUSION ENDORSEMENT",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0001",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] WATER AND SEEPAGE EXCLUSION ENDORSEMENT Policy_line: dwelling_fire Effective: 02-01-2024 This endorsement applies to the dwelling fire policy to which it is attached. It does not app"
+        }
+      ]
+    },
+    {
+      "id": "Q5",
+      "question": "What does the policy mean by sudden and accidental?",
+      "expected": {
+        "form_number": "HO-0417",
+        "edition_date": "05-24",
+        "clause": "SECTION A \u2014 DEFINITIONS / A",
+        "clause_contains": "sudden and accidental",
+        "known_answer": "Abrupt in onset AND unexpected/unintended by the insured. Both elements required. The escape of water is the event, not its discovery."
+      },
+      "hit": true,
+      "hit_rank": 1,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.7161,
+          "form_number": "HO-0417",
+          "clause": "A. \"Sudden and accidental\"",
+          "chunk_id": "structure_aware:HO-0417:HO-0417-ed-05-24.md:0002",
+          "snippet": "[HO-0417 ed. 05-24 | homeowners | HO-0417-ed-05-24.md] A. \"Sudden and accidental\" \"Sudden and accidental\" means an event that is both abrupt in onset and unexpected and unintended from the standpoint of the insured. Both elements must be pr"
+        },
+        {
+          "rank": 2,
+          "score": 0.5178,
+          "form_number": "HO-0417",
+          "clause": "D. \"Occurrence\"",
+          "chunk_id": "structure_aware:HO-0417:HO-0417-ed-05-24.md:0005",
+          "snippet": "[HO-0417 ed. 05-24 | homeowners | HO-0417-ed-05-24.md] D. \"Occurrence\" \"Occurrence\" means an accident, including continuous or repeated exposure to substantially the same general harmful conditions, which results during the policy period in"
+        },
+        {
+          "rank": 3,
+          "score": 0.374,
+          "form_number": "HO-0608",
+          "clause": "SECTION II \u2014 SUIT AGAINST US",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0008",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] SECTION II \u2014 SUIT AGAINST US No action may be brought against us unless there has been full compliance with all terms of this policy and the action is started within two years after the"
+        },
+        {
+          "rank": 4,
+          "score": 0.3622,
+          "form_number": "HO-0608",
+          "clause": "C. Proof of loss. Send to us, within 60 days after our request, a signed and",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0005",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] C. Proof of loss. Send to us, within 60 days after our request, a signed and sworn proof of loss setting out the time and cause of loss, the interest of all insureds in the property, ot"
+        },
+        {
+          "rank": 5,
+          "score": 0.346,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 EXCLUSIONS",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0006",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 EXCLUSIONS We do not insure for loss caused directly or indirectly by any of the following. | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------"
+        }
+      ]
+    },
+    {
+      "id": "Q6",
+      "question": "Is seepage from a plumbing system covered?",
+      "expected": {
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "clause": "SECTION I \u2014 EXCLUSIONS / E-19",
+        "clause_contains": "e-19",
+        "known_answer": "Under the homeowners form, only if it lasted under 14 days \u2014 E-19 excludes seepage of 14 days or more. Note DP-0110 answers the same question differently for dwelling fire, which is why this question needs the policy_line filter."
+      },
+      "hit": true,
+      "hit_rank": 5,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.5844,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-19",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0003",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-17 | Water damage from the discharge, rupture, "
+        },
+        {
+          "rank": 2,
+          "score": 0.5811,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-23",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0004",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-17 | Water damage from the discharge, rupture, "
+        },
+        {
+          "rank": 3,
+          "score": 0.5791,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-24",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0005",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-17 | Water damage from the discharge, rupture, "
+        },
+        {
+          "rank": 4,
+          "score": 0.5567,
+          "form_number": "DP-0110",
+          "clause": "SECTION I \u2014 CONDITIONS",
+          "chunk_id": "structure_aware:DP-0110:DP-0110-ed-02-24.md:0008",
+          "snippet": "[DP-0110 ed. 02-24 | dwelling_fire | DP-0110-ed-02-24.md] SECTION I \u2014 CONDITIONS Inspection. We may inspect the plumbing system at any reasonable time. Refusal of inspection suspends coverage for water causes until inspection is permitted."
+        },
+        {
+          "rank": 5,
+          "score": 0.5515,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-21",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | E-16 | Water below the surface of the ground, including water that exerts pressure on a foundation | Yes | Includes hydrostatic pressure and seepage through a b"
+        }
+      ]
+    },
+    {
+      "id": "Q7",
+      "question": "What is the aggregate sub-limit for remediation of fungi, wet or dry rot, or bacteria?",
+      "expected": {
+        "form_number": "HO-0521",
+        "edition_date": "06-24",
+        "clause": "SECTION I \u2014 SPECIAL LIMITS OF LIABILITY / A",
+        "clause_contains": "10,000",
+        "known_answer": "$10,000 in the aggregate per policy period, including testing, monitoring, containment, removal and verification. Does not reset on mid-term renewal."
+      },
+      "hit": true,
+      "hit_rank": 1,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.6811,
+          "form_number": "HO-0521",
+          "clause": "A. Remediation of \"fungi\", wet or dry rot, or bacteria",
+          "chunk_id": "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+          "snippet": "[HO-0521 ed. 06-24 | homeowners | HO-0521-ed-06-24.md] A. Remediation of \"fungi\", wet or dry rot, or bacteria Notwithstanding exclusion E-21 of HO-0304, we will pay up to $10,000 in the aggregate per policy period for the remediation of \"fu"
+        },
+        {
+          "rank": 2,
+          "score": 0.3906,
+          "form_number": "HO-0521",
+          "clause": "SECTION II \u2014 HOW THESE LIMITS APPLY",
+          "chunk_id": "structure_aware:HO-0521:HO-0521-ed-06-24.md:0005",
+          "snippet": "[HO-0521 ed. 06-24 | homeowners | HO-0521-ed-06-24.md] SECTION II \u2014 HOW THESE LIMITS APPLY Deductible first. The policy deductible is applied to the loss before any special limit in this endorsement is applied. No stacking. Where an item fa"
+        },
+        {
+          "rank": 3,
+          "score": 0.3389,
+          "form_number": "HO-0417",
+          "clause": "C. \"Fungi\"",
+          "chunk_id": "structure_aware:HO-0417:HO-0417-ed-05-24.md:0004",
+          "snippet": "[HO-0417 ed. 05-24 | homeowners | HO-0417-ed-05-24.md] C. \"Fungi\" \"Fungi\" means any type or form of fungus, including mold, mildew, mycotoxins, spores, scents, or byproducts produced or released by fungi. \"Fungi\" does not include any fungi "
+        },
+        {
+          "rank": 4,
+          "score": 0.2967,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-17",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-15 | Flood, surface water, waves, tidal water, or "
+        },
+        {
+          "rank": 5,
+          "score": 0.2967,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 EXCLUSIONS / E-18",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 EXCLUSIONS | Code | Peril or cause of loss | Excluded? | Notes | | ---- | ---------------------- | --------- | ----- | | E-15 | Flood, surface water, waves, tidal water, or "
+        }
+      ]
+    },
+    {
+      "id": "Q8",
+      "question": "How long does the insured have to send us a signed and sworn proof of loss?",
+      "expected": {
+        "form_number": "HO-0608",
+        "edition_date": "01-24",
+        "clause": "SECTION I \u2014 DUTIES AFTER LOSS / C",
+        "clause_contains": "proof of loss",
+        "known_answer": "60 days after OUR REQUEST \u2014 not 60 days after the loss, and not from the date notice was given. We may extend the period in writing."
+      },
+      "hit": true,
+      "hit_rank": 1,
+      "top5": [
+        {
+          "rank": 1,
+          "score": 0.653,
+          "form_number": "HO-0608",
+          "clause": "C. Proof of loss. Send to us, within 60 days after our request, a signed and",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0005",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] C. Proof of loss. Send to us, within 60 days after our request, a signed and sworn proof of loss setting out the time and cause of loss, the interest of all insureds in the property, ot"
+        },
+        {
+          "rank": 2,
+          "score": 0.5923,
+          "form_number": "HO-0304",
+          "clause": "SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT",
+          "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+          "snippet": "[HO-0304 ed. 03-24 | homeowners | HO-0304-ed-03-24.md] SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT Reporting. The insured must report a water loss within 30 days of discovery. Failure to report within that window does not by itsel"
+        },
+        {
+          "rank": 3,
+          "score": 0.4965,
+          "form_number": "HO-0608",
+          "clause": "SECTION II \u2014 SUIT AGAINST US",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0008",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] SECTION II \u2014 SUIT AGAINST US No action may be brought against us unless there has been full compliance with all terms of this policy and the action is started within two years after the"
+        },
+        {
+          "rank": 4,
+          "score": 0.4959,
+          "form_number": "HO-0608",
+          "clause": "CONDITIONS AND DUTIES AFTER LOSS ENDORSEMENT",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0001",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] CONDITIONS AND DUTIES AFTER LOSS ENDORSEMENT Policy_line: homeowners Effective: 01-01-2024 This endorsement replaces the SECTION I \u2014 CONDITIONS provisions of the homeowners policy relat"
+        },
+        {
+          "rank": 5,
+          "score": 0.4567,
+          "form_number": "HO-0608",
+          "clause": "SECTION I \u2014 DUTIES AFTER LOSS",
+          "chunk_id": "structure_aware:HO-0608:HO-0608-ed-01-24.md:0002",
+          "snippet": "[HO-0608 ed. 01-24 | homeowners | HO-0608-ed-01-24.md] SECTION I \u2014 DUTIES AFTER LOSS In case of a loss to covered property, we have no duty to provide coverage under this policy unless there has been full compliance with the following dutie"
+        }
+      ]
+    }
+  ]
+}

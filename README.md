@@ -1,8 +1,14 @@
 # ai-ml-hub
 
 Claims-assistant RAG over homeowners policy endorsements. Monorepo: FastAPI
-backend, React + Vite frontend, and an eval harness that measures two chunking
-strategies against the same 8 known-answer questions.
+backend, React + Vite frontend, and an eval harness that measures retrieval
+changes against a fixed golden set — no change ships without a before and after
+number on the same questions.
+
+- **Week 3** — two chunking strategies, hit-in-top-5 over 8 known-answer questions.
+- **Week 4** — separate retrieval failures from generation failures, then buy back
+  hit-rate@3 with exactly ONE retrieval change. Baseline `dense` 8/12 → `hybrid`
+  (BM25 + RRF k=60) 11/12, for +1.3 ms p50. Write-up: [results.md](results.md).
 
 ```
 ai-ml-hub/
@@ -20,7 +26,14 @@ ai-ml-hub/
 │   │   │   ├── current_chunker.py          fixed window — the control
 │   │   │   └── structure_aware_chunker.py  form/clause split
 │   │   ├── ingestion/         loader + ingest CLI
-│   │   ├── retrieval/         store, search, evaluate
+│   │   ├── retrieval/
+│   │   │   ├── search.py                   dense | hybrid — the ONE Week 4 variable
+│   │   │   ├── lexical.py                  BM25 arm (keeps E-17 whole)
+│   │   │   ├── hybrid.py                   RRF fusion, k=60
+│   │   │   ├── mmr.py                      bonus only, not in the shipped path
+│   │   │   ├── evaluate.py                 wk3: hit-in-top-5, both chunkers
+│   │   │   ├── hitrate.py                  wk4: hit-rate@3 + p50, per retriever
+│   │   │   └── inspect.py                  the inspection view + R/G/NIC labels
 │   │   ├── generation/        grounded answers + forced refusal
 │   │   ├── models/            pydantic schemas
 │   │   └── main.py
@@ -30,9 +43,12 @@ ai-ml-hub/
 │
 ├── data/endorsements/         the 6 supplied endorsements (committed)
 ├── evals/
-│   ├── questions.json         the 8 questions + 3 out-of-corpus
-│   ├── expected.json          known-correct form_number / clause
-│   └── search-dumps/          search-only dumps (committed — deliverable)
+│   ├── questions.json         wk3: the 8 questions + 3 out-of-corpus
+│   ├── expected.json          wk3: known-correct form_number / clause
+│   ├── golden_set.jsonl       wk4: 12 adjuster questions + known-correct chunk_id
+│   ├── failure_labels.json    wk4: R/G/Not-In-Corpus labelling (last inspect run)
+│   ├── search-dumps/          wk3 search-only dumps (committed — deliverable)
+│   └── w4-runs/               wk4 before/after runs (committed — deliverable)
 │
 ├── results.md                 the write-up that gets graded
 ├── Requirements/
@@ -63,17 +79,24 @@ cd backend
 python -m app.ingestion.ingest --strategy current --reset
 python -m app.ingestion.ingest --strategy structure_aware --reset
 
-# 2. the number that matters — both strategies, same 8 questions
+# 2. week 3 — both strategies, same 8 questions
 python -m app.retrieval.evaluate --markdown
 
-# 3. one-off search, with and without the metadata filter
+# 3. week 4 — the before number, the labels, then before -> after
+python -m app.retrieval.hitrate --retrievers dense --markdown            # baseline first
+python -m app.retrieval.inspect --retriever dense --answers --markdown   # R / G / Not-In-Corpus
+python -m app.retrieval.hitrate --retrievers dense hybrid --markdown     # the one change
+python -m app.retrieval.hitrate --retrievers hybrid --mmr --lambda 0.7   # bonus
+
+# 4. one-off search, with and without the metadata filter
 python -m app.retrieval.search "does E-17 apply to a burst supply line?"
 python -m app.retrieval.search "..." --policy-line homeowners
+python -m app.retrieval.search "..." --retriever hybrid
 
-# 4. grounded answer (refuses when the corpus can't source it)
+# 5. grounded answer (refuses when the corpus can't source it)
 python -m app.generation.answer "..." --json
 
-# 5. serve the API, then the UI
+# 6. serve the API, then the UI — the Inspect tab is the inspection view
 uvicorn app.main:app --reload --port 8000
 cd ../frontend && yarn dev        # http://localhost:5173
 ```
@@ -84,8 +107,9 @@ cd ../frontend && yarn dev        # http://localhost:5173
 python -m pytest backend/tests -q
 ```
 
-The tests guard the one invariant the second chunker exists for: an exclusion
-row is never separated from its table header or its form number.
+The tests guard the invariants each change exists for: an exclusion row is never
+separated from its table header or its form number (chunking), RRF fuses ranks
+rather than scores, and the BM25 tokenizer keeps `E-17` and `HO-0304` whole.
 
 ## Rules this repo enforces in code
 
@@ -96,4 +120,13 @@ row is never separated from its table header or its form number.
   knowledge, and partial answers. An invented coverage answer is a bad-faith exposure.
 - **Citations are verified.** Every `[chunk_id | form | clause]` is resolved
   against the store; unresolvable ones are surfaced, not swallowed.
-- **One variable per run.** Change the chunker or the embedding model, never both.
+- **One variable per run.** Change the chunker, the embedding model, or the
+  retriever — never two in the same run, or the number tells you nothing about
+  which one earned it.
+- **Ranks fuse, scores don't.** [hybrid.py](backend/app/retrieval/hybrid.py) fuses
+  the dense and BM25 rankings with RRF. Cosine and BM25 are not on the same scale;
+  adding or averaging them hands every query to whichever arm has bigger numbers.
+- **A hit is the gold `chunk_id`, not a near-miss.** Week 4 scores strictly, so
+  "three fluent water-damage clauses, none of them E-17" cannot score as a pass.
+- **Latency is reported with its build cost separated.** The one-time BM25 index
+  build is timed on its own, never smeared into the per-query p50.

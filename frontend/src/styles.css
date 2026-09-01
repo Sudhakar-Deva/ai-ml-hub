@@ -109,6 +109,20 @@ nav button.active { border-color: var(--accent); color: var(--accent); }
 .scorecard { border: 1px solid var(--border); border-radius: 10px; padding: 12px 20px; text-align: center; }
 .scorecard .big { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
 
+/* Inspection view — the failure label and the gold chunk have to be findable
+   at a glance, or the view is decoration rather than evidence. */
+.panel.inspect.failed { border-color: var(--miss); }
+.question { font-size: 14px; margin: 0 0 12px; }
+.badge.label { font-weight: 700; }
+.badge.label-R, .scorecard.label-R .big { color: var(--miss); border-color: var(--miss); }
+.badge.label-G, .scorecard.label-G .big { color: #d29922; border-color: #d29922; }
+.badge.label-nic, .scorecard.label-nic .big { color: var(--muted); }
+.badge.label-pass, .scorecard.label-pass .big { color: var(--hit); border-color: var(--hit); }
+.badge.hit-badge { border-color: var(--hit); color: var(--hit); }
+.results li.gold { border-left: 3px solid var(--hit); padding-left: 10px; }
+
+.check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+
 table.eval { width: 100%; border-collapse: collapse; font-size: 13px; }
 table.eval th, table.eval td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
 table.eval th { color: var(--muted); font-weight: 600; font-size: 12px; }

@@ -5,27 +5,64 @@
     "Exactly 8 questions. At least 3 must depend on a row INSIDE an exclusions table (table_row: true).",
     "Every id here must have a matching entry in expected.json."
   ],
+  "_corpus_note": "Written against the SYNTHETIC endorsement pack in data/endorsements/. Replace with the supplied pack before submission.",
   "questions": [
     {
       "id": "Q1",
-      "question": "Does exclusion E-17 apply to water damage from a burst supply line under HO-0304 ed. 03-24?",
+      "question": "Does exclusion E-17 apply to water damage from a burst supply line under HO-0304?",
       "table_row": true
     },
-    { "id": "Q2", "question": "PLACEHOLDER — second exclusions-table row question", "table_row": true },
-    { "id": "Q3", "question": "PLACEHOLDER — third exclusions-table row question", "table_row": true },
-    { "id": "Q4", "question": "PLACEHOLDER — effective / edition date question", "table_row": false },
-    { "id": "Q5", "question": "PLACEHOLDER — definitions clause, e.g. what 'sudden and accidental' means", "table_row": false },
-    { "id": "Q6", "question": "PLACEHOLDER — a question two endorsements could plausibly answer", "table_row": false },
-    { "id": "Q7", "question": "PLACEHOLDER — limit / sub-limit question", "table_row": false },
-    { "id": "Q8", "question": "PLACEHOLDER — conditions / duties-after-loss question", "table_row": false }
+    {
+      "id": "Q2",
+      "question": "Is continuous seepage of water over a period of 14 days or more excluded?",
+      "table_row": true
+    },
+    {
+      "id": "Q3",
+      "question": "Does E-21 exclude mold remediation when the mold results from a covered water loss?",
+      "table_row": true
+    },
+    {
+      "id": "Q4",
+      "question": "What is the edition date of the water damage and seepage endorsement?",
+      "table_row": false
+    },
+    {
+      "id": "Q5",
+      "question": "What does the policy mean by sudden and accidental?",
+      "table_row": false
+    },
+    {
+      "id": "Q6",
+      "question": "Is seepage from a plumbing system covered?",
+      "table_row": false
+    },
+    {
+      "id": "Q7",
+      "question": "What is the aggregate sub-limit for remediation of fungi, wet or dry rot, or bacteria?",
+      "table_row": false
+    },
+    {
+      "id": "Q8",
+      "question": "How long does the insured have to send us a signed and sworn proof of loss?",
+      "table_row": false
+    }
   ],
   "out_of_corpus": [
     {
       "id": "X1",
       "question": "What is the reserve-setting threshold for claim CLM-2024-88431?",
-      "lives_in": "adjuster system — never indexed"
+      "lives_in": "adjuster / claims system — never indexed"
     },
-    { "id": "X2", "question": "PLACEHOLDER — e.g. the named insured's current premium", "lives_in": "PLACEHOLDER" },
-    { "id": "X3", "question": "PLACEHOLDER — e.g. state filing approval date for this endorsement", "lives_in": "PLACEHOLDER" }
+    {
+      "id": "X2",
+      "question": "What is the current annual premium for the named insured on this policy?",
+      "lives_in": "rating and billing system — never indexed"
+    },
+    {
+      "id": "X3",
+      "question": "On what date did the state Department of Insurance approve HO-0304 ed. 03-24 for use?",
+      "lives_in": "regulatory filing records — never indexed. The form number IS in the corpus, so a weak prompt will invent a date."
+    }
   ]
 }

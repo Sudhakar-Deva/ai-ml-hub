@@ -5,20 +5,63 @@
     "clause_contains: a lowercase substring that must appear in the retrieved chunk's clause or text.",
     "known_answer: prose, for results.md. Not used by the scorer."
   ],
+  "_corpus_note": "Written against the SYNTHETIC endorsement pack in data/endorsements/. Replace with the supplied pack before submission.",
   "expected": {
     "Q1": {
       "form_number": "HO-0304",
       "edition_date": "03-24",
       "clause": "SECTION I — EXCLUSIONS / E-17",
       "clause_contains": "e-17",
-      "known_answer": "PLACEHOLDER — write it from the form, not from memory."
+      "known_answer": "No. E-17 is listed as Excluded? = No. Water damage from a sudden and accidental rupture of a plumbing supply line is covered, subject to the deductible. The failed section of supply line itself is not covered."
     },
-    "Q2": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
-    "Q3": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
-    "Q4": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
-    "Q5": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
-    "Q6": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
-    "Q7": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" },
-    "Q8": { "form_number": "PLACEHOLDER", "edition_date": "PLACEHOLDER", "clause": "PLACEHOLDER", "clause_contains": "PLACEHOLDER", "known_answer": "PLACEHOLDER" }
+    "Q2": {
+      "form_number": "HO-0304",
+      "edition_date": "03-24",
+      "clause": "SECTION I — EXCLUSIONS / E-19",
+      "clause_contains": "e-19",
+      "known_answer": "Yes. E-19 excludes continuous or repeated seepage or leakage over 14 days or more from a plumbing, heating, air conditioning or sprinkler system. The 14-day clock runs from first escape of water, not from discovery."
+    },
+    "Q3": {
+      "form_number": "HO-0304",
+      "edition_date": "03-24",
+      "clause": "SECTION I — EXCLUSIONS / E-21",
+      "clause_contains": "e-21",
+      "known_answer": "Yes. E-21 excludes fungi, wet or dry rot and bacteria including remediation, and applies even where the fungi results from an otherwise covered water loss. HO-0521 then grants back a limited $10,000 aggregate."
+    },
+    "Q4": {
+      "form_number": "HO-0304",
+      "edition_date": "03-24",
+      "clause": "header",
+      "clause_contains": "03-24",
+      "known_answer": "HO-0304, edition 03-24, effective 03-01-2024."
+    },
+    "Q5": {
+      "form_number": "HO-0417",
+      "edition_date": "05-24",
+      "clause": "SECTION A — DEFINITIONS / A",
+      "clause_contains": "sudden and accidental",
+      "known_answer": "Abrupt in onset AND unexpected/unintended by the insured. Both elements required. The escape of water is the event, not its discovery."
+    },
+    "Q6": {
+      "form_number": "HO-0304",
+      "edition_date": "03-24",
+      "clause": "SECTION I — EXCLUSIONS / E-19",
+      "clause_contains": "e-19",
+      "known_answer": "Under the homeowners form, only if it lasted under 14 days — E-19 excludes seepage of 14 days or more. Note DP-0110 answers the same question differently for dwelling fire, which is why this question needs the policy_line filter."
+    },
+    "Q7": {
+      "form_number": "HO-0521",
+      "edition_date": "06-24",
+      "clause": "SECTION I — SPECIAL LIMITS OF LIABILITY / A",
+      "clause_contains": "10,000",
+      "known_answer": "$10,000 in the aggregate per policy period, including testing, monitoring, containment, removal and verification. Does not reset on mid-term renewal."
+    },
+    "Q8": {
+      "form_number": "HO-0608",
+      "edition_date": "01-24",
+      "clause": "SECTION I — DUTIES AFTER LOSS / C",
+      "clause_contains": "proof of loss",
+      "known_answer": "60 days after OUR REQUEST — not 60 days after the loss, and not from the date notice was given. We may extend the period in writing."
+    }
   }
 }
