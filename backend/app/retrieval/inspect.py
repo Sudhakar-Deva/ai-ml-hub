@@ -54,7 +54,10 @@ def inspect_one(
         try:
             # Same retriever, same k as the list above — the label is about what
             # the model was actually handed, so it must be the same context.
-            generation = answer(q["question"], strategy, k, retriever)
+            # source="eval" keeps these out of the Week 5 traffic population: an
+            # experiment run in a loop is not a week of adjuster questions, and
+            # sampling the two together reports a frequency of nothing.
+            generation = answer(q["question"], strategy, k, retriever, source="eval")
             generation["correct"] = answer_is_correct(generation["answer"], q)
         except MissingAPIKey as e:
             generation = {"error": str(e)}

@@ -7,11 +7,13 @@ the default; answering is the exception that requires a resolvable citation.
 import argparse
 import json
 import re
+import time
 
 import anthropic
 
 from .. import config
 from ..retrieval.search import get_chunk, search
+from ..tracing import trace as tracing
 
 REFUSAL_SENTINEL = "INSUFFICIENT_CONTEXT"
 CITATION_RE = re.compile(r"\[([^\]|]+)\s*\|\s*([^\]|]+)\s*\|\s*([^\]]+)\]")
@@ -59,6 +61,8 @@ def answer(
     strategy: str = "structure_aware",
     k: int = config.TOP_K,
     retriever: str = config.SHIPPED_RETRIEVER,
+    trace: bool = True,
+    source: str = "api",
 ) -> dict:
     """`retriever` is passed through, never assumed: the inspection view labels a
     failure R or G by what the model was actually handed, so the answer has to
@@ -66,23 +70,23 @@ def answer(
     hits = search(question, strategy, k, retriever=retriever)
     if not config.LLM_API_KEY:
         raise MissingAPIKey("LLM_API_KEY is not set — copy .env.example to .env and fill it in.")
+
+    rendered_prompt = PROMPT.format(
+        context=_format_context(hits),
+        question=question,
+        sentinel=REFUSAL_SENTINEL,
+    )
+    params = {"temperature": 0, "max_tokens": 1024}
+
     client = anthropic.Anthropic(api_key=config.LLM_API_KEY)
+    t0 = time.perf_counter()
     msg = client.messages.create(
         model=config.LLM_MODEL,
-        max_tokens=1024,
-        temperature=0,
         system=SYSTEM,
-        messages=[
-            {
-                "role": "user",
-                "content": PROMPT.format(
-                    context=_format_context(hits),
-                    question=question,
-                    sentinel=REFUSAL_SENTINEL,
-                ),
-            }
-        ],
+        messages=[{"role": "user", "content": rendered_prompt}],
+        **params,
     )
+    latency_ms = (time.perf_counter() - t0) * 1000
     text = msg.content[0].text.strip()
 
     # Verify every citation resolves to a real chunk — an unresolvable citation
@@ -100,16 +104,42 @@ def answer(
             }
         )
 
+    refused = text.startswith(REFUSAL_SENTINEL)
+
+    # Every answer the app gives is traced, redacted, on the way out. Tracing is
+    # not opt-in: a failure you cannot reread is a failure you cannot count.
+    record = None
+    if trace:
+        record = tracing.write(
+            tracing.build_trace(
+                question=question,
+                output=text,
+                system_prompt=SYSTEM,
+                rendered_prompt=rendered_prompt,
+                retrieved=hits,
+                model=config.LLM_MODEL,
+                params=params,
+                strategy=strategy,
+                retriever=retriever,
+                k=k,
+                latency_ms=latency_ms,
+                refused=refused,
+                citations=citations,
+                source=source,
+            )
+        )
+
     return {
         "question": question,
         "strategy": strategy,
         "retriever": retriever,
         "k": k,
         "answer": text,
-        "refused": text.startswith(REFUSAL_SENTINEL),
+        "refused": refused,
         "citations": citations,
         "unresolvable_citations": [c["chunk_id"] for c in citations if not c["resolves"]],
         "retrieved": [{k_: h[k_] for k_ in ("rank", "chunk_id", "score")} for h in hits],
+        "trace_id": record["trace_id"] if record else None,
     }
 
 

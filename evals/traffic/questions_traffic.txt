@@ -1,0 +1,83 @@
+# Natural traffic — a week of adjuster questions against the 6 endorsements.
+# Written as questions get typed, not as questions get demoed: sloppy ones,
+# repeated ones, ones the corpus cannot answer, ones carrying claim identifiers.
+# Nothing here was chosen because it breaks the app. Lines starting with # are
+# skipped; blank lines are skipped.
+
+Does exclusion E-17 apply under form HO-0304 ed. 03-24 when a supply line ruptures and floods the kitchen?
+supply line let go under the sink overnight, whole kitchen floor is gone. covered?
+Is water damage from a burst pipe covered on a homeowners policy?
+Insured found water behind the drywall, says it has been leaking for about three weeks. Excluded?
+What is the 14 day rule in E-19 and when does the clock start?
+E-19 vs E-17 — how do I tell which one applies?
+Under HO-0304, is seepage from a plumbing system excluded?
+Same seepage question but for a dwelling fire policy under DP-0110 ed. 02-24
+Does DP-0110 have the same 14 day threshold as the homeowners form?
+is E-17 excluded on DP-0110
+Claim CLM-2024-88431 — insured is Robert Hanley, water damage from a failed washer hose. Is that E-17 or E-19?
+what does sudden and accidental mean
+The insured says the damage was sudden. What does the policy require before I can treat it that way?
+Is a flexible connector between the shutoff valve and the fixture a supply line or a drain line?
+Does the definition of supply line include the drain under the sink?
+what counts as vacant for E-18
+Dwelling has been empty 45 days, heat was off, pipes froze. Covered?
+E-18 vacancy exclusion — is 30 days consecutive or cumulative?
+Mold showed up after a covered water loss. Is remediation covered?
+Does E-21 in HO-0304 still exclude mold when the mold came from a covered water loss?
+What is the aggregate sub-limit in HO-0521 ed. 06-24 for remediation of fungi, wet or dry rot, or bacteria?
+Does the 10000 mold limit reset if the policy renews mid term?
+mold limit — is testing and air quality monitoring inside the 10k or on top of it
+Is there coverage for tear out to get to the failed pipe?
+Does the policy pay to replace the section of pipe that failed?
+Sewer backed up into the finished basement. Covered under HO-0304?
+E-20 sewer backup — can that be bought back?
+Insured has water coming through the basement wall after heavy rain. Which exclusion?
+Flood or surface water — which code is that under HO-0304?
+Roof has been soaking through for months, insured just noticed. E-22?
+How long does the insured have to get us a signed and sworn proof of loss?
+Proof of loss deadline — does the 60 days run from the loss or from our request?
+insured missed the proof of loss deadline, does that kill the claim
+Can we extend the proof of loss period?
+What are the duties after loss under HO-0608?
+Does failure to mitigate void the whole claim?
+Insured did not tarp the roof and more water came in. What do we owe?
+How long does the insured have to file suit against us?
+Suit against us — is it two years from the date of loss or from denial?
+Appraisal — how many days does each side have to name an appraiser?
+Who pays the umpire in an appraisal?
+Does demanding appraisal waive our right to deny the claim?
+Can we require an examination under oath?
+Unit owner is being assessed by the association for the master policy deductible. Covered?
+The association is assessing the unit owner for its master policy deductible — does E-31 under CO-0715 ed. 04-24 exclude that?
+What is the loss assessment limit on CO-0715?
+Is there a deductible on loss assessment coverage?
+Association assessed for a capital improvement. Is that covered?
+Condo association failed to maintain the plumbing and now there is an assessment. Covered?
+Does CO-0715 apply to a homeowners policy?
+Landlord is refusing to let us inspect the plumbing on the rental — do we still owe water coverage while he refuses?
+Does DP-0110 let us inspect the plumbing system?
+Rental property, tenant occupied, landlord did not maintain the plumbing. Which exclusion?
+Is loss of rents covered under DP-0110 if the water cause is excluded?
+One continuous leak damaged three rooms before anyone noticed — is that one occurrence or three for the deductible?
+Two separate pipe breaks two weeks apart. One occurrence or two?
+How many deductibles apply if more than one exclusion code is considered?
+What is the special limit for jewelry lost by theft?
+Firearms sub limit?
+Insured lost a coin collection in the water loss. What is the limit?
+Are special limits additive if an item fits two categories?
+Does the deductible come off before or after the special limit?
+What is the anti concurrent causation language in HO-0304?
+If a loss has both a covered and an excluded cause, what happens?
+How long does the insured have to report a water loss?
+What happens if the insured reports the water loss late?
+When was HO-0304 ed. 03-24 effective?
+what edition of the water endorsement do we have
+Which form defines fungi?
+What is the current annual premium on this policy?
+What is the reserve setting threshold for this claim?
+On what date did the state Department of Insurance approve HO-0304 ed. 03-24?
+Can you recommend a mitigation contractor in the area?
+What does state law say about bad faith deadlines here?
+Is the insured's deductible 1000 or 2500?
+Pull up the claim notes for CLM-2024-90112 please
+Mrs. Alvarez called again about her water claim, what do I tell her about the mold limit?

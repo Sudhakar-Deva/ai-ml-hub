@@ -6,6 +6,8 @@ from ..retrieval.evaluate import evaluate, load_eval_set
 from ..retrieval.hitrate import load_golden_set, run
 from ..retrieval.inspect import inspect_all
 from ..retrieval.search import get_chunk, search
+from ..tracing.replay import audit
+from ..tracing.trace import by_id, read_all
 
 router = APIRouter(prefix="/api")
 
@@ -79,3 +81,37 @@ def api_hitrate(retrievers: str = "dense,hybrid", k: int = config.EVAL_K):
     if bad:
         raise HTTPException(400, f"unknown retriever(s) {bad}; expected {list(config.RETRIEVERS)}")
     return {r: run(r, questions, k=k) for r in names}
+
+
+@router.get("/traces")
+def api_traces(limit: int = 50, offset: int = 0, source: str | None = None):
+    """Week 5: browse the redacted trace log. Summary rows only — the full
+    prompt lives in the record and is fetched one trace at a time."""
+    rows = [t for t in read_all() if source is None or t.get("source") == source]
+    page = rows[offset : offset + limit]
+    return {
+        "total": len(rows),
+        "offset": offset,
+        "limit": limit,
+        "traces": [
+            {
+                "trace_id": t["trace_id"],
+                "ts": t["ts"],
+                "source": t.get("source"),
+                "question": t["question"],
+                "refused": t.get("refused"),
+                "prompt_version": t.get("prompt_version"),
+                "top_chunk_ids": [r["chunk_id"] for r in t["retrieval"]["retrieved"][:3]],
+                "redaction_rules_fired": (t.get("redaction") or {}).get("rules_fired", []),
+            }
+            for t in page
+        ],
+    }
+
+
+@router.get("/trace/{trace_id}")
+def api_trace(trace_id: str):
+    t = by_id(trace_id)
+    if t is None:
+        raise HTTPException(404, f"no trace {trace_id}")
+    return {"trace": t, "audit": audit(t)}

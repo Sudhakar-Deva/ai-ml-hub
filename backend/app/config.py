@@ -23,6 +23,14 @@ GOLDEN_SET_FILE = EVALS_DIR / "golden_set.jsonl"
 RUNS_DIR = EVALS_DIR / "w4-runs"
 LABELS_FILE = EVALS_DIR / "failure_labels.json"
 
+# Week 5: the trace log, the traffic that produced it, and the open coding.
+TRACES_DIR = ROOT / "traces"
+TRACE_FILE = TRACES_DIR / "traces.jsonl"
+TRAFFIC_DIR = EVALS_DIR / "traffic"
+WEEK5_DIR = ROOT / "week5"
+CODING_FILE = WEEK5_DIR / "open_coding.jsonl"
+SAMPLE_FILE = WEEK5_DIR / "sample.json"
+
 VECTOR_DB_PATH = ROOT / os.getenv("VECTOR_DB_PATH", "backend/.chroma")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 
@@ -50,6 +58,18 @@ SHIPPED_RETRIEVER = "hybrid"
 CANDIDATE_K = 25   # depth each arm contributes to the fusion
 RRF_K = 60         # Reciprocal Rank Fusion constant: 1 / (RRF_K + rank)
 MMR_LAMBDA = 0.7   # bonus only — 1.0 is pure relevance, 0.0 pure diversity
+
+# --- Week 5 · error analysis -------------------------------------------------
+# The sample is random, and the seed is published so anyone can redraw the exact
+# same 20 traces. A sample nobody can reproduce is an anecdote with a count.
+SAMPLE_SEED = 20260907
+SAMPLE_SIZE = 20
+DEMO_SAMPLE_SIZE = 10   # bonus: the curated set shown at the monthly review
+
+# Bumped whenever SYSTEM or PROMPT in generation/answer.py changes. A trace
+# without this cannot be replayed — you would be replaying today's prompt
+# against last week's output and calling the difference a regression.
+PROMPT_VERSION = "claims-grounded-v1"
 
 
 def collection_name(strategy: str) -> str:
