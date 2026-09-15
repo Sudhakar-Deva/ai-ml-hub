@@ -74,3 +74,33 @@ PROMPT_VERSION = "claims-grounded-v1"
 
 def collection_name(strategy: str) -> str:
     return f"endorsements_{strategy}"
+
+
+# --- Week 6 · evals -----------------------------------------------------------
+# The claim-summary path is a SECOND prompt with its own version. Week 5's
+# question-answering prompt is untouched: mixing the two would make every Week 5
+# trace unreplayable and every Week 6 number un-attributable.
+SUMMARY_PROMPT_VERSION = "claims-summary-v1"
+
+WEEK6_DIR = ROOT / "week6"
+W6_DIR = EVALS_DIR / "w6"
+W6_CASES_FILE = W6_DIR / "eval_set.jsonl"
+W6_SUMMARIES_FILE = W6_DIR / "summaries.json"
+W6_LABELS_FILE = W6_DIR / "labels_25.json"
+W6_RUNS_DIR = W6_DIR / "runs"
+JUDGE_DIR = W6_DIR / "judges"
+
+# The judge reads a prompt FILE, never a string in the source. Two reasons: the
+# v1 -> v2 change has to be diffable by the grader, and a prompt edited in code
+# is a prompt whose version nobody can name afterwards.
+JUDGE_VERSIONS = ("v0", "v1", "v2")
+JUDGE_DEFAULT = "v1"
+
+# The judge is a different model call from the app's. Same model family is fine;
+# what is not fine is the judge silently inheriting a change made for the app.
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", "claude-sonnet-5")
+JUDGE_PARAMS = {"temperature": 0, "max_tokens": 512}
+
+# How many summaries get hand-labelled. The brief says 25 and the number is
+# load-bearing: it is the whole basis of the agreement figure.
+LABEL_N = 25

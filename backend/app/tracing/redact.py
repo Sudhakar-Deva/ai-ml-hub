@@ -27,7 +27,11 @@ POLICY_PHRASE_RE = re.compile(
 )
 SSN_RE = re.compile(r"\b\d{3}-\d{2}-\d{4}\b")
 EMAIL_RE = re.compile(r"\b[\w.+-]+@[\w-]+\.[\w.]{2,}\b")
-PHONE_RE = re.compile(r"\b(?:\+?\d{1,2}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b")
+# The lookbehind rather than \b so an opening bracket is swallowed too:
+# "(555) 212-9090" must not redact down to a stray "(".
+PHONE_RE = re.compile(
+    r"(?<![\w-])(?:\+?\d{1,2}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}(?![\w-])"
+)
 # Named parties: a title, or a name introduced by a claims-file role word.
 TITLE_NAME_RE = re.compile(r"\b(?:Mr|Mrs|Ms|Miss|Dr)\.?\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?")
 ROLE_NAME_RE = re.compile(

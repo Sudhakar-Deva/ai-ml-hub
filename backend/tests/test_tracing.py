@@ -40,6 +40,40 @@ def test_identifiers_are_removed(text, rule, secret):
     assert secret not in clean, f"{secret!r} survived into {clean!r}"
 
 
+@pytest.mark.parametrize(
+    "text",
+    [
+        "reach Dr. Chen at (555) 212-9090",   # bracketed — must not leave a stray "("
+        "call 555-212-9090 today",
+        "tel +1 555 212 9090",
+        "(555)212-9090",
+    ],
+)
+def test_every_phone_shape_is_taken_whole(text):
+    clean, hits = redact(text)
+    assert "phone" in hits
+    assert "9090" not in clean
+    assert "(" not in clean and ")" not in clean
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        # dates and money look like identifiers to a careless regex, and the
+        # corpus is made of them. Eating these makes traces unreadable.
+        "Effective: 03-01-2024 and the aggregate is $10,000 per policy period",
+        "Special limits: $2,500 jewelry, $200 money, $1,500 securities",
+        "The 14-day clock in E-19; 60 days after our request; 30 consecutive days",
+        "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+        "HO-0304 ed. 03-24 vs DP-0110 ed. 02-24 and CO-0715 ed. 04-24",
+    ],
+)
+def test_dates_amounts_and_chunk_ids_are_left_alone(text):
+    clean, hits = redact(text)
+    assert clean == text
+    assert hits == []
+
+
 def test_corpus_vocabulary_survives():
     """Form numbers, editions and exclusion codes are NOT PII. A redactor that
     eats them leaves a trace nobody can read or replay."""
