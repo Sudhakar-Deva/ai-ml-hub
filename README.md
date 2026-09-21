@@ -13,6 +13,9 @@ number on the same questions.
   them by hand without fixing anything, and hand back a ranked failure taxonomy.
   Write-ups: [taxonomy.md](taxonomy.md) and [notes.md](notes.md); the order of
   operations is [week5/RUNBOOK.md](week5/RUNBOOK.md).
+- **Week 7** — race a budgeted claims agent against a fixed workflow (same model,
+  tools and output contract) over 10 claims; four numbers each, then a verdict.
+  Code in `backend/app/agents/`, write-up in [week7/README.md](week7/README.md).
 
 ```
 ai-ml-hub/

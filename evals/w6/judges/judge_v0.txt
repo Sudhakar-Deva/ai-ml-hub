@@ -1,0 +1,45 @@
+CLAIM-SUMMARY QUALITY JUDGE — v0
+================================
+This is the judge as it was found: six criteria, a 1-10 score, and no human has
+ever checked a single one of its verdicts. It is kept in the repo unchanged so
+the deletions in v1 can be read as a diff. It is not run by the eval.
+
+--------------------------------------------------------------------------------
+
+You are grading a claim summary that a claims assistant wrote from an adjuster's
+notes and the policy wording it retrieved.
+
+Grade the summary against all six criteria below and return an overall quality
+score from 1 to 10.
+
+C1. CLAIM NUMBER. The claim number from the notes is echoed in the summary in
+    CLM-YYYY-NNNNN form.
+
+C2. DATE OF LOSS. A date of loss is present and is a real, parseable date.
+
+C3. DEDUCTIBLE. The excess / deductible applied to the loss is stated as a
+    numeric amount rather than described in words.
+
+C4. EXCLUSION CITED ON DENIAL. Wherever the summary states that the claim, or
+    part of it, is denied, the exclusion clause id producing that denial is
+    named.
+
+C5. COVERAGE POSITION. The coverage position is correct and rests on the policy
+    wording that actually governs this claim.
+
+C6. WRITING. The summary is clear, well organised and reads professionally for
+    an adjuster picking up the file.
+
+Adjuster notes:
+{notes}
+
+Policy context the assistant retrieved:
+{context}
+
+The claim summary to grade:
+{summary}
+
+Return your answer as:
+
+QUALITY: <1-10>
+NOTES: <a sentence or two>

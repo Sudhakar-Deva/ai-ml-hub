@@ -1,0 +1,43 @@
+[
+  {
+    "name": "get_claim",
+    "description": "Return the claim-file record for ONE claim number: policy number, policy line, date of loss, reported loss type, claimed amount, the policy's excess, and the adjuster's notes verbatim (null when no notes are on file yet). Reads the claim file only; it does not read policy wording and does not decide coverage.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "claim_number": {"type": "string", "pattern": "^CLM-\\d{4}-\\d{5}$", "description": "Claim number in the form CLM-YYYY-NNNNN."}
+      },
+      "required": ["claim_number"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "search_policy",
+    "description": "Search the endorsement wording of ONE policy line and return the best-matching clauses, each with its chunk_id, form number and clause heading. Returns policy text only; it knows nothing about any claim and does not compute amounts. Call it again with a different query when the first results do not contain the clause you need.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "query": {"type": "string", "description": "The peril, exclusion, definition, deductible or limit to look up, in the words a policy would use (e.g. 'flood surface water exclusion')."},
+        "policy_line": {"type": "string", "enum": ["homeowners", "dwelling_fire", "condo"], "description": "Only wording for this policy line is searched."},
+        "k": {"type": "integer", "minimum": 1, "maximum": 8, "default": 5, "description": "Number of clauses to return."}
+      },
+      "required": ["query", "policy_line"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "compute_payout",
+    "description": "Compute the payable amount once coverage is decided: subtracts the excess from the covered amount, then caps the result at a special limit if one is given. Returns 0 for denied or undetermined. Arithmetic only; it does not look anything up and does not decide coverage.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "claim_status": {"type": "string", "enum": ["covered", "partial", "denied", "undetermined"], "description": "The coverage decision already reached."},
+        "covered_amount": {"type": "number", "minimum": 0, "description": "The part of the claimed amount the policy covers, before the excess."},
+        "excess": {"type": "number", "minimum": 0, "description": "The deductible that the governing wording applies to this loss."},
+        "special_limit": {"type": ["number", "null"], "minimum": 0, "description": "A special limit of liability that caps this loss, applied AFTER the excess; null when none applies."}
+      },
+      "required": ["claim_status", "covered_amount", "excess", "special_limit"],
+      "additionalProperties": false
+    }
+  }
+]

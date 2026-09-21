@@ -104,3 +104,35 @@ JUDGE_PARAMS = {"temperature": 0, "max_tokens": 512}
 # How many summaries get hand-labelled. The brief says 25 and the number is
 # load-bearing: it is the whole basis of the agreement figure.
 LABEL_N = 25
+
+
+# --- Week 7 · agent vs fixed workflow ----------------------------------------
+# Both systems run on the SAME model, the SAME tools and the SAME output
+# contract. The only variable in the race is who decides the next step: the
+# model (agent) or the code (workflow).
+WEEK7_DIR = ROOT / "week7"
+W7_DIR = EVALS_DIR / "w7"
+W7_CLAIMS_FILE = W7_DIR / "claims.jsonl"
+W7_RUNS_DIR = W7_DIR / "runs"
+W7_RACE_FILE = W7_DIR / "race.csv"
+W7_RACE_CLAIMS_FILE = W7_DIR / "race_claims.csv"
+W7_LOGS_DIR = WEEK7_DIR / "logs"
+TOOLS_V1_FILE = WEEK7_DIR / "tools_v1.json"   # the two-tool loop as it shipped
+TOOLS_V2_FILE = WEEK7_DIR / "tools_v2.json"   # sharpened + the third tool
+
+AGENT_MODEL = os.getenv("AGENT_MODEL", LLM_MODEL)
+AGENT_MAX_TOKENS_PER_CALL = 4096
+
+# The four budgets. Every one of them is checked inside the loop — see
+# app/agents/budget.py. A budget that is only a constant is a comment.
+MAX_ITERS = int(os.getenv("AGENT_MAX_ITERS", "8"))
+MAX_TOKENS = int(os.getenv("AGENT_MAX_TOKENS", "60000"))      # summed over EVERY lap
+MAX_COST_USD = float(os.getenv("AGENT_MAX_COST_USD", "0.25"))
+WALL_CLOCK_S = float(os.getenv("AGENT_WALL_CLOCK_S", "90"))
+
+# USD per 1M tokens (input, output), Anthropic first-party list price.
+PRICING = {
+    "claude-sonnet-5": (2.00, 10.00),
+    "claude-opus-5": (5.00, 25.00),
+    "claude-haiku-4-5": (1.00, 5.00),
+}

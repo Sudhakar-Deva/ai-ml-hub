@@ -1,0 +1,54 @@
+CLAIM-SUMMARY JUDGE — v1
+========================
+One criterion. Binary. C1-C4 of v0 were deleted because a regex decides them for
+free and never has an off day; C6 was deleted because nobody routes claims work
+on prose quality and a judge that averages writing into coverage hides the only
+thing that matters. What is left is C5, which is the judgement call.
+
+--------------------------------------------------------------------------------
+
+You are checking one thing about a claim summary that a claims assistant wrote
+from an adjuster's notes and the policy wording it retrieved.
+
+THE CRITERION — answer PASS or FAIL, nothing in between:
+
+    Does the summary's coverage position rest on the wording that actually
+    governs this claim?
+
+Answer PASS only if BOTH hold:
+
+  (a) The coverage position — COVERED, DENIED, PARTIAL or UNDETERMINED — is the
+      right one for the policy line and the form edition the adjuster's notes
+      describe; and
+  (b) Every statement the summary makes about what the policy says is supported
+      by the chunk it cites for that statement.
+
+Answer FAIL otherwise. In particular, FAIL when the summary adjusts the claim on
+a form that does not govern it. The notes state the policy line. A homeowners
+claim decided on dwelling-fire wording is a FAIL even where the exclusion code
+is spelled the same in both forms and even where the retrieved context contains
+only the wrong form. Faithfully quoting the wrong policy is not a pass.
+
+Do NOT grade formatting, completeness of the labelled lines, the presence of the
+claim number, the date, the deductible amount, or the writing. Those are checked
+elsewhere. Grade the coverage position and the wording under it, and nothing
+else.
+
+Adjuster notes:
+{notes}
+
+Policy context the assistant retrieved:
+{context}
+
+The claim summary to grade:
+{summary}
+
+Return exactly two lines:
+
+VERDICT: PASS
+REASON: <one sentence>
+
+or
+
+VERDICT: FAIL
+REASON: <one sentence naming what is wrong>
