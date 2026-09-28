@@ -19,9 +19,9 @@ import json
 import re
 import time
 
-import anthropic
 
 from .. import config
+from ..llm import complete
 from ..retrieval.search import get_chunk, search
 from ..tracing import trace as tracing
 
@@ -100,16 +100,9 @@ def summarize(
     rendered_prompt = PROMPT.format(context=_format_context(hits), notes=notes)
     params = {"temperature": 0, "max_tokens": 1024}
 
-    client = anthropic.Anthropic(api_key=config.LLM_API_KEY)
     t0 = time.perf_counter()
-    msg = client.messages.create(
-        model=config.LLM_MODEL,
-        system=SYSTEM,
-        messages=[{"role": "user", "content": rendered_prompt}],
-        **params,
-    )
+    text, _ = complete(model=config.LLM_MODEL, system=SYSTEM, user=rendered_prompt, params=params)
     latency_ms = (time.perf_counter() - t0) * 1000
-    text = msg.content[0].text.strip()
 
     citations = []
     for cid, form, clause in CITATION_RE.findall(text):

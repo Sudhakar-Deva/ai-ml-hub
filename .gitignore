@@ -153,3 +153,6 @@ Thumbs.db
 
 # ---------- Claude Code ----------
 .claude/settings.local.json
+
+# ---------- Tests (kept locally, not committed) ----------
+backend/tests/

@@ -52,7 +52,7 @@ def audit(trace: dict) -> dict:
 
 def replay(trace: dict) -> dict:
     """Re-send the stored prompt to the stored model. No app state involved."""
-    import anthropic
+    from ..llm import complete
 
     report = audit(trace)
     if not report["replayable"]:
@@ -63,14 +63,12 @@ def replay(trace: dict) -> dict:
     if not config.LLM_API_KEY:
         raise SystemExit("LLM_API_KEY is not set — replay needs the same model the trace names.")
 
-    client = anthropic.Anthropic(api_key=config.LLM_API_KEY)
-    msg = client.messages.create(
+    replayed, _ = complete(
         model=trace["model"],
         system=trace["system_prompt"],
-        messages=[{"role": "user", "content": trace["rendered_prompt"]}],
-        **trace["params"],
+        user=trace["rendered_prompt"],
+        params=trace["params"],
     )
-    replayed = msg.content[0].text.strip()
     original = trace["output"]
 
     return {

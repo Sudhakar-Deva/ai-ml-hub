@@ -9,7 +9,6 @@ import json
 import re
 import time
 
-import anthropic
 
 from .. import config
 from ..retrieval.search import get_chunk, search
@@ -19,8 +18,7 @@ REFUSAL_SENTINEL = "INSUFFICIENT_CONTEXT"
 CITATION_RE = re.compile(r"\[([^\]|]+)\s*\|\s*([^\]|]+)\s*\|\s*([^\]]+)\]")
 
 
-class MissingAPIKey(RuntimeError):
-    """Raised instead of a bare KeyError so the API can answer 503, not 500."""
+from ..llm import MissingAPIKey, complete  # noqa: F401 — MissingAPIKey is re-exported for callers
 
 SYSTEM = f"""You are a claims-assistant answering questions about homeowners policy
 endorsements. You answer ONLY from the numbered context chunks provided.
@@ -78,16 +76,9 @@ def answer(
     )
     params = {"temperature": 0, "max_tokens": 1024}
 
-    client = anthropic.Anthropic(api_key=config.LLM_API_KEY)
     t0 = time.perf_counter()
-    msg = client.messages.create(
-        model=config.LLM_MODEL,
-        system=SYSTEM,
-        messages=[{"role": "user", "content": rendered_prompt}],
-        **params,
-    )
+    text, _ = complete(model=config.LLM_MODEL, system=SYSTEM, user=rendered_prompt, params=params)
     latency_ms = (time.perf_counter() - t0) * 1000
-    text = msg.content[0].text.strip()
 
     # Verify every citation resolves to a real chunk — an unresolvable citation
     # is a fabrication and fails the same as a wrong answer.

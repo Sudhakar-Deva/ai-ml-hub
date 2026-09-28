@@ -34,8 +34,16 @@ SAMPLE_FILE = WEEK5_DIR / "sample.json"
 VECTOR_DB_PATH = ROOT / os.getenv("VECTOR_DB_PATH", "backend/.chroma")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 
-LLM_MODEL = os.getenv("LLM_MODEL", "claude-sonnet-5")
+# "groq" (default) or "anthropic". All model calls go through app/llm.py, so this
+# one value switches every call site. Never switch it between a before and an
+# after run — the provider is part of the model.
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()
+_DEFAULT_MODEL = {"groq": "openai/gpt-oss-120b", "anthropic": "claude-sonnet-5"}[LLM_PROVIDER]
+LLM_MODEL = os.getenv("LLM_MODEL", _DEFAULT_MODEL)
 LLM_API_KEY = os.getenv("LLM_API_KEY", "")
+# Groq's gpt-oss models reason before answering, and those tokens count against
+# max_tokens. Pinned so every call (and every trace) uses the same setting.
+LLM_REASONING_EFFORT = os.getenv("LLM_REASONING_EFFORT", "low" if LLM_PROVIDER == "groq" else "")
 
 API_HOST = os.getenv("API_HOST", "127.0.0.1")
 API_PORT = int(os.getenv("API_PORT", "8000"))
@@ -98,7 +106,7 @@ JUDGE_DEFAULT = "v1"
 
 # The judge is a different model call from the app's. Same model family is fine;
 # what is not fine is the judge silently inheriting a change made for the app.
-JUDGE_MODEL = os.getenv("JUDGE_MODEL", "claude-sonnet-5")
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", _DEFAULT_MODEL)
 JUDGE_PARAMS = {"temperature": 0, "max_tokens": 512}
 
 # How many summaries get hand-labelled. The brief says 25 and the number is
@@ -130,9 +138,26 @@ MAX_TOKENS = int(os.getenv("AGENT_MAX_TOKENS", "60000"))      # summed over EVER
 MAX_COST_USD = float(os.getenv("AGENT_MAX_COST_USD", "0.25"))
 WALL_CLOCK_S = float(os.getenv("AGENT_WALL_CLOCK_S", "90"))
 
-# USD per 1M tokens (input, output), Anthropic first-party list price.
+# USD per 1M tokens (input, output), provider list price. The Groq figures are
+# overridable from .env (GROQ_PRICE_IN / GROQ_PRICE_OUT) — CHECK THEM against
+# https://groq.com/pricing before reporting cost per claim; a wrong price here
+# makes the Week 7 cost column wrong for both systems.
 PRICING = {
+    "openai/gpt-oss-120b": (float(os.getenv("GROQ_PRICE_IN", "0.15")), float(os.getenv("GROQ_PRICE_OUT", "0.60"))),
     "claude-sonnet-5": (2.00, 10.00),
     "claude-opus-5": (5.00, 25.00),
     "claude-haiku-4-5": (1.00, 5.00),
 }
+
+
+# --- Week 8 · trajectory evals ------------------------------------------------
+# The outcome eval (contract.grade) scores WHAT the agent answered; the trajectory
+# eval scores HOW it got there. Same 10 claims as Week 7, same model, same budgets
+# — except wall-clock, raised for the eval only: on Groq's free tier (8k tokens a
+# minute) a 10k-token run spends most of 90 s asleep on 429s, and a budget that
+# fires on the provider's rate limit would be scored as the agent's failure. The
+# sleep is measured and subtracted from reported latency (llm.rate_limit_wait_s).
+WEEK8_DIR = ROOT / "week8"
+W8_DIR = EVALS_DIR / "w8"
+W8_RUNS_DIR = W8_DIR / "runs"
+W8_WALL_CLOCK_S = float(os.getenv("W8_WALL_CLOCK_S", "400"))

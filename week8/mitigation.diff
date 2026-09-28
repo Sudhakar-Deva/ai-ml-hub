@@ -1,0 +1,52 @@
+--- a/backend/app/agents/agent.py (instrumented, no mitigation)
++++ b/backend/app/agents/agent.py (--mitigation replan)
+@@ -34,14 +34,26 @@
+ 
+ TASK = "Adjust claim {claim_number}."
+ 
++# Week 8 mitigation (the only one): RE-PLANNING on the top failure mode,
++# missing_step. The before run returned 7 of 10 decisions without ever calling
++# compute_payout, so the payable amount was the model's own arithmetic. When
++# the agent tries to finish a decided claim and compute_payout is not on its
++# path, it is sent back ONCE with the rule it skipped. It is not re-prompted a
++# second time, and it is given no answer: the budgets still bound the extra lap.
++REPLAN = """You returned a {decision} decision without calling compute_payout.
++Rule 5: payable_amount comes from compute_payout, for every COVERED, PARTIAL or
++DENIED decision, a DENIED 0 included. Re-plan: call compute_payout with the
++decision you reached and the excess / special limit from the wording you read,
++then return the contract object with the amount it returns."""
+ 
+ 
+ def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL,
+-        tools_version: str = "v2") -> dict:
++        tools_version: str = "v2", mitigation: str | None = None) -> dict:
+     budget = budget or Budget()
+     tools = load_specs(tools_version)
+     messages = [{"role": "user", "content": TASK.format(claim_number=claim_number)}]
+     path, output, status, fired = [], None, "ok", None
++    replans = 0
+     # Week 8: the trajectory, not just the tool names — what each call was given
+     # and what it saw. Scored offline by app.agents.trajectory_eval.
+     steps = []
+@@ -63,6 +75,13 @@
+ 
+             if resp.stop_reason != "tool_use" or not calls:
+                 output = contract.parse(llm.text_of(resp))
++                decision = str((output or {}).get("decision", "")).upper()
++                if (mitigation == "replan" and not replans and "compute_payout" not in path
++                        and decision in ("COVERED", "PARTIAL", "DENIED")):
++                    replans += 1
++                    log("REPLAN", reason="decided without compute_payout", decision=decision)
++                    messages.append({"role": "user", "content": REPLAN.format(decision=decision)})
++                    continue
+                 if output is None:
+                     status = "no_contract"
+                     log("NO CONTRACT", text=llm.text_of(resp)[:300])
+@@ -95,6 +114,7 @@
+         "budget_fired": fired,
+         "path": path,
+         "steps": steps,
++        "replans": replans,
+         "latency_ms": round(latency_ms, 1),
+         "rate_wait_ms": round(rate_wait_ms, 1),
+         **budget.snapshot(),

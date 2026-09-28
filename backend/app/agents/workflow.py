@@ -20,8 +20,8 @@ The same Budget guards the one call, so a hung request cannot hide either.
 import json
 import time
 
-import anthropic
 
+from ..llm import LLMTimeout
 from . import contract, llm
 from .budget import Budget, BudgetExceeded
 from .runlog import NULL, RunLog
@@ -69,7 +69,7 @@ def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL) -> 
                 policy_line=claim["policy_line"],
                 policy=json.dumps(policy, indent=2),
             )}])
-        except anthropic.APITimeoutError:
+        except LLMTimeout:
             raise BudgetExceeded("wall_clock", f"request timed out at {budget.elapsed():.1f}s")
         log("  STEP 4 decide", lap_in=usage["input_tokens"], lap_out=usage["output_tokens"])
         d = contract.parse(llm.text_of(resp))

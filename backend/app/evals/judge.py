@@ -25,7 +25,7 @@ import argparse
 import json
 import re
 
-import anthropic
+from ..llm import complete
 
 from .. import config
 from . import store
@@ -115,18 +115,13 @@ def _context(entry: dict) -> str:
     ) or "(none recorded)"
 
 
-def judge_one(case: dict, entry: dict, template: str, client) -> dict:
+def judge_one(case: dict, entry: dict, template: str) -> dict:
     rendered = (
         template.replace("{notes}", case["notes"])
         .replace("{context}", _context(entry))
         .replace("{summary}", entry["summary"])
     )
-    msg = client.messages.create(
-        model=config.JUDGE_MODEL,
-        messages=[{"role": "user", "content": rendered}],
-        **config.JUDGE_PARAMS,
-    )
-    text = msg.content[0].text.strip()
+    text, _ = complete(model=config.JUDGE_MODEL, user=rendered, params=config.JUDGE_PARAMS)
     m = VERDICT_RE.search(text)
     r = REASON_RE.search(text)
     return {
@@ -147,11 +142,9 @@ def run(version: str = config.JUDGE_DEFAULT, gate: bool = True) -> dict:
 
     summaries = store.load_summaries()["summaries"]
     cases = [c for c in load_cases() if c["id"] in summaries]
-    client = anthropic.Anthropic(api_key=config.LLM_API_KEY)
-
     verdicts = {}
     for i, c in enumerate(cases, start=1):
-        v = judge_one(c, summaries[c["id"]], template, client)
+        v = judge_one(c, summaries[c["id"]], template)
         verdicts[c["id"]] = v
         print(f"  {i:3d}/{len(cases)}  {c['id']}  {v['verdict'] or 'UNPARSED'}  {c['mode']}")
 
@@ -190,8 +183,7 @@ if __name__ == "__main__":
             fromfile=f"judge_{a.diff[0]}.txt", tofile=f"judge_{a.diff[1]}.txt", lineterm="",
         )))
     elif a.case:
-        client = anthropic.Anthropic(api_key=config.LLM_API_KEY)
         entry = store.load_summaries()["summaries"][a.case]
-        print(json.dumps(judge_one(case_by_id(a.case), entry, load_prompt(a.version), client), indent=2))
+        print(json.dumps(judge_one(case_by_id(a.case), entry, load_prompt(a.version)), indent=2))
     else:
         run(a.version, a.gate)

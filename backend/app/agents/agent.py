@@ -12,11 +12,13 @@ that names the budget — it never raises out, and it never spins.
 """
 import argparse
 import json
+import re
 import time
 
-import anthropic
 
 from . import contract, llm
+from .. import llm as provider
+from ..llm import LLMTimeout
 from .budget import Budget, BudgetExceeded
 from .runlog import NULL, RunLog, default_path
 from .tools import load_claims, load_specs, run_tool
@@ -32,13 +34,30 @@ payable amount. When you have decided, reply with the contract object only.
 
 TASK = "Adjust claim {claim_number}."
 
+# Week 8 mitigation (the only one): RE-PLANNING on the top failure mode,
+# missing_step. The before run returned 7 of 10 decisions without ever calling
+# compute_payout, so the payable amount was the model's own arithmetic. When
+# the agent tries to finish a decided claim and compute_payout is not on its
+# path, it is sent back ONCE with the rule it skipped. It is not re-prompted a
+# second time, and it is given no answer: the budgets still bound the extra lap.
+REPLAN = """You returned a {decision} decision without calling compute_payout.
+Rule 5: payable_amount comes from compute_payout, for every COVERED, PARTIAL or
+DENIED decision, a DENIED 0 included. Re-plan: call compute_payout with the
+decision you reached and the excess / special limit from the wording you read,
+then return the contract object with the amount it returns."""
+
 
 def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL,
-        tools_version: str = "v2") -> dict:
+        tools_version: str = "v2", mitigation: str | None = None) -> dict:
     budget = budget or Budget()
     tools = load_specs(tools_version)
     messages = [{"role": "user", "content": TASK.format(claim_number=claim_number)}]
     path, output, status, fired = [], None, "ok", None
+    replans = 0
+    # Week 8: the trajectory, not just the tool names — what each call was given
+    # and what it saw. Scored offline by app.agents.trajectory_eval.
+    steps = []
+    wait0 = provider.rate_limit_wait_s()
 
     log("START", system="agent", claim=claim_number, budgets=budget.limits(), tools=tools_version)
     t0 = time.perf_counter()
@@ -46,7 +65,7 @@ def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL,
         while True:
             try:
                 resp, usage = llm.call(budget, system=SYSTEM, messages=messages, tools=tools)
-            except anthropic.APITimeoutError:
+            except LLMTimeout:
                 # The per-request timeout IS the remaining wall-clock budget.
                 raise BudgetExceeded("wall_clock", f"request timed out at {budget.elapsed():.1f}s")
             messages.append({"role": "assistant", "content": [llm.to_param(b) for b in resp.content]})
@@ -56,6 +75,13 @@ def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL,
 
             if resp.stop_reason != "tool_use" or not calls:
                 output = contract.parse(llm.text_of(resp))
+                decision = str((output or {}).get("decision", "")).upper()
+                if (mitigation == "replan" and not replans and "compute_payout" not in path
+                        and decision in ("COVERED", "PARTIAL", "DENIED")):
+                    replans += 1
+                    log("REPLAN", reason="decided without compute_payout", decision=decision)
+                    messages.append({"role": "user", "content": REPLAN.format(decision=decision)})
+                    continue
                 if output is None:
                     status = "no_contract"
                     log("NO CONTRACT", text=llm.text_of(resp)[:300])
@@ -65,6 +91,7 @@ def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL,
             for c in calls:
                 out = run_tool(c.name, c.input)
                 path.append(c.name)
+                steps.append(_step(budget.iters, c.name, c.input, out))
                 log("  TOOL", name=c.name, args=c.input,
                     result=("error: " + out["error"]) if "error" in out else f"{len(json.dumps(out))} chars")
                 results.append({"type": "tool_result", "tool_use_id": c.id, "content": json.dumps(out),
@@ -77,6 +104,7 @@ def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL,
         log("TERMINATED", status=status, returned=output)
 
     latency_ms = (time.perf_counter() - t0) * 1000
+    rate_wait_ms = (provider.rate_limit_wait_s() - wait0) * 1000
     log("END", status=status, latency_ms=round(latency_ms), path=path, output=output)
     return {
         "system": "agent",
@@ -85,9 +113,29 @@ def run(claim_number: str, budget: Budget | None = None, log: RunLog = NULL,
         "status": status,
         "budget_fired": fired,
         "path": path,
+        "steps": steps,
+        "replans": replans,
         "latency_ms": round(latency_ms, 1),
+        "rate_wait_ms": round(rate_wait_ms, 1),
         **budget.snapshot(),
     }
+
+
+_AMOUNT = re.compile(r"\$\s?([\d,]+(?:\.\d+)?)")
+
+
+def _step(lap: int, name: str, args: dict, out: dict) -> dict:
+    """One tool call as the trajectory eval needs it: the arguments as sent, and
+    for a search the clauses (form + heading) and dollar amounts it returned —
+    what the agent could have read, so a cited code or an excess can be checked
+    against it."""
+    step = {"lap": lap, "tool": name, "args": args, "error": out.get("error")}
+    if name == "search_policy" and "results" in out:
+        step["clauses"] = [f"{r['form_number'].split()[0]} | {r['clause']}" for r in out["results"]]
+        step["chunk_ids"] = [r["chunk_id"] for r in out["results"]]
+        step["amounts"] = sorted({float(a.replace(",", "")) for r in out["results"]
+                                  for a in _AMOUNT.findall(r["text"])})
+    return step
 
 
 def _cli(system: str, runner) -> None:
