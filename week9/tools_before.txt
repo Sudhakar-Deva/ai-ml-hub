@@ -1,0 +1,3 @@
+config: mcp_servers.json
+  policy-docs  (policy-docs 1.30.0, protocol 2025-11-25): 2 tools  ['search_policy', 'get_clause']
+total tools/list: 2  ['policy-docs__search_policy', 'policy-docs__get_clause']

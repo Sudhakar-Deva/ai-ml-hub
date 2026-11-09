@@ -1,0 +1,4 @@
+config: mcp_servers.json
+  policy-docs  (policy-docs 1.30.0, protocol 2025-11-25): 2 tools  ['search_policy', 'get_clause']
+  claims-system  (claims-system 1.30.0, protocol 2025-11-25): 2 tools  ['get_claim_status', 'get_adjuster_notes']
+total tools/list: 4  ['policy-docs__search_policy', 'policy-docs__get_clause', 'claims-system__get_claim_status', 'claims-system__get_adjuster_notes']

@@ -13,3 +13,8 @@ fastapi==0.115.6
 uvicorn[standard]==0.34.0
 
 rank-bm25==0.2.2      # the lexical arm of hybrid search (app/retrieval/lexical.py)
+
+# Week 9: MCP. Pinned to the 1.x SDK: mcp 2.x pulls starlette 1.x, which breaks
+# fastapi 0.115.6 (needs starlette < 0.42).
+mcp==1.30.0
+starlette<0.42

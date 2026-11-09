@@ -1,0 +1,192 @@
+{
+  "_what": "Raw MCP JSON-RPC exchange with the claims-system server over stdio, captured byte-for-byte by week9/wire_capture.py (raw lines in week9/wire_raw.jsonl). 'raw' is the exact line on the pipe; 'message' is the same line parsed; 'annotations' covers every top-level field, written by hand.",
+  "_transport": "stdio: the host spawns the server as a child process; client->server messages go on its stdin, server->client on its stdout, one JSON object per line. stderr is free for logs.",
+  "model_call": "No model call happens anywhere in this exchange or inside either server. The model runs only in the host (app/mcphost/agent.py run_query -> app.llm.chat_with_tools), after tools/list has told it what exists and before tools/call carries the call it chose.",
+  "exchange": [
+    {
+      "step": "1. initialize (request)",
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-11-25\",\"capabilities\":{},\"clientInfo\":{\"name\":\"wire-capture\",\"version\":\"1.0\"}}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2025-11-25",
+          "capabilities": {},
+          "clientInfo": {
+            "name": "wire-capture",
+            "version": "1.0"
+          }
+        }
+      },
+      "annotations": {
+        "jsonrpc": "Always the string \"2.0\": this is JSON-RPC 2.0, the envelope MCP is built on.",
+        "id": "1, chosen by the client. The server must echo it so the reply can be matched to this request. A message with an id is a request and must get exactly one response.",
+        "method": "\"initialize\": always the first message on a new connection. Nothing else may be sent before it.",
+        "params": "The client's offer. protocolVersion = the newest spec revision the client speaks (2025-11-25). capabilities = {} because this raw client offers nothing back (no sampling, no roots, no elicitation). clientInfo = who is connecting, which the server can log."
+      }
+    },
+    {
+      "step": "2. initialize (response)",
+      "direction": "server -> client",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-11-25\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":false},\"tools\":{\"listChanged\":false}},\"serverInfo\":{\"name\":\"claims-system\",\"version\":\"1.30.0\"}}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "protocolVersion": "2025-11-25",
+          "capabilities": {
+            "experimental": {},
+            "prompts": {
+              "listChanged": false
+            },
+            "resources": {
+              "subscribe": false,
+              "listChanged": false
+            },
+            "tools": {
+              "listChanged": false
+            }
+          },
+          "serverInfo": {
+            "name": "claims-system",
+            "version": "1.30.0"
+          }
+        }
+      },
+      "annotations": {
+        "jsonrpc": "\"2.0\", as on every message.",
+        "id": "1, echoing the request's id. This is the answer to step 1.",
+        "result": "The server's half of the handshake. protocolVersion = the revision it agreed to (it accepted 2025-11-25). capabilities = what it serves: tools (listChanged false, so the tool list won't change mid-session), plus empty prompts/resources blocks that FastMCP always advertises. serverInfo = name \"claims-system\"; the version 1.30.0 is the SDK's default, not the vendor's 0.4.1, so the server doesn't actually identify its own build (a point for the risk note)."
+      }
+    },
+    {
+      "step": "3. notifications/initialized (notification)",
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "notifications/initialized"
+      },
+      "annotations": {
+        "jsonrpc": "\"2.0\".",
+        "method": "\"notifications/initialized\": the client confirms the handshake is done. Only after this may normal requests flow.",
+        "(no id)": "No id field means this is a NOTIFICATION, so the server sends no reply. That's why there's no server line between steps 3 and 4."
+      }
+    },
+    {
+      "step": "4. tools/list (request)",
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\"}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "method": "tools/list"
+      },
+      "annotations": {
+        "jsonrpc": "\"2.0\".",
+        "id": "2: a new id for a new request.",
+        "method": "\"tools/list\": discovery. The host asks what the server can do instead of having it hard-coded. app/mcphost/agent.py builds its whole tool list from this reply.",
+        "(no params)": "params omitted, so this is the first page. A cursor would go here to fetch the next page if the reply carried nextCursor."
+      }
+    },
+    {
+      "step": "5. tools/list (response)",
+      "direction": "server -> client",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"tools\":[{\"name\":\"get_claim_status\",\"description\":\"Current status of one claim: policy number and line, status, date of loss,\\n    reported loss type, claimed amount, policy excess, assigned adjuster and the\\n    date it was last updated. claim_number looks like CLM-2026-10002.\",\"inputSchema\":{\"properties\":{\"claim_number\":{\"title\":\"Claim Number\",\"type\":\"string\"}},\"required\":[\"claim_number\"],\"title\":\"get_claim_statusArguments\",\"type\":\"object\"}},{\"name\":\"get_adjuster_notes\",\"description\":\"Full adjuster note history for one claim, oldest first: each entry has a\\n    date, an author (adjuster id or intake) and the note text verbatim.\",\"inputSchema\":{\"properties\":{\"claim_number\":{\"title\":\"Claim Number\",\"type\":\"string\"}},\"required\":[\"claim_number\"],\"title\":\"get_adjuster_notesArguments\",\"type\":\"object\"}}]}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "result": {
+          "tools": [
+            {
+              "name": "get_claim_status",
+              "description": "Current status of one claim: policy number and line, status, date of loss,\n    reported loss type, claimed amount, policy excess, assigned adjuster and the\n    date it was last updated. claim_number looks like CLM-2026-10002.",
+              "inputSchema": {
+                "properties": {
+                  "claim_number": {
+                    "title": "Claim Number",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "claim_number"
+                ],
+                "title": "get_claim_statusArguments",
+                "type": "object"
+              }
+            },
+            {
+              "name": "get_adjuster_notes",
+              "description": "Full adjuster note history for one claim, oldest first: each entry has a\n    date, an author (adjuster id or intake) and the note text verbatim.",
+              "inputSchema": {
+                "properties": {
+                  "claim_number": {
+                    "title": "Claim Number",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "claim_number"
+                ],
+                "title": "get_adjuster_notesArguments",
+                "type": "object"
+              }
+            }
+          ]
+        }
+      },
+      "annotations": {
+        "jsonrpc": "\"2.0\".",
+        "id": "2, matching step 4.",
+        "result": "tools[] holds 2 entries. Each has: name (what the model will call; the host prefixes it to claims-system__get_claim_status); description (the function's docstring, shipped verbatim, which is the only guidance the model gets about when and how to call it, so it's a PROMPT); inputSchema (the JSON Schema generated from the Python signature: one required string claim_number). No nextCursor, so this is the complete list. 2 tools, the number reported in tool_counts.md."
+      }
+    },
+    {
+      "step": "6. tools/call (request)",
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":3,\"method\":\"tools/call\",\"params\":{\"name\":\"get_claim_status\",\"arguments\":{\"claim_number\":\"CLM-2026-10002\"}}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "method": "tools/call",
+        "params": {
+          "name": "get_claim_status",
+          "arguments": {
+            "claim_number": "CLM-2026-10002"
+          }
+        }
+      },
+      "annotations": {
+        "jsonrpc": "\"2.0\".",
+        "id": "3.",
+        "method": "\"tools/call\": run one tool. In the agent, this message is built from the tool_use block the MODEL emitted. Here it's sent by hand, with no model involved.",
+        "params": "name = the tool's own name as tools/list gave it (\"get_claim_status\", without the host's \"claims-system__\" prefix, which the host strips before routing). arguments = an object that must satisfy that tool's inputSchema."
+      }
+    },
+    {
+      "step": "7. tools/call (response)",
+      "direction": "server -> client",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":3,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\n  \\\"claim_number\\\": \\\"CLM-2026-10002\\\",\\n  \\\"policy_number\\\": \\\"HO-771044\\\",\\n  \\\"policy_line\\\": \\\"homeowners\\\",\\n  \\\"status\\\": \\\"under_review\\\",\\n  \\\"date_of_loss\\\": \\\"2026-04-03\\\",\\n  \\\"loss_type_reported\\\": \\\"water damage - basement and ground floor\\\",\\n  \\\"claimed_amount\\\": 23000,\\n  \\\"policy_excess\\\": 1000,\\n  \\\"assigned_adjuster\\\": \\\"ADJ-207\\\",\\n  \\\"last_updated\\\": \\\"2026-04-06\\\"\\n}\"}],\"isError\":false}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"claim_number\": \"CLM-2026-10002\",\n  \"policy_number\": \"HO-771044\",\n  \"policy_line\": \"homeowners\",\n  \"status\": \"under_review\",\n  \"date_of_loss\": \"2026-04-03\",\n  \"loss_type_reported\": \"water damage - basement and ground floor\",\n  \"claimed_amount\": 23000,\n  \"policy_excess\": 1000,\n  \"assigned_adjuster\": \"ADJ-207\",\n  \"last_updated\": \"2026-04-06\"\n}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "annotations": {
+        "jsonrpc": "\"2.0\".",
+        "id": "3, matching step 6.",
+        "result": "content[] holds one text block, the claim status record serialised as JSON text. This is what the host puts into the model's tool_result. isError = false: the tool ran and found the claim. A tool failure (e.g. unknown claim) comes back HERE, as result.isError = true with the message as text, so the model can read it and recover. A JSON-RPC top-level \"error\" object is reserved for protocol failures (unknown method, malformed request), which the model never sees as a tool result."
+      }
+    }
+  ]
+}

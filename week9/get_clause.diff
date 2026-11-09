@@ -1,0 +1,57 @@
+diff --git a/week9/policy_server_v1.py.txt b/backend/app/mcp_servers/policy_server.py
+index a11bec8..8a5e180 100644
+--- a/week9/policy_server_v1.py.txt
++++ b/backend/app/mcp_servers/policy_server.py
+@@ -74,16 +74,49 @@ def search_policy(query: str, policy_line: str, k: int = 5) -> dict:
+ 
+ @mcp.tool()
+ def get_clause(form_number: str, clause: str) -> str:
+-    """Get a clause."""
++    """Return the exact wording of ONE clause from ONE endorsement form, verbatim.
++
++    Use this when you already know which form and clause you need (a search_policy
++    result or the user named it) and must quote it exactly. To find out WHICH
++    clause applies, call search_policy instead; this tool does not search.
++
++    form_number: the bare form number, two letters, a dash and four digits:
++        "HO-0304", "DP-0110", "CO-0715". NOT the edition string search_policy
++        prints ("HO-0304 ed. 03-24"); drop the " ed. MM-YY" part.
++    clause: an exclusion code such as "E-17", or the letter of a lettered
++        section such as "B" (HO-0521 B is the special-limits table). NOT a
++        heading such as "SECTION I — EXCLUSIONS / E-17".
++
++    Returns the form's edition line, then the clause text. If the form or clause
++    does not exist, the error names the bad value and lists the valid ones;
++    correct that argument and call again. Do not quote a clause you did not get.
++    """
+     f = FORMS.get(form_number)
+     if f is None:
+-        raise ValueError("Error 3")
++        raise ValueError(_unknown_form(form_number))
+     text = f["codes"].get(clause) or f["sections"].get(clause)
+     if text is None:
+-        raise ValueError("Error 4")
++        valid = sorted(f["codes"]) + [f"section {s}" for s in sorted(f["sections"])]
++        raise ValueError(
++            f"clause {clause!r} not found on {form_number}: clause is an exclusion code like 'E-17' "
++            f"or a section letter like 'B'. Clauses on {form_number}: {', '.join(valid) or 'none'}.")
+     return f"{f['edition']} · {clause}\n{text}"
+ 
+ 
++def _unknown_form(given: str) -> str:
++    """The recoverable version of 'Error 3': what was wrong, what is valid, and the
++    likely intended form when one can be read out of the bad value."""
++    on_file = ", ".join(f"{k} ({v['policy_line']})" for k, v in FORMS.items())
++    msg = (f"form {given!r} not found: form_number is the bare form number, two letters, "
++           f"a dash and four digits (like 'HO-0304'), with no edition suffix. Forms on file: {on_file}.")
++    m = re.match(r"\s*([A-Za-z]{2})-?(\d{1,4})", given)
++    if m:
++        guess = f"{m.group(1).upper()}-{int(m.group(2)):04d}"
++        if guess in FORMS and guess != given:
++            msg += f" Did you mean {guess!r}?"
++    return msg
++
++
+ # --- resources (app-attached context) -------------------------------------------
+ 
+ def _exclusions_schedule(line: str) -> str:

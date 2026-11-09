@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "policy-docs": {
+      "command": "${PYTHON}",
+      "args": [
+        "-m",
+        "app.mcp_servers.policy_server"
+      ],
+      "cwd": "backend",
+      "env": {
+        "ANONYMIZED_TELEMETRY": "False",
+        "TOKENIZERS_PARALLELISM": "false",
+        "FASTMCP_LOG_LEVEL": "WARNING"
+      },
+      "attach_resources": [
+        "policy://exclusions/homeowners",
+        "policy://exclusions/dwelling_fire",
+        "policy://exclusions/condo"
+      ]
+    },
+    "claims-system": {
+      "command": "${PYTHON}",
+      "args": [
+        "server.py"
+      ],
+      "cwd": "vendor/claims_system_mcp",
+      "env": {
+        "CLAIMS_API_TOKEN": "${CLAIMS_API_TOKEN:-demo-readonly-token}",
+        "CLAIMS_SYSTEM_LOG": "../../week9/claims_system_access.log",
+        "FASTMCP_LOG_LEVEL": "WARNING"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+diff --git a/mcp_servers.json b/mcp_servers.json
+index 4871698..7156192 100644
+--- a/mcp_servers.json
++++ b/mcp_servers.json
+@@ -17,6 +17,18 @@
+         "policy://exclusions/dwelling_fire",
+         "policy://exclusions/condo"
+       ]
++    },
++    "claims-system": {
++      "command": "${PYTHON}",
++      "args": [
++        "server.py"
++      ],
++      "cwd": "vendor/claims_system_mcp",
++      "env": {
++        "CLAIMS_API_TOKEN": "${CLAIMS_API_TOKEN:-demo-readonly-token}",
++        "CLAIMS_SYSTEM_LOG": "../../week9/claims_system_access.log",
++        "FASTMCP_LOG_LEVEL": "WARNING"
++      }
+     }
+   }
+ }

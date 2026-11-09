@@ -161,3 +161,11 @@ WEEK8_DIR = ROOT / "week8"
 W8_DIR = EVALS_DIR / "w8"
 W8_RUNS_DIR = W8_DIR / "runs"
 W8_WALL_CLOCK_S = float(os.getenv("W8_WALL_CLOCK_S", "400"))
+
+
+# --- Week 9 · MCP ----------------------------------------------------------------
+# The host agent (app/mcphost/agent.py) reads its servers from THIS file and its
+# tools from each server's tools/list. Adding a server is an edit here, never in
+# the agent module.
+WEEK9_DIR = ROOT / "week9"
+MCP_CONFIG_FILE = Path(os.getenv("MCP_CONFIG_FILE", str(ROOT / "mcp_servers.json")))

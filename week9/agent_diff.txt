@@ -1,0 +1,21 @@
+# Agent module: server one (policy-docs) -> server one + two (policy-docs + claims-system)
+# Baseline = the agent module as staged in the git index at server-one stage (git add, before claims-system existed).
+
+$ git diff --stat -- backend/app/mcphost/
+$ git diff -- backend/app/mcphost/ | wc -l
+0
+
+$ git diff --numstat -- backend/app/mcphost/   (added/deleted lines; empty = none)
+
+# Content hashes (git hash-object), server-one stage vs now:
+backend/app/mcphost/agent.py  stage1=70672d2f9c15df893652132a55172e5fa49e71c5  now=70672d2f9c15df893652132a55172e5fa49e71c5  IDENTICAL
+backend/app/mcphost/__init__.py  stage1=3340826e50634a55ab9e6e4933575daf6e71dd5f  now=3340826e50634a55ab9e6e4933575daf6e71dd5f  IDENTICAL
+
+# What changed between the two stages (everything outside the agent module):
+#   mcp_servers.json            +12 lines: the "claims-system" entry  (week9/config_diff.txt)
+#   vendor/claims_system_mcp/   new, untracked: the third-party server itself
+# app/config.py's Week 9 block (MCP_CONFIG_FILE) was written BEFORE the server-one
+# baseline was taken; it is not part of the server-two change.
+$ git diff --stat -- mcp_servers.json
+ mcp_servers.json | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
