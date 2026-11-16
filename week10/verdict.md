@@ -1,0 +1,6 @@
+**Sunk-cost bias, named out loud:** I spent a week building this squad, and that is pulling me toward "keep it, just tune it". The week is spent either way, and it is not evidence.
+**The numbers (same 10 cases, same judge):** pass rate **90% single vs 70% squad**, p50 latency **4.1 s vs 7.8 s**, p99 **6.2 s vs 10.1 s**, cost per claim **$0.00096 vs $0.00120 (×1.3)**; total tokens are level (56,240 vs 55,897, multiplier **1.0**).
+**Where it loses:** all three squad failures (10001, 10006, 10008) are hand-off losses, not reasoning losses. The exclusions worker found the right clause each time and then either ran out of laps or handed synthesis a prose deductible that synthesis refused to use.
+**Where it doesn't lose:** the lean context strategy works. Raw notes go only to the notes worker, so there's no 9× bill. Under a dead worker it degrades to UNDETERMINED instead of lying.
+**Verdict: KILL the squad for claim adjudication; keep the single agent.** The squad is worse on pass rate (−20 pts), slower at p50 and p99 (+3.8 s, +3.9 s) and dearer (+30%), and it wins on none of the four numbers.
+**What would reopen it:** a typed worker output contract (numeric deductible) plus a worker that answers once its clause is retrieved, re-raced on these same 10 cases. That's a new experiment, not a reason to keep this build.

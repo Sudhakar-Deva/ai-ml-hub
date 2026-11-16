@@ -156,3 +156,7 @@ Thumbs.db
 
 # ---------- Tests (kept locally, not committed) ----------
 backend/tests/
+
+# ---------- Week 10 deliverables that the rules above would swallow ----------
+!week10/handoffs.log
+!evals/w10/runs/

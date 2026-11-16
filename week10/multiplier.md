@@ -1,0 +1,1 @@
+Context re-send multiplier = squad tokens / single-agent tokens = 55,897 / 56,240 = **1.0**. Largest token share: **orchestrator -> exclusions worker (all laps), 58% of all squad tokens**; its biggest single hand-off is `orchestrator -> exclusions worker (lap 2)` (29%), where the worker re-sends its own conversation including every policy chunk its earlier searches returned.

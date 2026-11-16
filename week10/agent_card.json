@@ -1,0 +1,55 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "claims-squad-orchestrator",
+  "description": "Adjusts one homeowners, dwelling-fire or condominium claim: decomposes it into an adjuster-note summary and a coverage/exclusions check, delegates each to a worker, and returns a coverage decision with the payable amount after the excess. Decides only from the governing policy wording; returns UNDETERMINED rather than guessing.",
+  "url": "https://claims-squad.internal.example/a2a/v1",
+  "preferredTransport": "JSONRPC",
+  "version": "0.10.0",
+  "provider": {
+    "organization": "AI Engineering League: claims assistant team (training build)",
+    "url": "https://claims-squad.internal.example"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": true,
+    "stateTransitionHistory": true
+  },
+  "securitySchemes": {
+    "claimsOAuth": {
+      "type": "oauth2",
+      "description": "Client-credentials token from the claims identity provider. adjudicate requires claims:read and policy:read; it never needs a write scope because the squad does not pay or settle.",
+      "flows": {
+        "clientCredentials": {
+          "tokenUrl": "https://idp.internal.example/oauth2/token",
+          "scopes": {
+            "claims:read": "read one claim's status and adjuster notes",
+            "policy:read": "search endorsement wording"
+          }
+        }
+      }
+    }
+  },
+  "security": [{ "claimsOAuth": ["claims:read", "policy:read"] }],
+  "defaultInputModes": ["application/json", "text/plain"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "adjudicate-claim",
+      "name": "Adjudicate a claim",
+      "description": "Given a claim number, returns {claim_number, decision: COVERED|PARTIAL|DENIED|UNDETERMINED, exclusion_codes, payable_amount, reason citing chunk_ids}. Pauses at input-required when the coverage/exclusions check cannot be completed, instead of deciding without it.",
+      "tags": ["insurance", "claims", "coverage", "exclusions"],
+      "examples": ["Adjust claim CLM-2026-10002", "{\"claim_number\": \"CLM-2026-10008\"}"],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json"]
+    },
+    {
+      "id": "summarise-adjuster-notes",
+      "name": "Summarise adjuster notes",
+      "description": "Given a claim number, returns the facts of the loss from the adjuster notes (cause, sudden or gradual, duration, occupancy, amounts). Does not decide coverage.",
+      "tags": ["insurance", "claims", "summary"],
+      "examples": ["What did the adjuster find on CLM-2026-10007?"],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json"]
+    }
+  ]
+}

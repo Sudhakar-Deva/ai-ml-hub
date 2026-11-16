@@ -1,0 +1,135 @@
+# every model call in the race, booked to the hand-off that caused it
+# claim | arm | handoff | input tokens | output tokens | total | payload chars handed over
+
+CLM-2026-10001 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10001 | single | single agent lap 2                           | in   1216 | out    73 |   1289 | -
+CLM-2026-10001 | single | single agent lap 3                           | in   2909 | out    83 |   2992 | -
+CLM-2026-10001 | single | single agent lap 4                           | in   2971 | out    88 |   3059 | -
+CLM-2026-10001 | single | TOTAL                                        |           |           |   8374 |
+CLM-2026-10001 | squad  | orchestrator.plan                            | in    514 | out   145 |    659 | 766
+CLM-2026-10001 | squad  | orchestrator -> notes worker                 | in    423 | out   316 |    739 | 1233
+CLM-2026-10001 | squad  | orchestrator -> exclusions worker (lap 1)    | in    675 | out    55 |    730 | 1352
+CLM-2026-10001 | squad  | orchestrator -> exclusions worker (lap 2)    | in   2564 | out    54 |   2618 | 9133
+CLM-2026-10001 | squad  | orchestrator -> exclusions worker (lap 3)    | in   4149 | out   153 |   4302 | 15546
+CLM-2026-10001 | squad  | workers -> orchestrator.synthesis            | in    853 | out   287 |   1140 | 1986
+CLM-2026-10001 | squad  | TOTAL                                        |           |           |  10188 |
+
+CLM-2026-10002 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10002 | single | single agent lap 2                           | in   1208 | out    54 |   1262 | -
+CLM-2026-10002 | single | single agent lap 3                           | in   2627 | out   155 |   2782 | -
+CLM-2026-10002 | single | TOTAL                                        |           |           |   5078 |
+CLM-2026-10002 | squad  | orchestrator.plan                            | in    516 | out   148 |    664 | 775
+CLM-2026-10002 | squad  | orchestrator -> notes worker                 | in    416 | out   330 |    746 | 1178
+CLM-2026-10002 | squad  | orchestrator -> exclusions worker (lap 1)    | in    693 | out    57 |    750 | 1406
+CLM-2026-10002 | squad  | orchestrator -> exclusions worker (lap 2)    | in   2356 | out   185 |   2541 | 8090
+CLM-2026-10002 | squad  | workers -> orchestrator.synthesis            | in    844 | out   165 |   1009 | 1890
+CLM-2026-10002 | squad  | TOTAL                                        |           |           |   5710 |
+
+CLM-2026-10003 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10003 | single | single agent lap 2                           | in   1203 | out    56 |   1259 | -
+CLM-2026-10003 | single | single agent lap 3                           | in   3091 | out   151 |   3242 | -
+CLM-2026-10003 | single | TOTAL                                        |           |           |   5535 |
+CLM-2026-10003 | squad  | orchestrator.plan                            | in    513 | out   162 |    675 | 757
+CLM-2026-10003 | squad  | orchestrator -> notes worker                 | in    420 | out   308 |    728 | 1234
+CLM-2026-10003 | squad  | orchestrator -> exclusions worker (lap 1)    | in    673 | out    53 |    726 | 1339
+CLM-2026-10003 | squad  | orchestrator -> exclusions worker (lap 2)    | in   2560 | out   171 |   2731 | 9110
+CLM-2026-10003 | squad  | workers -> orchestrator.synthesis            | in    829 | out   172 |   1001 | 1873
+CLM-2026-10003 | squad  | TOTAL                                        |           |           |   5861 |
+
+CLM-2026-10004 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10004 | single | single agent lap 2                           | in   1194 | out    55 |   1249 | -
+CLM-2026-10004 | single | single agent lap 3                           | in   2461 | out   148 |   2609 | -
+CLM-2026-10004 | single | TOTAL                                        |           |           |   4892 |
+CLM-2026-10004 | squad  | orchestrator.plan                            | in    515 | out   159 |    674 | 767
+CLM-2026-10004 | squad  | orchestrator -> notes worker                 | in    409 | out   306 |    715 | 1156
+CLM-2026-10004 | squad  | orchestrator -> exclusions worker (lap 1)    | in    673 | out    57 |    730 | 1323
+CLM-2026-10004 | squad  | orchestrator -> exclusions worker (lap 2)    | in   1944 | out   191 |   2135 | 6219
+CLM-2026-10004 | squad  | workers -> orchestrator.synthesis            | in    846 | out   147 |    993 | 1903
+CLM-2026-10004 | squad  | TOTAL                                        |           |           |   5247 |
+
+CLM-2026-10005 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10005 | single | single agent lap 2                           | in   1215 | out    46 |   1261 | -
+CLM-2026-10005 | single | single agent lap 3                           | in   2302 | out   132 |   2434 | -
+CLM-2026-10005 | single | single agent lap 4                           | in   2363 | out    63 |   2426 | -
+CLM-2026-10005 | single | TOTAL                                        |           |           |   7155 |
+CLM-2026-10005 | squad  | orchestrator.plan                            | in    511 | out   144 |    655 | 744
+CLM-2026-10005 | squad  | orchestrator -> notes worker                 | in    422 | out   315 |    737 | 1256
+CLM-2026-10005 | squad  | orchestrator -> exclusions worker (lap 1)    | in    660 | out    52 |    712 | 1242
+CLM-2026-10005 | squad  | orchestrator -> exclusions worker (lap 2)    | in   1856 | out   263 |   2119 | 5846
+CLM-2026-10005 | squad  | workers -> orchestrator.synthesis            | in    883 | out   230 |   1113 | 2138
+CLM-2026-10005 | squad  | TOTAL                                        |           |           |   5336 |
+
+CLM-2026-10006 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10006 | single | single agent lap 2                           | in   1182 | out    47 |   1229 | -
+CLM-2026-10006 | single | single agent lap 3                           | in   2379 | out   127 |   2506 | -
+CLM-2026-10006 | single | TOTAL                                        |           |           |   4769 |
+CLM-2026-10006 | squad  | orchestrator.plan                            | in    511 | out   150 |    661 | 744
+CLM-2026-10006 | squad  | orchestrator -> notes worker                 | in    393 | out   325 |    718 | 1079
+CLM-2026-10006 | squad  | orchestrator -> exclusions worker (lap 1)    | in    693 | out    53 |    746 | 1377
+CLM-2026-10006 | squad  | orchestrator -> exclusions worker (lap 2)    | in      0 | out     0 |      0 | 5986
+CLM-2026-10006 | squad  | orchestrator -> exclusions worker (lap 3)    | in      0 | out     0 |      0 | 6600
+CLM-2026-10006 | squad  | workers -> orchestrator.synthesis            | in    738 | out   103 |    841 | 1534
+CLM-2026-10006 | squad  | TOTAL                                        |           |           |   2966 |
+
+CLM-2026-10007 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10007 | single | single agent lap 2                           | in   1196 | out    48 |   1244 | -
+CLM-2026-10007 | single | single agent lap 3                           | in      0 | out     0 |      0 | -
+CLM-2026-10007 | single | single agent lap 4                           | in      0 | out     0 |      0 | -
+CLM-2026-10007 | single | single agent lap 5                           | in      0 | out     0 |      0 | -
+CLM-2026-10007 | single | single agent lap 6                           | in   3245 | out   115 |   3360 | -
+CLM-2026-10007 | single | TOTAL                                        |           |           |   5638 |
+CLM-2026-10007 | squad  | orchestrator.plan                            | in    513 | out   160 |    673 | 758
+CLM-2026-10007 | squad  | orchestrator -> notes worker                 | in    413 | out   365 |    778 | 1168
+CLM-2026-10007 | squad  | orchestrator -> exclusions worker (lap 1)    | in    705 | out    53 |    758 | 1399
+CLM-2026-10007 | squad  | orchestrator -> exclusions worker (lap 2)    | in   2439 | out   156 |   2595 | 8503
+CLM-2026-10007 | squad  | workers -> orchestrator.synthesis            | in    861 | out   175 |   1036 | 1887
+CLM-2026-10007 | squad  | TOTAL                                        |           |           |   5840 |
+
+CLM-2026-10008 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10008 | single | single agent lap 2                           | in   1185 | out    47 |   1232 | -
+CLM-2026-10008 | single | single agent lap 3                           | in   2430 | out   161 |   2591 | -
+CLM-2026-10008 | single | single agent lap 4                           | in      0 | out     0 |      0 | -
+CLM-2026-10008 | single | single agent lap 5                           | in   2632 | out   145 |   2777 | -
+CLM-2026-10008 | single | TOTAL                                        |           |           |   7634 |
+CLM-2026-10008 | squad  | orchestrator.plan                            | in    511 | out   216 |    727 | 739
+CLM-2026-10008 | squad  | orchestrator -> notes worker                 | in    404 | out   296 |    700 | 1035
+CLM-2026-10008 | squad  | orchestrator -> exclusions worker (lap 1)    | in    673 | out    55 |    728 | 1209
+CLM-2026-10008 | squad  | orchestrator -> exclusions worker (lap 2)    | in   1680 | out    62 |   1742 | 4900
+CLM-2026-10008 | squad  | orchestrator -> exclusions worker (lap 3)    | in   2925 | out    69 |   2994 | 9665
+CLM-2026-10008 | squad  | workers -> orchestrator.synthesis            | in    718 | out   100 |    818 | 1346
+CLM-2026-10008 | squad  | TOTAL                                        |           |           |   7709 |
+
+CLM-2026-10009 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10009 | single | single agent lap 2                           | in      0 | out     0 |      0 | -
+CLM-2026-10009 | single | single agent lap 3                           | in      0 | out     0 |      0 | -
+CLM-2026-10009 | single | single agent lap 4                           | in   1277 | out    89 |   1366 | -
+CLM-2026-10009 | single | TOTAL                                        |           |           |   2400 |
+CLM-2026-10009 | squad  | orchestrator.plan                            | in    513 | out   165 |    678 | 758
+CLM-2026-10009 | squad  | orchestrator -> notes worker                 | in    274 | out    86 |    360 | 557
+CLM-2026-10009 | squad  | workers -> orchestrator.synthesis            | in    616 | out    83 |    699 | 1034
+CLM-2026-10009 | squad  | TOTAL                                        |           |           |   1737 |
+
+CLM-2026-10010 | single | single agent lap 1                           | in    992 | out    42 |   1034 | -
+CLM-2026-10010 | single | single agent lap 2                           | in   1189 | out    52 |   1241 | -
+CLM-2026-10010 | single | single agent lap 3                           | in   2341 | out   149 |   2490 | -
+CLM-2026-10010 | single | TOTAL                                        |           |           |   4765 |
+CLM-2026-10010 | squad  | orchestrator.plan                            | in    511 | out   150 |    661 | 744
+CLM-2026-10010 | squad  | orchestrator -> notes worker                 | in    400 | out   325 |    725 | 1108
+CLM-2026-10010 | squad  | orchestrator -> exclusions worker (lap 1)    | in    685 | out    52 |    737 | 1338
+CLM-2026-10010 | squad  | orchestrator -> exclusions worker (lap 2)    | in      0 | out     0 |      0 | 5942
+CLM-2026-10010 | squad  | orchestrator -> exclusions worker (lap 3)    | in   2026 | out   146 |   2172 | 6526
+CLM-2026-10010 | squad  | workers -> orchestrator.synthesis            | in    832 | out   176 |   1008 | 1839
+CLM-2026-10010 | squad  | TOTAL                                        |           |           |   5303 |
+
+# squad totals by hand-off (10 claims)
+orchestrator -> exclusions worker (all laps)   calls  22 | in   30629 | out   1937 |   32566 tok |  58.3% of squad tokens
+workers -> orchestrator.synthesis              calls  10 | in    8020 | out   1638 |    9658 tok |  17.3% of squad tokens
+orchestrator -> notes worker                   calls  10 | in    3974 | out   2972 |    6946 tok |  12.4% of squad tokens
+orchestrator.plan                              calls  10 | in    5128 | out   1599 |    6727 tok |  12.0% of squad tokens
+
+# exclusions worker, by lap (each lap re-sends the whole worker conversation)
+orchestrator -> exclusions worker (lap 1)      calls   9 | in    6130 | out    487 |    6617 tok |  11.8% of squad tokens
+orchestrator -> exclusions worker (lap 2)      calls   9 | in   15399 | out   1082 |   16481 tok |  29.5% of squad tokens
+orchestrator -> exclusions worker (lap 3)      calls   4 | in    9100 | out    368 |    9468 tok |  16.9% of squad tokens
+
+# single agent: 56,240 tokens   squad: 55,897 tokens   multiplier 1.0

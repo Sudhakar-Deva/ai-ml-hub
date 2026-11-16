@@ -169,3 +169,10 @@ W8_WALL_CLOCK_S = float(os.getenv("W8_WALL_CLOCK_S", "400"))
 # the agent module.
 WEEK9_DIR = ROOT / "week9"
 MCP_CONFIG_FILE = Path(os.getenv("MCP_CONFIG_FILE", str(ROOT / "mcp_servers.json")))
+
+
+# --- Week 10 · single agent vs squad ----------------------------------------------
+# Runs land in evals/w10/runs/ (gitignored like every runs/ dir); the deliverables
+# generated from them land in week10/.
+WEEK10_DIR = ROOT / "week10"
+W10_RUNS_DIR = EVALS_DIR / "w10" / "runs"
