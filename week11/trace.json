@@ -1,0 +1,112 @@
+{
+  "_what": "The planted bad coverage answer, exactly as logged (week11/obs/requests.jsonl), found by the drill in 00:09.",
+  "request_id": "req_e9fffc122627",
+  "ts": "2026-11-15T10:22:00+00:00",
+  "ran_at": "2026-11-16T08:24:34+00:00",
+  "user": "ADJ-412",
+  "input_type": "claim_summary:homeowners",
+  "prompt_version": "claims-summary-v1",
+  "model": "openai/gpt-oss-120b",
+  "spans": [
+    {
+      "name": "retrieval",
+      "latency_ms": 5564.6,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "detail": "hybrid k=5 embed=sentence-transformers/all-MiniLM-L6-v2 (local)"
+    },
+    {
+      "name": "generation",
+      "latency_ms": 1517.1,
+      "tokens_in": 1779,
+      "tokens_out": 385,
+      "cost_usd": 0.0004978,
+      "detail": "openai/gpt-oss-120b {'temperature': 0, 'max_tokens': 1024}"
+    },
+    {
+      "name": "tools",
+      "latency_ms": 5.9,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "detail": "resolve_citations x1"
+    }
+  ],
+  "totals": {
+    "latency_ms": 7087.6,
+    "tokens": 2164,
+    "cost_usd": 0.0004978
+  },
+  "retrieved_context_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0005",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0006",
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003"
+  ],
+  "retrieved": [
+    {
+      "rank": 1,
+      "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+      "form": "HO-0304",
+      "policy_line": "homeowners",
+      "clause": "SECTION I — CONDITIONS APPLICABLE TO THIS ENDORSEMENT"
+    },
+    {
+      "rank": 2,
+      "chunk_id": "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002",
+      "form": "CO-0715",
+      "policy_line": "condo",
+      "clause": "SECTION I — LOSS ASSESSMENT COVERAGE"
+    },
+    {
+      "rank": 3,
+      "chunk_id": "structure_aware:CO-0715:CO-0715-ed-04-24.md:0005",
+      "form": "CO-0715",
+      "policy_line": "condo",
+      "clause": "SECTION I — EXCLUSIONS APPLICABLE TO LOSS ASSESSMENT / E-33"
+    },
+    {
+      "rank": 4,
+      "chunk_id": "structure_aware:CO-0715:CO-0715-ed-04-24.md:0006",
+      "form": "CO-0715",
+      "policy_line": "condo",
+      "clause": "SECTION I — EXCLUSIONS APPLICABLE TO LOSS ASSESSMENT / E-34"
+    },
+    {
+      "rank": 5,
+      "chunk_id": "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+      "form": "HO-0521",
+      "policy_line": "homeowners",
+      "clause": "A. Remediation of \"fungi\", wet or dry rot, or bacteria"
+    }
+  ],
+  "output": {
+    "coverage_position": "COVERED",
+    "exclusions_applied": "NONE",
+    "governing_form": "HO-0304 ed. 03-24",
+    "policy_line": "homeowners",
+    "deductible": "$750",
+    "citations": [
+      {
+        "chunk_id": "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+        "resolves": true
+      }
+    ],
+    "text": "CLAIM: [CLAIM_ID]  \nDATE OF LOSS: 2026-04-03  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0304 ed. 03-24  \nCOVERAGE POSITION: COVERED  \nDEDUCTIBLE: $750  \nEXCLUSIONS APPLIED: NONE  \nSUMMARY: The loss resulted from water intrusion through a roof opening that was not properly sealed, causing water stains, sagging drywall, and saturated attic insulation. The damage is a water loss caused by a covered peril under the homeowners policy, and the insured’s deductible of $750 applies per the policy’s deductible provision [structure_aware:HO-0304:HO-0304-ed-03-24.md:0013 | HO-0304 ed. 03-24 | SECTION I — CONDITIONS APPLICABLE TO THIS ENDORSEMENT]. No applicable exclusion codes are triggered by the facts of this loss."
+  },
+  "input": {
+    "notes": "Claim [CLAIM_ID]. Policy HO-741902 (homeowners form). Date of loss 2026-04-03. Reported: storm damage to ceilings, claimed $9,400, policy excess $750.\n2026-04-08 site visit. Insured reports a run of heavy spring storms in late March and early April. Water stains and sagging drywall in two upstairs bedroom ceilings; attic insulation saturated over roughly a 3 m by 4 m area under the rear roof slope. Roof inspected: no wind-lifted or missing shingles, no tree or hail impact. The insured's handyman had cut out a section of decking in mid-March to fit a new bathroom vent fan and covered the hole with a plastic sheet held by a few battens pending the roofer's return; the sheet had pulled loose at one edge and rain had been getting in each time it rained for about three weeks. No plumbing involvement; supply lines and HVAC checked and dry. Insured cooperative, photos on file.",
+    "notes_sha": "51e184365421",
+    "notes_chars": 886
+  },
+  "redaction": {
+    "applied": true,
+    "when": "pre-write",
+    "rules_fired": [
+      "claim_number"
+    ]
+  },
+  "diagnosis": "Retrieval miss, not a model miss: the governing clause HO-0304 E-22 is not among the 5 retrieved ids; 3 of the 5 are condo (CO-0715) chunks on a homeowners claim. The model answered COVERED from context that held no applicable exclusion."
+}

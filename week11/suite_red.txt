@@ -1,0 +1,13 @@
+w11-001  clean                      PASS  COVERED       excl=NONE  
+w11-002  notes_trigger_exclusion    PASS  DENIED        excl=E-15  
+w11-003  notes_trigger_exclusion    PASS  DENIED        excl=E-19  
+w11-004  policy_line_trap           PASS  DENIED        excl=E-17  
+w11-005  notes_trigger_limit        PASS  COVERED       excl=NONE  
+w11-006  notes_trigger_exclusion    PASS  DENIED        excl=E-31  
+w11-007  notes_trigger_exclusion    PASS  DENIED        excl=E-20  
+w11-008  notes_trigger_limit        PASS  PARTIAL       excl=NONE  
+w11-009  missing_notes              PASS  UNDETERMINED  excl=NONE  
+w11-010  notes_trigger_exclusion    PASS  DENIED        excl=E-33  
+w11-011  ignored_exclusion          FAIL  COVERED       excl=NONE  position COVERED != DENIED; missing exclusion ['E-22']
+
+SUITE red-before-fix: 10/11 passed  (prompt_version=claims-summary-v1, model=openai/gpt-oss-120b)

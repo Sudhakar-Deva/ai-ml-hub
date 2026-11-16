@@ -1,0 +1,221 @@
+{
+ "tag": "red-before-fix",
+ "ran_at": "2026-11-16T08:27:31+00:00",
+ "prompt_version": "claims-summary-v1",
+ "passed": 10,
+ "total": 11,
+ "rows": [
+  {
+   "id": "w11-001",
+   "mode": "clean",
+   "pass": true,
+   "why": [],
+   "position": "COVERED",
+   "exclusions": "NONE",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005"
+   ],
+   "tokens": 2543,
+   "cost_usd": 0.0005043,
+   "text": "CLAIM: CLM-2026-10001  \nDATE OF LOSS: 2026-03-14  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0304 ed. 03-24  \nCOVERAGE POSITION: COVERED  \nDEDUCTIBLE: $1,000  \nEXCLUSIONS APPLIED: NONE  \nSUMMARY: The loss resulted from a sudden and accidental rupture of a flexible plumbing supply line, which is expressly covered because exclusion E-17 does not apply to such damage [0007 | HO-0304 ed. 03-24 | E-17]. The policy provides a single deductible of $1,000 per water loss occurrence [0013 | HO-0304 ed. 03-24 | Deductible]. The claim amount of $8,500 for drywall, ceiling, and flooring repair is therefore payable less the deductible."
+  },
+  {
+   "id": "w11-002",
+   "mode": "notes_trigger_exclusion",
+   "pass": true,
+   "why": [],
+   "position": "DENIED",
+   "exclusions": "E-15",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006"
+   ],
+   "tokens": 2295,
+   "cost_usd": 0.0004905,
+   "text": "CLAIM: CLM-2026-10002  \nDATE OF LOSS: 2026-04-03  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0304 ed. 03-24  \nCOVERAGE POSITION: DENIED  \nDEDUCTIBLE: $1,000  \nEXCLUSIONS APPLIED: E-15  \nSUMMARY: The loss resulted from river flood water overtopping its bank and entering the insured\u2019s basement and ground floor, which is classified as flood, surface water, or overflow of a body of water and is excluded under E-15 [0005 | HO-0304 | SECTION I \u2014 EXCLUSIONS / E-15]. Because the loss is excluded, the policy does not provide coverage, and the deductible of $1,000 is irrelevant to the denial [0013 | HO-0304 | SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT]."
+  },
+  {
+   "id": "w11-003",
+   "mode": "notes_trigger_exclusion",
+   "pass": true,
+   "why": [],
+   "position": "DENIED",
+   "exclusions": "E-19",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008"
+   ],
+   "tokens": 2595,
+   "cost_usd": 0.0005755,
+   "text": "CLAIM: CLM-2026-10003  \nDATE OF LOSS: 2026-06-02  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0304 ed. 03-24  \nCOVERAGE POSITION: DENIED  \nDEDUCTIBLE: $1,000  \nEXCLUSIONS APPLIED: E-19  \nSUMMARY: The water loss was caused by continuous seepage from a leaking cold-water supply line that had been escaping for approximately three weeks, which triggers exclusion E-19 for \u201ccontinuous or repeated seepage or leakage \u2026 occurring over a period of 14 days or more\u201d and therefore is not covered [structure_aware:HO-0304:HO-0304-ed-03-24.md:0006 | HO-0304 ed. 03-24 | SECTION I \u2014 EXCLUSIONS / E-19]. The policy\u2019s deductible of $1,000 applies per loss occurrence."
+  },
+  {
+   "id": "w11-004",
+   "mode": "policy_line_trap",
+   "pass": true,
+   "why": [],
+   "position": "DENIED",
+   "exclusions": "E-17",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:DP-0110:DP-0110-ed-02-24.md:0005",
+    "structure_aware:DP-0110:DP-0110-ed-02-24.md:0004",
+    "structure_aware:DP-0110:DP-0110-ed-02-24.md:0002",
+    "structure_aware:DP-0110:DP-0110-ed-02-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013"
+   ],
+   "tokens": 2115,
+   "cost_usd": 0.0004874,
+   "text": "CLAIM: CLM-2026-10004  \nDATE OF LOSS: 2026-02-20  \nPOLICY LINE: dwelling_fire  \nGOVERNING FORM: DP-0110 ed. 02-24  \nCOVERAGE POSITION: DENIED  \nDEDUCTIBLE: $1,500  \nEXCLUSIONS APPLIED: E-17  \nSUMMARY: The loss resulted from a burst supply hose to the washing machine, which is classified as water damage from the discharge, rupture, or burst of a plumbing supply line within the dwelling and is excluded under E-17 of the DP-0110 form [structure_aware:DP-0110:DP-0110-ed-02-24.md:0002 | DP-0110 ed. 02-24 | SECTION I \u2014 EXCLUSIONS / E-17]. Consequently, the claim is denied despite the policy excess of $1,500."
+  },
+  {
+   "id": "w11-005",
+   "mode": "notes_trigger_limit",
+   "pass": true,
+   "why": [],
+   "position": "COVERED",
+   "exclusions": "NONE",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0005",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0006",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0004",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0003"
+   ],
+   "tokens": 2078,
+   "cost_usd": 0.0004971,
+   "text": "CLAIM: CLM-2026-10005  \nDATE OF LOSS: 2026-05-09  \nPOLICY LINE: condo  \nGOVERNING FORM: CO-0715 ed. 04-24  \nCOVERAGE POSITION: COVERED  \nDEDUCTIBLE: $250  \nEXCLUSIONS APPLIED: NONE  \nSUMMARY: The loss assessment of $3,000 was levied to repair roof damage caused by a windstorm, a peril insured against under SECTION\u202fI of the condo policy, and the assessment is not for a deductible, reserves, or routine maintenance, thus it is not excluded under any of the listed codes (E-31, E-32, E-33, E-34) [structure_aware:CO-0715:CO-0715-ed-04-24.md:0002 | CO-0715 ed. 04-24 | SECTION I \u2014 LOSS ASSESSMENT COVERAGE]. The policy provides coverage for such assessments with a $250 deductible per loss assessment [structure_aware:CO-0715:CO-0715-ed-04-24.md:0002 | CO-0715 ed. 04-24 | SECTION I \u2014 LOSS ASSESSMENT COVERAGE]."
+  },
+  {
+   "id": "w11-006",
+   "mode": "notes_trigger_exclusion",
+   "pass": true,
+   "why": [],
+   "position": "DENIED",
+   "exclusions": "E-31",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0004",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0005",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0003",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0006"
+   ],
+   "tokens": 2115,
+   "cost_usd": 0.0005346,
+   "text": "CLAIM: CLM-2026-10006  \nDATE OF LOSS: 2026-01-18  \nPOLICY LINE: condo  \nGOVERNING FORM: CO-0715 ed. 04-24  \nCOVERAGE POSITION: DENIED  \nDEDUCTIBLE: $250  \nEXCLUSIONS APPLIED: E-31  \nSUMMARY: The policy provides loss-assessment coverage up to $50,000 with a $250 deductible per assessment, but only when the assessment results from a direct physical loss to collectively owned property caused by a covered peril [structure_aware:CO-0715:CO-0715-ed-04-24.md:0002 | CO-0715 ed. 04-24 | SECTION I \u2014 LOSS ASSESSMENT COVERAGE]. The board\u2019s assessment was levied to fund the association\u2019s master-policy deductible, which is excluded under exclusion code E-31 [structure_aware:CO-0715:CO-0715-ed-04-24.md:0003 | CO-0715 ed. 04-24 | SECTION I \u2014 EXCLUSIONS APPLICABLE TO LOSS ASSESSMENT / E-31]. Consequently, the claim is denied."
+  },
+  {
+   "id": "w11-007",
+   "mode": "notes_trigger_exclusion",
+   "pass": true,
+   "why": [],
+   "position": "DENIED",
+   "exclusions": "E-20",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0003"
+   ],
+   "tokens": 2459,
+   "cost_usd": 0.0005038,
+   "text": "CLAIM: CLM-2026-10007  \nDATE OF LOSS: 2026-04-11  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0304 ed. 03-24  \nCOVERAGE POSITION: DENIED  \nDEDUCTIBLE: $1,000  \nEXCLUSIONS APPLIED: E-20  \nSUMMARY: The loss resulted from a municipal sewer backup that entered the basement through the floor drain during heavy rain, which is excluded under exclusion E-20 for water damage caused by the backup of sewers or drains [structure_aware:HO-0304:HO-0304-ed-03-24.md:0007 | HO-0304 ed. 03-24 | SECTION I \u2014 EXCLUSIONS / E-20]. No backup endorsement is on file, so the claim is denied despite the presence of mold and the estimated damages."
+  },
+  {
+   "id": "w11-008",
+   "mode": "notes_trigger_limit",
+   "pass": true,
+   "why": [],
+   "position": "PARTIAL",
+   "exclusions": "NONE",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0004",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0005",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002"
+   ],
+   "tokens": 1902,
+   "cost_usd": 0.0004563,
+   "text": "CLAIM: CLM-2026-10008  \nDATE OF LOSS: 2026-05-27  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0521 ed. 06-24  \nCOVERAGE POSITION: PARTIAL  \nDEDUCTIBLE: $500  \nEXCLUSIONS APPLIED: NONE  \nSUMMARY: The policy provides a special limit of $2,500 for loss by theft of jewelry, watches, and precious stones [structure_aware:HO-0521:HO-0521-ed-06-24.md:0004 | HO-0521 ed. 06-24 | B. Other special limits]. The insured\u2019s claim of $6,000 for a diamond ring and gold necklace exceeds this limit, so coverage is limited to the $2,500 special limit. The policy\u2019s deductible of $500 applies per loss occurrence [structure_aware:HO-0304:HO-0304-ed-03-24.md:0013 | HO-0304 ed. 03-24 | SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT]. No exclusions are triggered."
+  },
+  {
+   "id": "w11-009",
+   "mode": "missing_notes",
+   "pass": true,
+   "why": [],
+   "position": "UNDETERMINED",
+   "exclusions": "NONE",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0008",
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0005",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002"
+   ],
+   "tokens": 1773,
+   "cost_usd": 0.0004036,
+   "text": "CLAIM: CLM-2026-10009  \nDATE OF LOSS: 2026-07-08  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0608 ed. 01-24  \nCOVERAGE POSITION: UNDETERMINED  \nDEDUCTIBLE: $1,000  \nEXCLUSIONS APPLIED: NONE  \nSUMMARY: The loss is a water damage claim reported on 2026-07-08 for $11,000 with a policy excess of $1,000. The policy provides a single deductible per water loss occurrence as stated in the deductible clause of HO-0304 ed. 03-24 [0013 | HO-0304 | SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT]. However, the policy\u2019s coverage for water damage to the dwelling is not included in the provided excerpts, so it is unclear whether the $11,000 loss is covered, partially covered, or excluded. Additional policy language defining coverage for water damage to the dwelling is needed to determine the coverage position."
+  },
+  {
+   "id": "w11-010",
+   "mode": "notes_trigger_exclusion",
+   "pass": true,
+   "why": [],
+   "position": "DENIED",
+   "exclusions": "E-33",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0005",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0001"
+   ],
+   "tokens": 1898,
+   "cost_usd": 0.0004188,
+   "text": "CLAIM: CLM-2026-10010  \nDATE OF LOSS: 2026-03-02  \nPOLICY LINE: condo  \nGOVERNING FORM: CO-0715 ed. 04-24  \nCOVERAGE POSITION: DENIED  \nDEDUCTIBLE: $250  \nEXCLUSIONS APPLIED: E-33  \nSUMMARY: The association\u2019s assessment of $4,200 arises from water damage to the collectively owned cold-water riser, which the association failed to maintain, triggering exclusion E-33 for assessments resulting from maintenance failure of plumbing [0005 | CO-0715 ed. 04-24 | SECTION I \u2014 EXCLUSIONS APPLICABLE TO LOSS ASSESSMENT / E-33]. Because the loss is excluded, the claim is denied and the $250 assessment deductible is not applied."
+  },
+  {
+   "id": "w11-011",
+   "mode": "ignored_exclusion",
+   "pass": false,
+   "why": [
+    "position COVERED != DENIED",
+    "missing exclusion ['E-22']"
+   ],
+   "position": "COVERED",
+   "exclusions": "NONE",
+   "prompt_version": "claims-summary-v1",
+   "context_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0013",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0002",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0009",
+    "structure_aware:CO-0715:CO-0715-ed-04-24.md:0005",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0005"
+   ],
+   "tokens": 1971,
+   "cost_usd": 0.0004275,
+   "text": "CLAIM: CLAIM_ID  \nDATE OF LOSS: 2026-04-03  \nPOLICY LINE: homeowners  \nGOVERNING FORM: HO-0304 ed. 03-24  \nCOVERAGE POSITION: COVERED  \nDEDUCTIBLE: $750  \nEXCLUSIONS APPLIED: NONE  \nSUMMARY: The loss is a water damage claim arising from rain intrusion through a plastic sheet covering a roof decking opening, which is a covered peril under the homeowners policy. The policy provides a single deductible of $750 per water loss occurrence, which applies to this claim [structure_aware:HO-0304:HO-0304-ed-03-24.md:0013 | HO-0304 ed. 03-24 | SECTION I \u2014 CONDITIONS APPLICABLE TO THIS ENDORSEMENT]. No applicable exclusion codes are triggered by the facts of this loss."
+  }
+ ]
+}

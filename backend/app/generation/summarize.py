@@ -79,6 +79,54 @@ def _format_context(hits: list[dict]) -> str:
     )
 
 
+_LINE_HEADER_RE = re.compile(r"\((homeowners|dwelling_fire|condo) form\)", re.I)
+_LINE_WORD_RE = re.compile(r"\b(homeowners|dwelling[ _-]fire|condo(?:minium)?)\b", re.I)
+_EXCLUSION_ROW_RE = re.compile(r"/ E-\d+$")
+
+
+def policy_line_of(notes: str) -> str | None:
+    """The policy line the notes declare: the header's "(<line> form)" first, else
+    the first line word in the text. None when the notes don't say."""
+    m = _LINE_HEADER_RE.search(notes) or _LINE_WORD_RE.search(notes)
+    if not m:
+        return None
+    w = m.group(1).lower().replace(" ", "_").replace("-", "_")
+    return "condo" if w.startswith("condo") else w
+
+
+def exclusion_schedule(line: str, strategy: str = "structure_aware") -> list[dict]:
+    """Every exclusion row on this policy line, fetched by metadata, not by search."""
+    from ..retrieval.store import get_collection
+
+    res = get_collection(strategy).get(where={"policy_line": line}, include=["documents", "metadatas"])
+    rows = [{"rank": "schedule", "chunk_id": cid, "text": doc, "score": None, "score_kind": "attached", **meta}
+            for cid, doc, meta in zip(res["ids"], res["documents"], res["metadatas"])
+            if _EXCLUSION_ROW_RE.search(meta["clause"])]
+    return sorted(rows, key=lambda r: r["chunk_id"])
+
+
+def retrieve(notes: str, strategy: str = "structure_aware", k: int = config.TOP_K,
+             retriever: str = config.SHIPPED_RETRIEVER) -> list[dict]:
+    """The retrieval stage on its own, so the Week 11 instrumented path times it
+    as a span and a retrieval-layer fix lands in ONE place for both paths.
+
+    claims-summary-v2 (Week 11 fix): search ONLY the policy line the notes
+    declare, then attach that line's whole exclusions schedule. The v1 path
+    searched every line with the notes as the query. On the drill case
+    (week11/trace.json) that returned 3 condo chunks for a homeowners claim and
+    never surfaced HO-0304 E-22, so the model wrote COVERED over an exclusion it
+    was never shown. Notes-worded queries miss exclusion wording too often to
+    rely on (E-15 was missed for the flood claim at every k), so the schedule is
+    attached context, not a search result. When the notes don't name a line, v1
+    behaviour is kept: unfiltered search, no schedule."""
+    line = policy_line_of(notes)
+    hits = search(notes, strategy, k, policy_line=line, retriever=retriever)
+    if line:
+        seen = {h["chunk_id"] for h in hits}
+        hits += [h for h in exclusion_schedule(line, strategy) if h["chunk_id"] not in seen]
+    return hits
+
+
 def summarize(
     notes: str,
     strategy: str = "structure_aware",
@@ -93,7 +141,7 @@ def summarize(
     tells it either. That is where half of Week 5's failure modes live."""
     from .answer import MissingAPIKey
 
-    hits = search(notes, strategy, k, retriever=retriever)
+    hits = retrieve(notes, strategy, k, retriever)
     if not config.LLM_API_KEY:
         raise MissingAPIKey("LLM_API_KEY is not set — copy .env.example to .env and fill it in.")
 

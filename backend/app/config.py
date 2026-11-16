@@ -88,7 +88,11 @@ def collection_name(strategy: str) -> str:
 # The claim-summary path is a SECOND prompt with its own version. Week 5's
 # question-answering prompt is untouched: mixing the two would make every Week 5
 # trace unreplayable and every Week 6 number un-attributable.
-SUMMARY_PROMPT_VERSION = "claims-summary-v1"
+# v1 -> v2 (Week 11, 2026-11-16): retrieval filtered to the notes' policy line + that
+# line's full exclusions schedule attached. Fixes the drill case w11-011 (COVERED over
+# HO-0304 E-22). System prompt text unchanged; the rendered prompt's context changed,
+# so the version moves. Canary/rollback: week11/canary_rollback.md.
+SUMMARY_PROMPT_VERSION = "claims-summary-v2"
 
 WEEK6_DIR = ROOT / "week6"
 W6_DIR = EVALS_DIR / "w6"
@@ -176,3 +180,12 @@ MCP_CONFIG_FILE = Path(os.getenv("MCP_CONFIG_FILE", str(ROOT / "mcp_servers.json
 # generated from them land in week10/.
 WEEK10_DIR = ROOT / "week10"
 W10_RUNS_DIR = EVALS_DIR / "w10" / "runs"
+
+
+# --- Week 11 · observability, cost, failure -> test loop ---------------------------
+# One JSON line per production request, redacted on write. Committed (not under a
+# logs/ dir) because the drill's evidence IS this file.
+WEEK11_DIR = ROOT / "week11"
+W11_LOG_FILE = WEEK11_DIR / "obs" / "requests.jsonl"
+W11_SUITE_FILE = EVALS_DIR / "w11" / "coverage_suite.jsonl"
+W11_RUNS_DIR = EVALS_DIR / "w11" / "runs"

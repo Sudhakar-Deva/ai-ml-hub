@@ -160,3 +160,4 @@ backend/tests/
 # ---------- Week 10 deliverables that the rules above would swallow ----------
 !week10/handoffs.log
 !evals/w10/runs/
+!evals/w11/runs/
