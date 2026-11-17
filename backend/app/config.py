@@ -148,6 +148,8 @@ WALL_CLOCK_S = float(os.getenv("AGENT_WALL_CLOCK_S", "90"))
 # makes the Week 7 cost column wrong for both systems.
 PRICING = {
     "openai/gpt-oss-120b": (float(os.getenv("GROQ_PRICE_IN", "0.15")), float(os.getenv("GROQ_PRICE_OUT", "0.60"))),
+    # Week 12: Groq's listed price for gpt-oss-20b (check https://groq.com/pricing).
+    "openai/gpt-oss-20b": (float(os.getenv("GROQ_20B_PRICE_IN", "0.075")), float(os.getenv("GROQ_20B_PRICE_OUT", "0.30"))),
     "claude-sonnet-5": (2.00, 10.00),
     "claude-opus-5": (5.00, 25.00),
     "claude-haiku-4-5": (1.00, 5.00),
@@ -189,3 +191,33 @@ WEEK11_DIR = ROOT / "week11"
 W11_LOG_FILE = WEEK11_DIR / "obs" / "requests.jsonl"
 W11_SUITE_FILE = EVALS_DIR / "w11" / "coverage_suite.jsonl"
 W11_RUNS_DIR = EVALS_DIR / "w11" / "runs"
+
+
+# --- Week 12 · capstone: one entry point, RAG + agent + MCP + evals + logging -------
+# TRIAGE_VERSION is the ONE knob the failure -> test loop moves:
+#   triage-v1  the parts as they were: policy-docs.search_policy takes no loss date,
+#              get_clause returns whichever edition loaded last (seams S2, S3).
+#   triage-v2  the wording in force on the loss date, enforced in the store query:
+#              search_policy REQUIRES loss_date; get_clause resolves the edition by it.
+# The MCP server reads the same variable (passed through mcp_servers.capstone.json),
+# so the host and the server can never disagree about which version is running.
+TRIAGE_VERSION = os.getenv("TRIAGE_VERSION", "triage-v2")
+DATE_FILTER = TRIAGE_VERSION != "triage-v1"
+WEEK12_DIR = ROOT / "week12"
+W12_DIR = EVALS_DIR / "w12"
+W12_SUITE_FILE = W12_DIR / "suite.jsonl"
+W12_RUNS_DIR = W12_DIR / "runs"
+W12_LABELS_FILE = W12_DIR / "labels.json"
+POLICY_REGISTER_FILE = ROOT / "data" / "policies" / "register.json"
+PRODUCTS_FILE = ROOT / "data" / "policies" / "products.json"
+CAPSTONE_MCP_CONFIG = ROOT / "mcp_servers.capstone.json"
+# One trace per request, redacted on write. The MCP server appends its own spans to
+# the server-span file under the trace id it receives in the request's _meta.
+W12_TRACE_FILE = Path(os.getenv("W12_TRACE_FILE", str(WEEK12_DIR / "obs" / "traces.jsonl")))
+W12_MCP_SPAN_FILE = Path(os.getenv("W12_MCP_SPAN_FILE", str(WEEK12_DIR / "obs" / "mcp_server_spans.jsonl")))
+TRIAGE_MAX_ITERS = int(os.getenv("TRIAGE_MAX_ITERS", "6"))
+# The triage agent's model. gpt-oss-20b, not Weeks 7-11's gpt-oss-120b: on Groq's free
+# tier each model has its own ~200k tokens/day, and one 26-case suite run of the
+# 4-lap agent costs ~150k. 120b's day goes to the judge (the Week 6 judge model).
+TRIAGE_MODEL = os.getenv("TRIAGE_MODEL", "openai/gpt-oss-20b")
+TRIAGE_WALL_CLOCK_S = float(os.getenv("TRIAGE_WALL_CLOCK_S", "240"))

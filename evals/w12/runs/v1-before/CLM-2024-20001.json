@@ -1,0 +1,293 @@
+{
+ "trace_id": "tr_be25566d43b3",
+ "ts": "2026-11-16T10:36:37.039+00:00",
+ "triage_version": "triage-v1",
+ "date_filter": false,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "99a61b116db0",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2024-08-11",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781201 (homeowners)\nDate of loss: 2024-08-11\nReported: water damage - ground floor after heavy rain, claimed $18,600\nNotes (names, addresses and injuries redacted at intake):\n- 2024-08-11 ADJ-114: 2024-08-13 site visit with insured [NAME] at [ADDRESS] Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. [NAME] slipped on the wet kitchen floor and has [INJURY], treated at [INJURY]. Estimate for flooring, skirting and lower drywall: $18,600. Insured asks if the policy will pay.",
+ "intake_redaction": [
+  "address",
+  "injury",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2024-08-11",
+    "policy_number": "HO-781201"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2024-08-11",
+    "policy_number": "HO-781201"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "policy_line": "homeowners",
+    "query": "water damage ground floor rain runoff patio door air brick"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-19",
+    "HO-0304 ed. 04-25 | APPLICATION OF THESE EXCLUSIONS",
+    "HO-0304 ed. 04-25 | E-20",
+    "HO-0304 ed. 04-25 | E-17",
+    "HO-0304 ed. 04-25 | E-18"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0005"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water entered the dwelling at ground level via patio door and air brick after heavy rain. Estimated loss $18,600 for flooring, skirting and lower drywall.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2024-08-11",
+    "open_questions": [],
+    "policy_limit": 400000,
+    "sub_limit": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered the dwelling at ground level via patio door and air brick after heavy rain. Estimated loss $18,600 for flooring, skirting and lower drywall.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-08-11",
+  "open_questions": [],
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "referral": {
+  "citations": [],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered the dwelling at ground level via patio door and air brick after heavy rain. Estimated loss $18,600 for flooring, skirting and lower drywall.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-08-11",
+  "open_questions": [],
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "guard_fired": [],
+ "citations": [],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.3,
+   "latency_ms": 2.9,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 3.1,
+   "latency_ms": 1.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 4.6,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "injury",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 5.1,
+   "latency_ms": 609.0,
+   "tokens_in": 958,
+   "tokens_out": 53,
+   "cost_usd": 8.78e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 614.1,
+   "latency_ms": 312.9,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 927.1,
+   "latency_ms": 371.2,
+   "tokens_in": 1191,
+   "tokens_out": 42,
+   "cost_usd": 0.0001019,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 1298.3,
+   "latency_ms": 1.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 1299.5,
+   "latency_ms": 644.0,
+   "tokens_in": 1433,
+   "tokens_out": 54,
+   "cost_usd": 0.0001237,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 1943.5,
+   "latency_ms": 56.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 1999.9,
+   "latency_ms": 796.7,
+   "tokens_in": 2462,
+   "tokens_out": 192,
+   "cost_usd": 0.0002423,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 2796.7,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 2796.7,
+   "latency_ms": 0.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_be25566d43b3",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:36:39.037+00:00",
+   "latency_ms": 46.8,
+   "triage_version": "triage-v1",
+   "date_filter": false,
+   "args": {
+    "query": "water damage ground floor rain runoff patio door air brick",
+    "policy_line": "homeowners",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0005"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 2797.1,
+  "laps": 4,
+  "tokens_in": 6044,
+  "tokens_out": 341,
+  "cost_usd": 0.0005556,
+  "rate_limit_wait_ms": 0.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_be25566d43b3 \u00b7 triage-v1 \u00b7 loss date 2024-08-11\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2024-08-11:\n  (none)\nDeductible: $1,000   Sub-limit: none   Policy limit: $400,000\n  deductible basis: policy deductible\nFacts for the adjuster: Water entered the dwelling at ground level via patio door and air brick after heavy rain. Estimated loss $18,600 for flooring, skirting and lower drywall.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

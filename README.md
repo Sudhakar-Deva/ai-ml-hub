@@ -17,6 +17,10 @@ number on the same questions.
   tools and output contract) over 10 claims; four numbers each, then a verdict.
   Code in `backend/app/agents/`, write-up in [week7/README.md](week7/README.md).
 
+- **Week 12 (capstone)** — RAG + agent + MCP (consumed and exposed) + evals + tracing behind one entry point:
+  `./run.sh triage CLM-2024-20001`. Loss-date-aware retrieval moved wrong-endorsement-version citations 2/4 → 0/11;
+  the suite passes 7/26 and says why. Write-up: [week12/README.md](week12/README.md).
+
 ```
 ai-ml-hub/
 ├── frontend/                  React + Vite (JS), yarn

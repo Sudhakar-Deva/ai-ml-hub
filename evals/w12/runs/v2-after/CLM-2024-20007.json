@@ -1,0 +1,324 @@
+{
+ "trace_id": "tr_5dab6a5a6329",
+ "ts": "2026-11-16T10:43:56.815+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "459be8884f55",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2024-03-05",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-760245 (homeowners)\nDate of loss: 2024-03-05\nReported: water damage - kitchen, claimed $10,400\nNotes (names, addresses and injuries redacted at intake):\n- 2024-03-05 ADJ-114: 2024-03-07 site visit. Insured is [NAME], [ADDRESS] Buckled flooring discovered 2024-03-05. Supply line fitting under the sink weeping, not burst; staining shows about 20 days of escape before discovery (first escape around 2024-02-14). Estimate: $10,400.",
+ "intake_redaction": [
+  "address",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2024-03-05",
+    "policy_number": "HO-760245"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2024-03-05",
+    "policy_number": "HO-760245"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2024-03-05",
+    "policy_line": "homeowners",
+    "query": "water damage kitchen water damage kitchen water damage kitchen"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 03-24 | E-18",
+    "HO-0304 ed. 03-24 | E-20",
+    "HO-0304 ed. 03-24 | E-17",
+    "HO-0304 ed. 03-24 | E-19",
+    "HO-0304 ed. 03-24 | E-21"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-17",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Exclusion for sudden and accidental discharge, rupture, or burst of a plumbing supply line within the dwelling"
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water damage in kitchen due to a weeping supply line under the sink, with evidence of about 20 days of water escape before discovery. Estimated loss $10,400.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2024-03-05",
+    "policy_limit": 380000,
+    "sub_limit": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-17",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Exclusion for sudden and accidental discharge, rupture, or burst of a plumbing supply line within the dwelling"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water damage in kitchen due to a weeping supply line under the sink, with evidence of about 20 days of water escape before discovery. Estimated loss $10,400.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-03-05",
+  "policy_limit": 380000,
+  "sub_limit": null
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-17",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Exclusion for sudden and accidental discharge, rupture, or burst of a plumbing supply line within the dwelling"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water damage in kitchen due to a weeping supply line under the sink, with evidence of about 20 days of water escape before discovery. Estimated loss $10,400.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-03-05",
+  "policy_limit": 380000,
+  "sub_limit": null
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-17",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Exclusion for sudden and accidental discharge, rupture, or burst of a plumbing supply line within the dwelling",
+   "clause_as_cited": "E-17",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2024-03-05",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L21"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.0,
+   "latency_ms": 29.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 29.2,
+   "latency_ms": 4.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 33.7,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 34.1,
+   "latency_ms": 7867.7,
+   "tokens_in": 916,
+   "tokens_out": 53,
+   "cost_usd": 8.46e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 7901.8,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 7902.2,
+   "latency_ms": 9916.7,
+   "tokens_in": 1139,
+   "tokens_out": 42,
+   "cost_usd": 9.8e-05,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 17818.9,
+   "latency_ms": 0.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 17819.0,
+   "latency_ms": 9631.6,
+   "tokens_in": 1278,
+   "tokens_out": 62,
+   "cost_usd": 0.0001144,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 27450.6,
+   "latency_ms": 254.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 27705.5,
+   "latency_ms": 16074.9,
+   "tokens_in": 2371,
+   "tokens_out": 239,
+   "cost_usd": 0.0002495,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 43780.5,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 43780.5,
+   "latency_ms": 2.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_5dab6a5a6329",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:44:24.516+00:00",
+   "latency_ms": 229.3,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "water damage kitchen water damage kitchen water damage kitchen",
+    "policy_line": "homeowners",
+    "loss_date": "2024-03-05",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 43783.2,
+  "laps": 4,
+  "tokens_in": 5704,
+  "tokens_out": 396,
+  "cost_usd": 0.0005466,
+  "rate_limit_wait_ms": 40000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_5dab6a5a6329 \u00b7 triage-v2 \u00b7 loss date 2024-03-05\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2024-03-05:\n  - [HO-0304 ed. 03-24 \u00b7 E-17](../data/endorsements/HO-0304-ed-03-24.md#L21): Exclusion for sudden and accidental discharge, rupture, or burst of a plumbing supply line within the dwelling\nDeductible: $1,000   Sub-limit: none   Policy limit: $380,000\n  deductible basis: policy deductible\nFacts for the adjuster: Water damage in kitchen due to a weeping supply line under the sink, with evidence of about 20 days of water escape before discovery. Estimated loss $10,400.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

@@ -23,3 +23,10 @@ The loader pulls four fields off each file's header, falling back to the filenam
 If a field comes back `UNKNOWN`, fix the header or the regex in
 [loader.py](../../backend/app/ingestion/loader.py) — an `UNKNOWN` is a failed
 ingest and `ingest.py` will refuse to index it.
+
+## Week 12: editions
+
+HO-0304 now has three editions: `ed. 01-23` (2023), `ed. 03-24` (the supplied file) and `ed. 04-25` (2025, with the
+flood exclusion rewritten). The two added editions are **synthetic** (see [../policies/README.md](../policies/README.md)).
+`ingest.py` gives every chunk an `effective_from` / `effective_to` window: from its `Effective:` date to the day before
+the next edition of the same form took effect. `search(..., loss_date=)` filters on that window in the store query.

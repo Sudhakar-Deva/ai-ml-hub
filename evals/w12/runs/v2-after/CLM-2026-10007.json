@@ -1,0 +1,321 @@
+{
+ "trace_id": "tr_dededf91962d",
+ "ts": "2026-11-16T10:49:08.089+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "d4edd81d14c8",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2026-04-11",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-779800 (homeowners)\nDate of loss: 2026-04-11\nReported: water damage - basement, claimed $16,500\nNotes (names, addresses and injuries redacted at intake):\n- 2026-04-11 ADJ-114: 2026-04-25 site visit. During heavy rain on 2026-04-11 the municipal sewer backed up through the basement floor drain; about 2 inches of standing water. No sewer backup buy-back endorsement on the file. By the date of inspection mould was visible on the lower 30 cm of drywall. Estimate: water mitigation and rebuild $9,800, mould remediation $6,700, total $16,500.",
+ "intake_redaction": [],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2026-04-11",
+    "policy_number": "HO-779800"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2026-04-11",
+    "policy_line": "homeowners",
+    "query": "sewer backup municipal"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-21",
+    "HO-0304 ed. 04-25 | E-22",
+    "HO-0304 ed. 04-25 | E-20",
+    "HO-0304 ed. 04-25 | preamble",
+    "HO-0417 ed. 05-24 | preamble"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0009",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0000",
+    "structure_aware:HO-0417:HO-0417-ed-05-24.md:0000"
+   ]
+  },
+  {
+   "lap": 3,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2026-04-11",
+    "policy_number": "HO-779800"
+   },
+   "error": null
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-15",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible."
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Municipal sewer backed up through basement floor drain, about 2 inches of standing water, no sewer backup buy-back endorsement. Mold visible on lower 30 cm of drywall. Estimate mitigation and rebuild $9,800, mould remediation $6,700, total $16,500.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2026-04-11",
+    "policy_limit": 400000,
+    "sub_limit": 15000,
+    "sub_limit_basis": "surface water sub-limit"
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Municipal sewer backed up through basement floor drain, about 2 inches of standing water, no sewer backup buy-back endorsement. Mold visible on lower 30 cm of drywall. Estimate mitigation and rebuild $9,800, mould remediation $6,700, total $16,500.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2026-04-11",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "surface water sub-limit"
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Municipal sewer backed up through basement floor drain, about 2 inches of standing water, no sewer backup buy-back endorsement. Mold visible on lower 30 cm of drywall. Estimate mitigation and rebuild $9,800, mould remediation $6,700, total $16,500.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2026-04-11",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "surface water sub-limit"
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-15",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible.",
+   "clause_as_cited": "E-15",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2026-04-11",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L19"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.0,
+   "latency_ms": 18.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 18.2,
+   "latency_ms": 2.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 21.0,
+   "latency_ms": 0.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": []
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 21.5,
+   "latency_ms": 4125.8,
+   "tokens_in": 935,
+   "tokens_out": 53,
+   "cost_usd": 8.6e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 4147.4,
+   "latency_ms": 0.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 4148.0,
+   "latency_ms": 7525.6,
+   "tokens_in": 1162,
+   "tokens_out": 57,
+   "cost_usd": 0.0001042,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 11673.7,
+   "latency_ms": 67.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 11741.6,
+   "latency_ms": 11233.0,
+   "tokens_in": 1994,
+   "tokens_out": 64,
+   "cost_usd": 0.0001687,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 22974.7,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 22975.1,
+   "latency_ms": 17415.2,
+   "tokens_in": 2269,
+   "tokens_out": 265,
+   "cost_usd": 0.0002497,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 40390.4,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 40390.4,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_dededf91962d",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:49:19.828+00:00",
+   "latency_ms": 44.8,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "sewer backup municipal",
+    "policy_line": "homeowners",
+    "loss_date": "2026-04-11",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0009",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0000",
+    "structure_aware:HO-0417:HO-0417-ed-05-24.md:0000"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 40391.0,
+  "laps": 4,
+  "tokens_in": 6360,
+  "tokens_out": 439,
+  "cost_usd": 0.0006087,
+  "rate_limit_wait_ms": 36500.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_dededf91962d \u00b7 triage-v2 \u00b7 loss date 2026-04-11\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2026-04-11:\n  - [HO-0304 ed. 04-25 \u00b7 E-15](../data/endorsements/HO-0304-ed-04-25.md#L19): Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible.\nDeductible: $1,000   Sub-limit: $15,000   Policy limit: $400,000\n  deductible basis: policy deductible\n  sub limit basis: surface water sub-limit\nFacts for the adjuster: Municipal sewer backed up through basement floor drain, about 2 inches of standing water, no sewer backup buy-back endorsement. Mold visible on lower 30 cm of drywall. Estimate mitigation and rebuild $9,800, mould remediation $6,700, total $16,500.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

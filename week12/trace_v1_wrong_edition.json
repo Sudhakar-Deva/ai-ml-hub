@@ -1,0 +1,325 @@
+{
+  "_note": "The failure: triage-v1 (undated search), loss dated 2025-03-31, the day before HO-0304 ed. 04-25 took effect. Search returned editions 01-23, 03-24 and 04-25 mixed; the referral cites HO-0304 ed. 04-25 E-19, a wording not in force on the loss date. check_coverage_in_force told it ed. 03-24 was in force.",
+  "trace_id": "tr_184a6ee0c06c",
+  "ts": "2026-11-16T10:36:39.841+00:00",
+  "triage_version": "triage-v1",
+  "date_filter": false,
+  "model": "openai/gpt-oss-20b",
+  "prompt_sha": "9c5ee417c3c7",
+  "reasoning_effort": "low",
+  "temperature": 0,
+  "claim_ref": "964a662f3dda",
+  "claim_number": "[CLAIM_ID]",
+  "policy_line": "homeowners",
+  "loss_date": "2025-03-31",
+  "status": "ok",
+  "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781355 (homeowners)\nDate of loss: 2025-03-31\nReported: water damage - ground floor after heavy rain, claimed $12,900\nNotes (names, addresses and injuries redacted at intake):\n- 2025-03-31 ADJ-114: 2025-04-02 site visit. Insured is [NAME], [ADDRESS] Storm on 2025-03-31. Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. His son [INJURY] on debris during the clean-up. Estimate: $12,900.",
+  "intake_redaction": [
+    "address",
+    "injury",
+    "person_name"
+  ],
+  "tools_offered": [
+    "lookup_policy",
+    "check_coverage_in_force",
+    "policy-docs__search_policy",
+    "refer_to_adjuster"
+  ],
+  "mcp_discovered": [
+    "policy-docs__search_policy"
+  ],
+  "steps": [
+    {
+      "lap": 1,
+      "tool": "check_coverage_in_force",
+      "args": {
+        "loss_date": "2025-03-31",
+        "policy_number": "HO-781355"
+      },
+      "error": null
+    },
+    {
+      "lap": 2,
+      "tool": "lookup_policy",
+      "args": {
+        "loss_date": "2025-03-31",
+        "policy_number": "HO-781355"
+      },
+      "error": null
+    },
+    {
+      "lap": 3,
+      "tool": "policy-docs__search_policy",
+      "args": {
+        "k": 5,
+        "policy_line": "homeowners",
+        "query": "water damage ground floor patio door air brick"
+      },
+      "error": null,
+      "returned": [
+        "HO-0304 ed. 01-23 | E-21",
+        "HO-0304 ed. 04-25 | E-19",
+        "HO-0304 ed. 04-25 | E-21",
+        "HO-0304 ed. 03-24 | E-21",
+        "HO-0304 ed. 04-25 | E-20"
+      ],
+      "chunk_ids": [
+        "structure_aware:HO-0304:HO-0304-ed-01-23.md:0008",
+        "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+        "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+        "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+        "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007"
+      ]
+    },
+    {
+      "lap": 4,
+      "tool": "refer_to_adjuster",
+      "args": {
+        "citations": [
+          {
+            "clause": "E-19",
+            "edition": "04-25",
+            "form": "HO-0304",
+            "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible."
+          }
+        ],
+        "claim_number": "[CLAIM_ID]",
+        "deductible": 1000,
+        "deductible_basis": "policy deductible",
+        "facts_for_adjuster": "Water entered the dwelling through the patio door and an air brick after heavy rain, causing $12,900 of damage on 2025-03-31. The policy was in force on the loss date. No sub-limit applies to this loss.",
+        "in_force": true,
+        "in_force_basis": "Policy was in force on the loss date.",
+        "loss_date": "2025-03-31",
+        "policy_limit": 400000,
+        "sub_limit": null
+      },
+      "error": null
+    }
+  ],
+  "referral_raw": {
+    "citations": [
+      {
+        "clause": "E-19",
+        "edition": "04-25",
+        "form": "HO-0304",
+        "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible."
+      }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water entered the dwelling through the patio door and an air brick after heavy rain, causing $12,900 of damage on 2025-03-31. The policy was in force on the loss date. No sub-limit applies to this loss.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2025-03-31",
+    "policy_limit": 400000,
+    "sub_limit": null
+  },
+  "referral": {
+    "citations": [
+      {
+        "clause": "E-19",
+        "edition": "04-25",
+        "form": "HO-0304",
+        "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible."
+      }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water entered the dwelling through the patio door and an air brick after heavy rain, causing $12,900 of damage on 2025-03-31. The policy was in force on the loss date. No sub-limit applies to this loss.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2025-03-31",
+    "policy_limit": 400000,
+    "sub_limit": null
+  },
+  "guard_fired": [],
+  "citations": [
+    {
+      "clause": "E-19",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible.",
+      "clause_as_cited": "E-19",
+      "exists": true,
+      "edition_in_force": "03-24",
+      "wrong_version": true,
+      "resolved_against_loss_date": "2025-03-31",
+      "source": "data/endorsements/HO-0304-ed-04-25.md#L23"
+    }
+  ],
+  "spans": [
+    {
+      "span": "mcp.claims-system.get_claim_status",
+      "side": "host",
+      "start_ms": 0.0,
+      "latency_ms": 3.7,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "span": "mcp.claims-system.get_adjuster_notes",
+      "side": "host",
+      "start_ms": 3.7,
+      "latency_ms": 1.9,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "span": "redact.intake",
+      "side": "host",
+      "start_ms": 5.6,
+      "latency_ms": 0.5,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "redaction": [
+        "address",
+        "injury",
+        "person_name"
+      ]
+    },
+    {
+      "span": "llm.generation",
+      "side": "host",
+      "start_ms": 6.1,
+      "latency_ms": 587.8,
+      "tokens_in": 943,
+      "tokens_out": 53,
+      "cost_usd": 8.66e-05,
+      "lap": 1,
+      "model": "openai/gpt-oss-20b"
+    },
+    {
+      "span": "tool.check_coverage_in_force",
+      "side": "host",
+      "start_ms": 593.9,
+      "latency_ms": 0.1,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "lap": 1,
+      "error": null
+    },
+    {
+      "span": "llm.generation",
+      "side": "host",
+      "start_ms": 594.1,
+      "latency_ms": 240.2,
+      "tokens_in": 1176,
+      "tokens_out": 42,
+      "cost_usd": 0.0001008,
+      "lap": 2,
+      "model": "openai/gpt-oss-20b"
+    },
+    {
+      "span": "tool.lookup_policy",
+      "side": "host",
+      "start_ms": 834.3,
+      "latency_ms": 0.1,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "lap": 2,
+      "error": null
+    },
+    {
+      "span": "llm.generation",
+      "side": "host",
+      "start_ms": 834.4,
+      "latency_ms": 4982.5,
+      "tokens_in": 1418,
+      "tokens_out": 52,
+      "cost_usd": 0.0001219,
+      "lap": 3,
+      "model": "openai/gpt-oss-20b"
+    },
+    {
+      "span": "mcp.policy-docs.search_policy",
+      "side": "host",
+      "start_ms": 5816.9,
+      "latency_ms": 69.7,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "lap": 3,
+      "error": null
+    },
+    {
+      "span": "llm.generation",
+      "side": "host",
+      "start_ms": 5886.7,
+      "latency_ms": 18447.0,
+      "tokens_in": 2444,
+      "tokens_out": 260,
+      "cost_usd": 0.0002613,
+      "lap": 4,
+      "model": "openai/gpt-oss-20b"
+    },
+    {
+      "span": "tool.refer_to_adjuster",
+      "side": "host",
+      "start_ms": 24333.7,
+      "latency_ms": 0.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "lap": 4,
+      "error": null
+    },
+    {
+      "span": "guard.decision_language+citation_check",
+      "side": "host",
+      "start_ms": 24333.8,
+      "latency_ms": 1.3,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fired": 0
+    },
+    {
+      "trace_id": "tr_184a6ee0c06c",
+      "span": "mcp.policy-docs.search_policy",
+      "side": "server",
+      "ts": "2026-11-16T10:36:45.726+00:00",
+      "latency_ms": 44.1,
+      "triage_version": "triage-v1",
+      "date_filter": false,
+      "args": {
+        "query": "water damage ground floor patio door air brick",
+        "policy_line": "homeowners",
+        "k": 5
+      },
+      "returned_ids": [
+        "structure_aware:HO-0304:HO-0304-ed-01-23.md:0008",
+        "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+        "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+        "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+        "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007"
+      ],
+      "error": null,
+      "cost_usd": 0.0,
+      "redaction": []
+    }
+  ],
+  "totals": {
+    "latency_ms": 24335.4,
+    "laps": 4,
+    "tokens_in": 5981,
+    "tokens_out": 407,
+    "cost_usd": 0.0005707,
+    "rate_limit_wait_ms": 22000.0
+  },
+  "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_184a6ee0c06c \u00b7 triage-v1 \u00b7 loss date 2025-03-31\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2025-03-31:\n  - [HO-0304 ed. 04-25 \u00b7 E-19](../data/endorsements/HO-0304-ed-04-25.md#L23): Surface water from rainfall that pools on the residence premises and enters the dwelling at or above ground level is not excluded and is paid up to the surface water sub-limit of $15,000 per occurrence, after the deductible.  \u26a0 edition in force on the loss date was ed. 03-24\nDeductible: $1,000   Sub-limit: none   Policy limit: $400,000\n  deductible basis: policy deductible\nFacts for the adjuster: Water entered the dwelling through the patio door and an air brick after heavy rain, causing $12,900 of damage on 2025-03-31. The policy was in force on the loss date. No sub-limit applies to this loss.",
+  "redaction": {
+    "when": "pre-write",
+    "hits": [
+      "claim_number"
+    ]
+  }
+}

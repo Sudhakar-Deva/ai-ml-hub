@@ -1,0 +1,621 @@
+{
+  "CLM-2026-10001": {
+    "claim_number": "CLM-2026-10001",
+    "policy_number": "HO-778120",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2026-03-14",
+    "loss_type_reported": "water damage - upstairs bathroom",
+    "claimed_amount": 8500,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-03-14",
+    "notes": [
+      {
+        "date": "2026-03-14",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - upstairs bathroom, claimed $8,500."
+      },
+      {
+        "date": "2026-03-14",
+        "author": "ADJ-114",
+        "note": "2026-03-16 site visit. Braided flexible connector between the shutoff valve and the upstairs toilet burst on 2026-03-14 while the insured was home. Insured shut the water off at the main within roughly 20 minutes. Water came through the ceiling of the dining room below. Contractor estimate for drywall, ceiling and flooring repair: $8,500. The connector itself was replaced by the insured for $40 and is not part of the claim. No prior leak history, no staining older than the event."
+      }
+    ]
+  },
+  "CLM-2026-10002": {
+    "claim_number": "CLM-2026-10002",
+    "policy_number": "HO-771044",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2026-04-03",
+    "loss_type_reported": "water damage - basement and ground floor",
+    "claimed_amount": 23000,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-04-03",
+    "notes": [
+      {
+        "date": "2026-04-03",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - basement and ground floor, claimed $23,000."
+      },
+      {
+        "date": "2026-04-03",
+        "author": "ADJ-114",
+        "note": "2026-04-06 site visit. The Millbrook river crested on 2026-04-03 after three days of rain and overtopped its bank at the end of the insured's street. Water entered through the basement window wells and under the back door to a depth of about 18 inches on the ground floor. Neighbours on the same street report the same. Estimate for strip-out, drying and rebuild: $23,000. Insured asks whether the policy responds."
+      }
+    ]
+  },
+  "CLM-2026-10003": {
+    "claim_number": "CLM-2026-10003",
+    "policy_number": "HO-770391",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2026-06-02",
+    "loss_type_reported": "water damage - kitchen",
+    "claimed_amount": 14200,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-06-02",
+    "notes": [
+      {
+        "date": "2026-06-02",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - kitchen, claimed $14,200."
+      },
+      {
+        "date": "2026-06-02",
+        "author": "ADJ-114",
+        "note": "2026-06-04 site visit. Insured discovered buckled flooring in front of the kitchen sink on 2026-06-02. Plumber found the compression fitting on the cold supply line under the sink weeping, not burst. Tide-line staining on the cabinet base and the subfloor indicates water had been escaping for about three weeks before discovery. Insured was home throughout and did not notice. Estimate: $14,200 for cabinets, subfloor and flooring."
+      }
+    ]
+  },
+  "CLM-2026-10004": {
+    "claim_number": "CLM-2026-10004",
+    "policy_number": "DP-552017",
+    "policy_line": "dwelling_fire",
+    "status": "under_review",
+    "date_of_loss": "2026-02-20",
+    "loss_type_reported": "water damage - rental property",
+    "claimed_amount": 9800,
+    "policy_excess": 1500,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-02-20",
+    "notes": [
+      {
+        "date": "2026-02-20",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - rental property, claimed $9,800."
+      },
+      {
+        "date": "2026-02-20",
+        "author": "ADJ-114",
+        "note": "2026-02-23 site visit. Tenant-occupied rental. The supply hose to the washing machine burst on 2026-02-20; the tenant says water covered the laundry room and kitchen within the hour before the landlord's handyman shut it off. The landlord had the plumbing inspected in January 2026 and has the invoice. Sudden event, no evidence of prior leakage. Estimate: $9,800."
+      }
+    ]
+  },
+  "CLM-2026-10005": {
+    "claim_number": "CLM-2026-10005",
+    "policy_number": "CO-330912",
+    "policy_line": "condo",
+    "status": "under_review",
+    "date_of_loss": "2026-05-09",
+    "loss_type_reported": "loss assessment",
+    "claimed_amount": 3000,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-05-09",
+    "notes": [
+      {
+        "date": "2026-05-09",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: loss assessment, claimed $3,000."
+      },
+      {
+        "date": "2026-05-09",
+        "author": "ADJ-114",
+        "note": "2026-05-20 file review. Windstorm on 2026-05-09 tore sections of the building's roof, which is collectively owned by the association. Windstorm is a peril insured against under SECTION I of the insured's unit-owners policy (confirmed from the declarations). The association's master policy excludes the roof covering as cosmetic, so the association levied a special assessment of $3,000 per unit to repair it. The assessment is not for the association's deductible and not for reserves. Insured submits the assessment letter."
+      }
+    ]
+  },
+  "CLM-2026-10006": {
+    "claim_number": "CLM-2026-10006",
+    "policy_number": "CO-330477",
+    "policy_line": "condo",
+    "status": "under_review",
+    "date_of_loss": "2026-01-18",
+    "loss_type_reported": "loss assessment",
+    "claimed_amount": 2500,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-01-18",
+    "notes": [
+      {
+        "date": "2026-01-18",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: loss assessment, claimed $2,500."
+      },
+      {
+        "date": "2026-01-18",
+        "author": "ADJ-114",
+        "note": "2026-01-29 file review. Windstorm damage to the building on 2026-01-18. The association's master policy paid the loss above its $50,000 windstorm deductible. To fund that deductible the board assessed each of the 20 units $2,500. Insured submits the assessment letter, which states the purpose as 'master policy deductible'."
+      }
+    ]
+  },
+  "CLM-2026-10007": {
+    "claim_number": "CLM-2026-10007",
+    "policy_number": "HO-779800",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2026-04-11",
+    "loss_type_reported": "water damage - basement",
+    "claimed_amount": 16500,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-04-11",
+    "notes": [
+      {
+        "date": "2026-04-11",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - basement, claimed $16,500."
+      },
+      {
+        "date": "2026-04-11",
+        "author": "ADJ-114",
+        "note": "2026-04-25 site visit. During heavy rain on 2026-04-11 the municipal sewer backed up through the basement floor drain; about 2 inches of standing water. No sewer backup buy-back endorsement on the file. By the date of inspection mould was visible on the lower 30 cm of drywall. Estimate: water mitigation and rebuild $9,800, mould remediation $6,700, total $16,500."
+      }
+    ]
+  },
+  "CLM-2026-10008": {
+    "claim_number": "CLM-2026-10008",
+    "policy_number": "HO-774456",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2026-05-27",
+    "loss_type_reported": "theft",
+    "claimed_amount": 6000,
+    "policy_excess": 500,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-05-27",
+    "notes": [
+      {
+        "date": "2026-05-27",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: theft, claimed $6,000."
+      },
+      {
+        "date": "2026-05-27",
+        "author": "ADJ-114",
+        "note": "2026-05-29 call and police report. Burglary on 2026-05-27 while the insured was at work; rear door forced. Items taken: a diamond engagement ring appraised at $4,200 and a gold necklace appraised at $1,800, total $6,000. No other property taken or damaged. Appraisals from 2025 on file."
+      }
+    ]
+  },
+  "CLM-2026-10009": {
+    "claim_number": "CLM-2026-10009",
+    "policy_number": "HO-772210",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2026-07-08",
+    "loss_type_reported": "water damage - kitchen",
+    "claimed_amount": 11000,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-07-08",
+    "notes": [
+      {
+        "date": "2026-07-08",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - kitchen, claimed $11,000."
+      }
+    ]
+  },
+  "CLM-2026-10010": {
+    "claim_number": "CLM-2026-10010",
+    "policy_number": "CO-331560",
+    "policy_line": "condo",
+    "status": "under_review",
+    "date_of_loss": "2026-03-02",
+    "loss_type_reported": "loss assessment",
+    "claimed_amount": 4200,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-03-02",
+    "notes": [
+      {
+        "date": "2026-03-02",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: loss assessment, claimed $4,200."
+      },
+      {
+        "date": "2026-03-02",
+        "author": "ADJ-114",
+        "note": "2026-03-12 file review. The building's shared cold-water riser failed on 2026-03-02 and flooded the common hallways on three floors. Board minutes from 2024 and 2025 record the riser as corroded and the replacement deferred both years for budget reasons. The association assessed each unit owner $4,200 to repair the water damage to the common hallways."
+      }
+    ]
+  },
+  "CLM-2026-10011": {
+    "claim_number": "CLM-2026-10011",
+    "policy_number": "HO-741902",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2026-04-03",
+    "loss_type_reported": "storm damage to ceilings",
+    "claimed_amount": 9400,
+    "policy_excess": 750,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2026-04-03",
+    "notes": [
+      {
+        "date": "2026-04-03",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: storm damage to ceilings, claimed $9,400."
+      },
+      {
+        "date": "2026-04-03",
+        "author": "ADJ-114",
+        "note": "2026-04-08 site visit. Insured reports a run of heavy spring storms in late March and early April. Water stains and sagging drywall in two upstairs bedroom ceilings; attic insulation saturated over roughly a 3 m by 4 m area under the rear roof slope. Roof inspected: no wind-lifted or missing shingles, no tree or hail impact. The insured's handyman had cut out a section of decking in mid-March to fit a new bathroom vent fan and covered the hole with a plastic sheet held by a few battens pending the roofer's return; the sheet had pulled loose at one edge and rain had been getting in each time it rained for about three weeks. No plumbing involvement; supply lines and HVAC checked and dry. Insured cooperative, photos on file."
+      }
+    ]
+  },
+  "CLM-2024-20001": {
+    "claim_number": "CLM-2024-20001",
+    "policy_number": "HO-781201",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2024-08-11",
+    "loss_type_reported": "water damage - ground floor after heavy rain",
+    "claimed_amount": 18600,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2024-08-11",
+    "notes": [
+      {
+        "date": "2024-08-11",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - ground floor after heavy rain, claimed $18,600."
+      },
+      {
+        "date": "2024-08-11",
+        "author": "ADJ-114",
+        "note": "2024-08-13 site visit with insured Mrs Dana Whitfield at 27 Orchard Lane. Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. Mrs Whitfield slipped on the wet kitchen floor and has a sprained wrist, treated at urgent care. Estimate for flooring, skirting and lower drywall: $18,600. Insured asks if the policy will pay."
+      }
+    ]
+  },
+  "CLM-2025-20002": {
+    "claim_number": "CLM-2025-20002",
+    "policy_number": "HO-781355",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2025-03-31",
+    "loss_type_reported": "water damage - ground floor after heavy rain",
+    "claimed_amount": 12900,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-03-31",
+    "notes": [
+      {
+        "date": "2025-03-31",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - ground floor after heavy rain, claimed $12,900."
+      },
+      {
+        "date": "2025-03-31",
+        "author": "ADJ-114",
+        "note": "2025-04-02 site visit. Insured is Arjun Mehta, 8 Kestrel Road. Storm on 2025-03-31. Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. His son cut his foot on debris during the clean-up. Estimate: $12,900."
+      }
+    ]
+  },
+  "CLM-2025-20003": {
+    "claim_number": "CLM-2025-20003",
+    "policy_number": "HO-781420",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2025-04-01",
+    "loss_type_reported": "water damage - ground floor after heavy rain",
+    "claimed_amount": 21400,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-04-01",
+    "notes": [
+      {
+        "date": "2025-04-01",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - ground floor after heavy rain, claimed $21,400."
+      },
+      {
+        "date": "2025-04-01",
+        "author": "ADJ-114",
+        "note": "2025-04-03 site visit with claimant Grace Okafor at 112 Linden Avenue. Storm on 2025-04-01. Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. Estimate for strip-out and rebuild of the ground floor: $21,400."
+      }
+    ]
+  },
+  "CLM-2025-20004": {
+    "claim_number": "CLM-2025-20004",
+    "policy_number": "HO-781502",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2025-02-14",
+    "loss_type_reported": "water damage - basement and ground floor",
+    "claimed_amount": 26800,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-02-14",
+    "notes": [
+      {
+        "date": "2025-02-14",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - basement and ground floor, claimed $26,800."
+      },
+      {
+        "date": "2025-02-14",
+        "author": "ADJ-114",
+        "note": "2025-02-17 site visit. Insured is Tomasz Nowak, 3 Mill Street. Ashby Brook burst its banks on 2025-02-14 after snowmelt and rain; brook water ran down the lane and entered the basement and ground floor to about 30 cm. Neighbours on the same lane affected. Insured bruised his hip moving furniture. Estimate: $26,800."
+      }
+    ]
+  },
+  "CLM-2025-20005": {
+    "claim_number": "CLM-2025-20005",
+    "policy_number": "HO-781502",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2025-06-20",
+    "loss_type_reported": "water damage - basement",
+    "claimed_amount": 9700,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-06-20",
+    "notes": [
+      {
+        "date": "2025-06-20",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - basement, claimed $9,700."
+      },
+      {
+        "date": "2025-06-20",
+        "author": "ADJ-114",
+        "note": "2025-06-23 site visit at 3 Mill Street, insured Tomasz Nowak. Ashby Brook overtopped its bank again on 2025-06-20 after a cloudburst upstream; brook water entered the basement through the window wells to about 15 cm. Estimate: $9,700."
+      }
+    ]
+  },
+  "CLM-2024-20006": {
+    "claim_number": "CLM-2024-20006",
+    "policy_number": "HO-760118",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2024-02-10",
+    "loss_type_reported": "water damage - kitchen",
+    "claimed_amount": 11800,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2024-02-10",
+    "notes": [
+      {
+        "date": "2024-02-10",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - kitchen, claimed $11,800."
+      },
+      {
+        "date": "2024-02-10",
+        "author": "ADJ-114",
+        "note": "2024-02-12 site visit. Insured Mr Leon Fischer, 41 Ash Court. Buckled kitchen flooring discovered 2024-02-10. Plumber found the cold supply compression fitting under the sink weeping, not burst. Staining shows water escaping for about 20 days before discovery (first escape around 2024-01-21). Estimate: $11,800."
+      }
+    ]
+  },
+  "CLM-2024-20007": {
+    "claim_number": "CLM-2024-20007",
+    "policy_number": "HO-760245",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2024-03-05",
+    "loss_type_reported": "water damage - kitchen",
+    "claimed_amount": 10400,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2024-03-05",
+    "notes": [
+      {
+        "date": "2024-03-05",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - kitchen, claimed $10,400."
+      },
+      {
+        "date": "2024-03-05",
+        "author": "ADJ-114",
+        "note": "2024-03-07 site visit. Insured is Priya Raman, 19 Heron Drive. Buckled flooring discovered 2024-03-05. Supply line fitting under the sink weeping, not burst; staining shows about 20 days of escape before discovery (first escape around 2024-02-14). Estimate: $10,400."
+      }
+    ]
+  },
+  "CLM-2023-20008": {
+    "claim_number": "CLM-2023-20008",
+    "policy_number": "HO-755890",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2023-09-02",
+    "loss_type_reported": "water damage - ground floor after heavy rain",
+    "claimed_amount": 14300,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2023-09-02",
+    "notes": [
+      {
+        "date": "2023-09-02",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - ground floor after heavy rain, claimed $14,300."
+      },
+      {
+        "date": "2023-09-02",
+        "author": "ADJ-114",
+        "note": "2023-09-05 site visit. Insured is Ms Helen Carter, 6 Poplar Lane. Storm on 2023-09-02. Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. Estimate: $14,300."
+      }
+    ]
+  },
+  "CLM-2025-20009": {
+    "claim_number": "CLM-2025-20009",
+    "policy_number": "HO-781610",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2025-01-20",
+    "loss_type_reported": "water damage - frozen pipe",
+    "claimed_amount": 7600,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-01-20",
+    "notes": [
+      {
+        "date": "2025-01-20",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - frozen pipe, claimed $7,600."
+      },
+      {
+        "date": "2025-01-20",
+        "author": "ADJ-114",
+        "note": "2025-01-22 site visit. Insured Mr Samuel Price, 55 Cedar Road. Pipe in an exterior wall froze and split on 2025-01-20 during a cold snap; the house was occupied and heated. Estimate: $7,600. Note: renewal premium was received late; renewal term starts 2025-02-01."
+      }
+    ]
+  },
+  "CLM-2024-20010": {
+    "claim_number": "CLM-2024-20010",
+    "policy_number": "HO-781733",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2024-05-03",
+    "loss_type_reported": "water damage - laundry room",
+    "claimed_amount": 5200,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2024-05-03",
+    "notes": [
+      {
+        "date": "2024-05-03",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - laundry room, claimed $5,200."
+      },
+      {
+        "date": "2024-05-03",
+        "author": "ADJ-114",
+        "note": "2024-05-06 call. Insured is Nadia Haddad, 230 Willow Boulevard. Washing machine supply hose burst on 2024-05-03 and flooded the laundry room. Insured says she bought the policy the week before. Estimate: $5,200."
+      }
+    ]
+  },
+  "CLM-2024-20011": {
+    "claim_number": "CLM-2024-20011",
+    "policy_number": "HO-781804",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2024-10-12",
+    "loss_type_reported": "theft",
+    "claimed_amount": 7800,
+    "policy_excess": 500,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2024-10-12",
+    "notes": [
+      {
+        "date": "2024-10-12",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: theft, claimed $7,800."
+      },
+      {
+        "date": "2024-10-12",
+        "author": "ADJ-114",
+        "note": "2024-10-14 call and police report. Burglary on 2024-10-12 at 14 Birch Lane while insured Mr Victor Alvarez was away; a rear window was forced. Taken: a diamond ring appraised at $5,200 and a wristwatch appraised at $2,600, total $7,800. Nothing else taken or damaged."
+      }
+    ]
+  },
+  "CLM-2025-20012": {
+    "claim_number": "CLM-2025-20012",
+    "policy_number": "HO-781950",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2025-05-15",
+    "loss_type_reported": "water damage and mould - upstairs bathroom",
+    "claimed_amount": 19800,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-05-15",
+    "notes": [
+      {
+        "date": "2025-05-15",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage and mould - upstairs bathroom, claimed $19,800."
+      },
+      {
+        "date": "2025-05-15",
+        "author": "ADJ-114",
+        "note": "2025-05-28 site visit. Insured is Rosa Bianchi, 77 Elm Street. Supply line to the upstairs bathroom vanity ruptured suddenly on 2025-05-15 while the insured was at work; water ran for about 6 hours. Drying was delayed and mould is now visible on the bathroom and hall drywall. Ms Bianchi reports asthma symptoms since the mould appeared. Estimate: water damage repair $11,300, mould remediation $8,500, total $19,800."
+      }
+    ]
+  },
+  "CLM-2024-20013": {
+    "claim_number": "CLM-2024-20013",
+    "policy_number": "HO-782011",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2024-11-03",
+    "loss_type_reported": "water damage - upstairs bathroom",
+    "claimed_amount": 8900,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2024-11-03",
+    "notes": [
+      {
+        "date": "2024-11-03",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - upstairs bathroom, claimed $8,900."
+      },
+      {
+        "date": "2024-11-03",
+        "author": "ADJ-114",
+        "note": "2024-11-05 site visit. Insured is Mr Owen Brooks, 9 Larch Road. Braided supply hose to the upstairs toilet burst on 2024-11-03 while the insured was home; water shut off at the main within 15 minutes. Water came through the living room ceiling. No prior leak history. Estimate: $8,900. The hose itself was replaced for $35."
+      }
+    ]
+  },
+  "CLM-2025-20014": {
+    "claim_number": "CLM-2025-20014",
+    "policy_number": "DP-552300",
+    "policy_line": "dwelling_fire",
+    "status": "under_review",
+    "date_of_loss": "2025-07-01",
+    "loss_type_reported": "water damage - rental property",
+    "claimed_amount": 10900,
+    "policy_excess": 1500,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-07-01",
+    "notes": [
+      {
+        "date": "2025-07-01",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: water damage - rental property, claimed $10,900."
+      },
+      {
+        "date": "2025-07-01",
+        "author": "ADJ-114",
+        "note": "2025-07-03 site visit at the insured's rental unit, 61 Spruce Avenue (tenant Ms Kara Singh). Supply line to the kitchen sink burst suddenly on 2025-07-01; water across the kitchen and hallway. The tenant has a burn on her forearm from a kettle knocked over during the leak. Estimate: $10,900."
+      }
+    ]
+  },
+  "CLM-2025-20015": {
+    "claim_number": "CLM-2025-20015",
+    "policy_number": "HO-782120",
+    "policy_line": "homeowners",
+    "status": "under_review",
+    "date_of_loss": "2025-05-20",
+    "loss_type_reported": "hail damage - roof",
+    "claimed_amount": 13200,
+    "policy_excess": 1000,
+    "assigned_adjuster": "ADJ-114",
+    "last_updated": "2025-05-20",
+    "notes": [
+      {
+        "date": "2025-05-20",
+        "author": "FNOL-INTAKE",
+        "note": "First notice of loss: hail damage - roof, claimed $13,200."
+      },
+      {
+        "date": "2025-05-20",
+        "author": "ADJ-114",
+        "note": "2025-05-22 inspection. Insured is Mr Daniel Kim, 18 Aspen Court. Hailstorm on 2025-05-20; hail up to 4 cm. Roofer found bruised and cracked shingles across the south and west slopes and two dented skylight frames; no interior water entry. Estimate for roof replacement: $13,200. Mr Kim asked us to confirm in writing that this is covered."
+      }
+    ]
+  }
+}

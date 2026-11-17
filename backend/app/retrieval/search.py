@@ -16,14 +16,33 @@ from .. import config
 from .store import get_collection
 
 
-def build_where(policy_line: str | None, form_number: str | None) -> dict | None:
-    filters = {}
+def loss_date_int(loss_date: str) -> int:
+    """'2024-08-11' -> 20240811. Raises on anything else: a filter that silently
+    falls back to 'no filter' is exactly the bug this exists to prevent."""
+    import re
+
+    m = re.fullmatch(r"\s*(\d{4})-(\d{2})-(\d{2})\s*", str(loss_date))
+    if not m:
+        raise ValueError(f"loss_date {loss_date!r} must be YYYY-MM-DD")
+    return int("".join(m.groups()))
+
+
+def build_where(policy_line: str | None, form_number: str | None,
+                loss_date: str | None = None) -> dict | None:
+    clauses = []
     if policy_line:
-        filters["policy_line"] = policy_line
+        clauses.append({"policy_line": policy_line})
     if form_number:
-        filters["form_number"] = form_number
+        clauses.append({"form_number": form_number})
+    if loss_date:
+        # Week 12: only the editions IN FORCE on the loss date. Enforced here, in the
+        # store query, not asked for in a prompt.
+        d = loss_date_int(loss_date)
+        clauses += [{"effective_from": {"$lte": d}}, {"effective_to": {"$gte": d}}]
     # Chroma takes a single clause, or an explicit $and for more than one
-    return filters if len(filters) <= 1 else {"$and": [{k_: v} for k_, v in filters.items()]}
+    if not clauses:
+        return None
+    return clauses[0] if len(clauses) == 1 else {"$and": clauses}
 
 
 def search(
@@ -33,10 +52,11 @@ def search(
     policy_line: str | None = None,
     form_number: str | None = None,
     retriever: str = "dense",
+    loss_date: str | None = None,
 ) -> list[dict]:
     """`score` is cosine similarity for `dense`, the RRF score for `hybrid` —
     the two are NOT comparable, which is why `score_kind` travels with it."""
-    where = build_where(policy_line, form_number)
+    where = build_where(policy_line, form_number, loss_date)
 
     if retriever == "hybrid":
         from .hybrid import hybrid_search  # local: dense path must stay import-clean

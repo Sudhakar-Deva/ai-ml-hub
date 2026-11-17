@@ -1,0 +1,324 @@
+{
+ "trace_id": "tr_d25823cf3fb7",
+ "ts": "2026-11-16T10:55:05.501+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "1fe78db79c11",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2024-11-03",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-782011 (homeowners)\nDate of loss: 2024-11-03\nReported: water damage - upstairs bathroom, claimed $8,900\nNotes (names, addresses and injuries redacted at intake):\n- 2024-11-03 ADJ-114: 2024-11-05 site visit. Insured is [NAME], [ADDRESS] Braided supply hose to the upstairs toilet burst on 2024-11-03 while the insured was home; water shut off at the main within 15 minutes. Water came through the living room ceiling. No prior leak history. Estimate: $8,900. The hose itself was replaced for $35.",
+ "intake_redaction": [
+  "address",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2024-11-03",
+    "policy_number": "HO-782011"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2024-11-03",
+    "policy_number": "HO-782011"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2024-11-03",
+    "policy_line": "homeowners",
+    "query": "water damage burst braided supply hose upstairs toilet water shut off within 15 minutes water came through living room ceiling"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 03-24 | E-17",
+    "HO-0304 ed. 03-24 | E-20",
+    "HO-0304 ed. 03-24 | E-18",
+    "HO-0304 ed. 03-24 | E-19",
+    "HO-0304 ed. 03-24 | E-22"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0009"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-22",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Water damage from sudden burst of plumbing supply line"
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water damage from a braided supply hose burst on 2024-11-03, water shut off within 15 minutes, damage to living room ceiling, estimate $8,900, hose replaced for $35.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2024-11-03",
+    "policy_limit": 400000,
+    "sub_limit": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-22",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Water damage from sudden burst of plumbing supply line"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water damage from a braided supply hose burst on 2024-11-03, water shut off within 15 minutes, damage to living room ceiling, estimate $8,900, hose replaced for $35.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-11-03",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-22",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Water damage from sudden burst of plumbing supply line"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water damage from a braided supply hose burst on 2024-11-03, water shut off within 15 minutes, damage to living room ceiling, estimate $8,900, hose replaced for $35.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-11-03",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-22",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Water damage from sudden burst of plumbing supply line",
+   "clause_as_cited": "E-22",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2024-11-03",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L26"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.4,
+   "latency_ms": 23.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 23.7,
+   "latency_ms": 2.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 26.5,
+   "latency_ms": 0.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 26.8,
+   "latency_ms": 10034.8,
+   "tokens_in": 927,
+   "tokens_out": 53,
+   "cost_usd": 8.54e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 10061.7,
+   "latency_ms": 0.7,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 10062.4,
+   "latency_ms": 4059.5,
+   "tokens_in": 1160,
+   "tokens_out": 42,
+   "cost_usd": 9.96e-05,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 14123.9,
+   "latency_ms": 3.7,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 14127.7,
+   "latency_ms": 9999.4,
+   "tokens_in": 1402,
+   "tokens_out": 75,
+   "cost_usd": 0.0001276,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 24127.1,
+   "latency_ms": 590.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 24717.2,
+   "latency_ms": 13539.9,
+   "tokens_in": 2508,
+   "tokens_out": 201,
+   "cost_usd": 0.0002484,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 38257.1,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 38257.2,
+   "latency_ms": 2.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_d25823cf3fb7",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:55:30.206+00:00",
+   "latency_ms": 462.6,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "water damage burst braided supply hose upstairs toilet water shut off within 15 minutes water came through living room ceiling",
+    "policy_line": "homeowners",
+    "loss_date": "2024-11-03",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0009"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 38260.6,
+  "laps": 4,
+  "tokens_in": 5997,
+  "tokens_out": 371,
+  "cost_usd": 0.0005611,
+  "rate_limit_wait_ms": 33000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_d25823cf3fb7 \u00b7 triage-v2 \u00b7 loss date 2024-11-03\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2024-11-03:\n  - [HO-0304 ed. 03-24 \u00b7 E-22](../data/endorsements/HO-0304-ed-03-24.md#L26): Water damage from sudden burst of plumbing supply line\nDeductible: $1,000   Sub-limit: none   Policy limit: $400,000\n  deductible basis: policy deductible\nFacts for the adjuster: Water damage from a braided supply hose burst on 2024-11-03, water shut off within 15 minutes, damage to living room ceiling, estimate $8,900, hose replaced for $35.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

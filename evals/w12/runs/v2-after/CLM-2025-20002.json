@@ -1,0 +1,446 @@
+{
+ "trace_id": "tr_b7950ed52317",
+ "ts": "2026-11-16T10:39:57.716+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "964a662f3dda",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2025-03-31",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781355 (homeowners)\nDate of loss: 2025-03-31\nReported: water damage - ground floor after heavy rain, claimed $12,900\nNotes (names, addresses and injuries redacted at intake):\n- 2025-03-31 ADJ-114: 2025-04-02 site visit. Insured is [NAME], [ADDRESS] Storm on 2025-03-31. Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. His son [INJURY] on debris during the clean-up. Estimate: $12,900.",
+ "intake_redaction": [
+  "address",
+  "injury",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2025-03-31",
+    "policy_number": "HO-781355"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2025-03-31",
+    "policy_number": "HO-781355"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2025-03-31",
+    "policy_line": "homeowners",
+    "query": "water damage ground floor rain pool under patio door air brick"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 03-24 | E-21",
+    "HO-0304 ed. 03-24 | E-19",
+    "HO-0304 ed. 03-24 | E-17",
+    "HO-0304 ed. 03-24 | E-16",
+    "HO-0304 ed. 03-24 | E-20"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-15",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water."
+     },
+     {
+      "clause": "E-16",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Excludes water below the surface of the ground, including water that exerts pressure on a foundation."
+     },
+     {
+      "clause": "E-17",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line."
+     },
+     {
+      "clause": "E-19",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water."
+     },
+     {
+      "clause": "E-20",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line."
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water entered the dwelling through the patio door and an air brick after heavy rain. The water was surface water from the sloping back garden, not from a plumbing line or a body of water. The insured estimates $12,900 in damage.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on loss date.",
+    "loss_date": "2025-03-31",
+    "policy_limit": 400000,
+    "sub_limit": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water."
+   },
+   {
+    "clause": "E-16",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes water below the surface of the ground, including water that exerts pressure on a foundation."
+   },
+   {
+    "clause": "E-17",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line."
+   },
+   {
+    "clause": "E-19",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water."
+   },
+   {
+    "clause": "E-20",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered the dwelling through the patio door and an air brick after heavy rain. The water was surface water from the sloping back garden, not from a plumbing line or a body of water. The insured estimates $12,900 in damage.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on loss date.",
+  "loss_date": "2025-03-31",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water."
+   },
+   {
+    "clause": "E-16",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes water below the surface of the ground, including water that exerts pressure on a foundation."
+   },
+   {
+    "clause": "E-17",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line."
+   },
+   {
+    "clause": "E-19",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water."
+   },
+   {
+    "clause": "E-20",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered the dwelling through the patio door and an air brick after heavy rain. The water was surface water from the sloping back garden, not from a plumbing line or a body of water. The insured estimates $12,900 in damage.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on loss date.",
+  "loss_date": "2025-03-31",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-15",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water.",
+   "clause_as_cited": "E-15",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-03-31",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L19"
+  },
+  {
+   "clause": "E-16",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Excludes water below the surface of the ground, including water that exerts pressure on a foundation.",
+   "clause_as_cited": "E-16",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-03-31",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L20"
+  },
+  {
+   "clause": "E-17",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line.",
+   "clause_as_cited": "E-17",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-03-31",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L21"
+  },
+  {
+   "clause": "E-19",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Excludes flood, surface water, waves, tidal water, or overflow of a body of water.",
+   "clause_as_cited": "E-19",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-03-31",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L23"
+  },
+  {
+   "clause": "E-20",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line.",
+   "clause_as_cited": "E-20",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-03-31",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L24"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.1,
+   "latency_ms": 27.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 27.4,
+   "latency_ms": 1.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 29.3,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "injury",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 29.6,
+   "latency_ms": 8139.1,
+   "tokens_in": 971,
+   "tokens_out": 53,
+   "cost_usd": 8.87e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 8168.8,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 8169.2,
+   "latency_ms": 9129.1,
+   "tokens_in": 1204,
+   "tokens_out": 42,
+   "cost_usd": 0.0001029,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 17298.4,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 17298.7,
+   "latency_ms": 11403.6,
+   "tokens_in": 1446,
+   "tokens_out": 63,
+   "cost_usd": 0.0001274,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 28702.4,
+   "latency_ms": 250.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 28952.9,
+   "latency_ms": 19800.3,
+   "tokens_in": 2513,
+   "tokens_out": 414,
+   "cost_usd": 0.0003127,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 48753.2,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 48753.3,
+   "latency_ms": 1.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_b7950ed52317",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:40:26.664+00:00",
+   "latency_ms": 222.5,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "water damage ground floor rain pool under patio door air brick",
+    "policy_line": "homeowners",
+    "loss_date": "2025-03-31",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 48754.8,
+  "laps": 4,
+  "tokens_in": 6134,
+  "tokens_out": 572,
+  "cost_usd": 0.0006316,
+  "rate_limit_wait_ms": 45000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_b7950ed52317 \u00b7 triage-v2 \u00b7 loss date 2025-03-31\nIn force on the loss date: YES. Policy was in force on loss date.\nWording cited, each resolved against loss date 2025-03-31:\n  - [HO-0304 ed. 03-24 \u00b7 E-15](../data/endorsements/HO-0304-ed-03-24.md#L19): Excludes flood, surface water, waves, tidal water, or overflow of a body of water.\n  - [HO-0304 ed. 03-24 \u00b7 E-16](../data/endorsements/HO-0304-ed-03-24.md#L20): Excludes water below the surface of the ground, including water that exerts pressure on a foundation.\n  - [HO-0304 ed. 03-24 \u00b7 E-17](../data/endorsements/HO-0304-ed-03-24.md#L21): Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line.\n  - [HO-0304 ed. 03-24 \u00b7 E-19](../data/endorsements/HO-0304-ed-03-24.md#L23): Excludes flood, surface water, waves, tidal water, or overflow of a body of water.\n  - [HO-0304 ed. 03-24 \u00b7 E-20](../data/endorsements/HO-0304-ed-03-24.md#L24): Excludes water damage from sudden and accidental discharge, rupture, or burst of a plumbing supply line.\nDeductible: $1,000   Sub-limit: none   Policy limit: $400,000\n  deductible basis: policy deductible\nFacts for the adjuster: Water entered the dwelling through the patio door and an air brick after heavy rain. The water was surface water from the sloping back garden, not from a plumbing line or a body of water. The insured estimates $12,900 in damage.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

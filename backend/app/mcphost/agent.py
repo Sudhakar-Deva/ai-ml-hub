@@ -98,8 +98,13 @@ class Host:
             self.sessions[name] = session
             self.info[name] = {"server": init.serverInfo.name, "version": init.serverInfo.version,
                                "protocol": init.protocolVersion, "tools": []}
+            # Week 12: "expose_tools" in the config narrows what the MODEL is shown;
+            # every discovered tool stays callable by the host (intake uses this).
+            expose = spec.get("expose_tools")
             for tool in await _list_all_tools(session):
                 self.info[name]["tools"].append(tool.name)
+                if expose is not None and tool.name not in expose:
+                    continue
                 self.tools.append({"name": f"{name}{SEP}{tool.name}",
                                    "description": f"[{name}] {tool.description or ''}".strip(),
                                    "input_schema": tool.inputSchema})
@@ -115,13 +120,14 @@ class Host:
     def system_prompt(self) -> str:
         return SYSTEM + ("\n\nAttached context:\n" + "\n\n".join(self.context) if self.context else "")
 
-    async def call(self, qualified: str, args: dict) -> tuple[str, bool]:
-        """Route "<server>__<tool>" to that server's tools/call. -> (text, is_error)"""
+    async def call(self, qualified: str, args: dict, meta: dict | None = None) -> tuple[str, bool]:
+        """Route "<server>__<tool>" to that server's tools/call. -> (text, is_error)
+        `meta` rides in the request's _meta (Week 12: the trace id), never in args."""
         server, _, tool = qualified.partition(SEP)
         session = self.sessions.get(server)
         if session is None or tool not in self.info[server]["tools"]:
             return f"unknown tool {qualified!r}; available: {[t['name'] for t in self.tools]}", True
-        res = await session.call_tool(tool, args)
+        res = await session.call_tool(tool, args, meta=meta)
         text = "\n".join(c.text for c in res.content if getattr(c, "type", "") == "text")
         if not text and res.structuredContent is not None:
             text = json.dumps(res.structuredContent)

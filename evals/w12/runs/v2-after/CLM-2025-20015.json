@@ -1,0 +1,324 @@
+{
+ "trace_id": "tr_e4d9f479aba4",
+ "ts": "2026-11-16T10:56:15.088+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "a7836107d451",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2025-05-20",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-782120 (homeowners)\nDate of loss: 2025-05-20\nReported: hail damage - roof, claimed $13,200\nNotes (names, addresses and injuries redacted at intake):\n- 2025-05-20 ADJ-114: 2025-05-22 inspection. Insured is [NAME], [ADDRESS] Hailstorm on 2025-05-20; hail up to 4 cm. Roofer found bruised and cracked shingles across the south and west slopes and two dented skylight frames; no interior water entry. Estimate for roof replacement: $13,200. [NAME] asked us to confirm in writing that this is covered.",
+ "intake_redaction": [
+  "address",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2025-05-20",
+    "policy_number": "HO-782120"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2025-05-20",
+    "policy_number": "HO-782120"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2025-05-20",
+    "policy_line": "homeowners",
+    "query": "hail damage roof shingles hail up to 4 cm"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-19",
+    "HO-0304 ed. 04-25 | E-17",
+    "HO-0304 ed. 04-25 | E-18",
+    "HO-0304 ed. 04-25 | E-20",
+    "HO-0608 ed. 01-24 | B. Protect the property. Take reasonable steps to protect the property from"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0004"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-15",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Exclusion of surface water; not applicable to hail damage"
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Hailstorm on 2025-05-20 with hail up to 4 cm caused bruised and cracked shingles on south and west slopes and two dented skylight frames; no interior water entry. Estimated roof replacement cost $13,200.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2025-05-20",
+    "policy_limit": 400000,
+    "sub_limit": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Exclusion of surface water; not applicable to hail damage"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Hailstorm on 2025-05-20 with hail up to 4 cm caused bruised and cracked shingles on south and west slopes and two dented skylight frames; no interior water entry. Estimated roof replacement cost $13,200.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2025-05-20",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Exclusion of surface water; not applicable to hail damage"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Hailstorm on 2025-05-20 with hail up to 4 cm caused bruised and cracked shingles on south and west slopes and two dented skylight frames; no interior water entry. Estimated roof replacement cost $13,200.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2025-05-20",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-15",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "Exclusion of surface water; not applicable to hail damage",
+   "clause_as_cited": "E-15",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-05-20",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L19"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.0,
+   "latency_ms": 18.7,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 18.7,
+   "latency_ms": 3.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 21.8,
+   "latency_ms": 0.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 22.3,
+   "latency_ms": 8503.3,
+   "tokens_in": 932,
+   "tokens_out": 53,
+   "cost_usd": 8.58e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 8525.7,
+   "latency_ms": 0.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 8526.2,
+   "latency_ms": 8759.2,
+   "tokens_in": 1159,
+   "tokens_out": 42,
+   "cost_usd": 9.95e-05,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 17285.4,
+   "latency_ms": 0.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 17285.9,
+   "latency_ms": 11076.9,
+   "tokens_in": 1434,
+   "tokens_out": 64,
+   "cost_usd": 0.0001267,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 28362.9,
+   "latency_ms": 456.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 28819.3,
+   "latency_ms": 12773.5,
+   "tokens_in": 2439,
+   "tokens_out": 238,
+   "cost_usd": 0.0002543,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 41592.8,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 41592.8,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_e4d9f479aba4",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:56:43.895+00:00",
+   "latency_ms": 374.0,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "hail damage roof shingles hail up to 4 cm",
+    "policy_line": "homeowners",
+    "loss_date": "2025-05-20",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0004"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 41593.5,
+  "laps": 4,
+  "tokens_in": 5964,
+  "tokens_out": 397,
+  "cost_usd": 0.0005664,
+  "rate_limit_wait_ms": 37500.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_e4d9f479aba4 \u00b7 triage-v2 \u00b7 loss date 2025-05-20\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2025-05-20:\n  - [HO-0304 ed. 04-25 \u00b7 E-15](../data/endorsements/HO-0304-ed-04-25.md#L19): Exclusion of surface water; not applicable to hail damage\nDeductible: $1,000   Sub-limit: none   Policy limit: $400,000\n  deductible basis: policy deductible\nFacts for the adjuster: Hailstorm on 2025-05-20 with hail up to 4 cm caused bruised and cracked shingles on south and west slopes and two dented skylight frames; no interior water entry. Estimated roof replacement cost $13,200.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

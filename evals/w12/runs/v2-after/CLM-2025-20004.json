@@ -1,0 +1,326 @@
+{
+ "trace_id": "tr_8de1c31ae9dd",
+ "ts": "2026-11-16T10:41:36.513+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "6a5d4b076a7f",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2025-02-14",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781502 (homeowners)\nDate of loss: 2025-02-14\nReported: water damage - basement and ground floor, claimed $26,800\nNotes (names, addresses and injuries redacted at intake):\n- 2025-02-14 ADJ-114: 2025-02-17 site visit. Insured is [NAME], [ADDRESS] Ashby Brook burst its banks on 2025-02-14 after snowmelt and rain; brook water ran down the lane and entered the basement and ground floor to about 30 cm. Neighbours on the same lane affected. Insured [INJURY] moving furniture. Estimate: $26,800.",
+ "intake_redaction": [
+  "address",
+  "injury",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2025-02-14",
+    "policy_number": "HO-781502"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2025-02-14",
+    "policy_number": "HO-781502"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2025-02-14",
+    "policy_line": "homeowners",
+    "query": "water damage basement"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 03-24 | E-17",
+    "HO-0304 ed. 03-24 | E-18",
+    "HO-0304 ed. 03-24 | E-19",
+    "HO-0304 ed. 03-24 | E-20",
+    "HO-0304 ed. 03-24 | E-21"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-17",
+      "edition": "03-24",
+      "form": "HO-0304",
+      "relevance": "Water damage from sudden discharge of plumbing supply line"
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water entered basement and ground floor from burst brook after snowmelt and rain, 30 cm depth, affecting neighbors. Estimate $26,800.",
+    "in_force": true,
+    "in_force_basis": "Policy in force 2024-07-01 to 2025-06-30",
+    "loss_date": "2025-02-14",
+    "policy_limit": 400000,
+    "sub_limit": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-17",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Water damage from sudden discharge of plumbing supply line"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered basement and ground floor from burst brook after snowmelt and rain, 30 cm depth, affecting neighbors. Estimate $26,800.",
+  "in_force": true,
+  "in_force_basis": "Policy in force 2024-07-01 to 2025-06-30",
+  "loss_date": "2025-02-14",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-17",
+    "edition": "03-24",
+    "form": "HO-0304",
+    "relevance": "Water damage from sudden discharge of plumbing supply line"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered basement and ground floor from burst brook after snowmelt and rain, 30 cm depth, affecting neighbors. Estimate $26,800.",
+  "in_force": true,
+  "in_force_basis": "Policy in force 2024-07-01 to 2025-06-30",
+  "loss_date": "2025-02-14",
+  "policy_limit": 400000,
+  "sub_limit": null
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-17",
+   "edition": "03-24",
+   "form": "HO-0304",
+   "relevance": "Water damage from sudden discharge of plumbing supply line",
+   "clause_as_cited": "E-17",
+   "exists": true,
+   "edition_in_force": "03-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-02-14",
+   "source": "data/endorsements/HO-0304-ed-03-24.md#L21"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.2,
+   "latency_ms": 41.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 41.7,
+   "latency_ms": 3.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 45.1,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "injury",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 45.4,
+   "latency_ms": 8055.3,
+   "tokens_in": 931,
+   "tokens_out": 53,
+   "cost_usd": 8.57e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 8100.8,
+   "latency_ms": 0.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 8101.0,
+   "latency_ms": 12785.3,
+   "tokens_in": 1164,
+   "tokens_out": 42,
+   "cost_usd": 9.99e-05,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 20886.3,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 20886.7,
+   "latency_ms": 6809.9,
+   "tokens_in": 1406,
+   "tokens_out": 54,
+   "cost_usd": 0.0001217,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 27696.7,
+   "latency_ms": 288.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 27984.9,
+   "latency_ms": 17518.7,
+   "tokens_in": 2493,
+   "tokens_out": 178,
+   "cost_usd": 0.0002404,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 45503.6,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 45503.7,
+   "latency_ms": 1.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_8de1c31ae9dd",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:42:04.496+00:00",
+   "latency_ms": 257.9,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "water damage basement",
+    "policy_line": "homeowners",
+    "loss_date": "2025-02-14",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0008"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 45505.8,
+  "laps": 4,
+  "tokens_in": 5994,
+  "tokens_out": 327,
+  "cost_usd": 0.0005477,
+  "rate_limit_wait_ms": 40500.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_8de1c31ae9dd \u00b7 triage-v2 \u00b7 loss date 2025-02-14\nIn force on the loss date: YES. Policy in force 2024-07-01 to 2025-06-30\nWording cited, each resolved against loss date 2025-02-14:\n  - [HO-0304 ed. 03-24 \u00b7 E-17](../data/endorsements/HO-0304-ed-03-24.md#L21): Water damage from sudden discharge of plumbing supply line\nDeductible: $1,000   Sub-limit: none   Policy limit: $400,000\n  deductible basis: policy deductible\nFacts for the adjuster: Water entered basement and ground floor from burst brook after snowmelt and rain, 30 cm depth, affecting neighbors. Estimate $26,800.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

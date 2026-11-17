@@ -1,0 +1,359 @@
+{
+  "_note": "Synthetic coverage-in-force date ranges per policy number (Week 12). No insured names: the register is keyed by policy number only.",
+  "HO-778120": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-771044": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-770391": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "DP-552017": {
+    "policy_line": "dwelling_fire",
+    "product": "DP-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1500,
+    "policy_limit": 250000
+  },
+  "CO-330912": {
+    "policy_line": "condo",
+    "product": "CO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 120000
+  },
+  "CO-330477": {
+    "policy_line": "condo",
+    "product": "CO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 120000
+  },
+  "HO-779800": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-774456": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 500,
+    "policy_limit": 300000
+  },
+  "HO-772210": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "CO-331560": {
+    "policy_line": "condo",
+    "product": "CO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 120000
+  },
+  "HO-741902": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      },
+      {
+        "from": "2026-01-01",
+        "to": "2026-12-31"
+      }
+    ],
+    "deductible": 750,
+    "policy_limit": 350000
+  },
+  "HO-781201": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-01-15",
+        "to": "2025-01-14"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-781355": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-06-01",
+        "to": "2025-05-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-781420": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-09-01",
+        "to": "2025-08-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-781502": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-07-01",
+        "to": "2025-06-30"
+      },
+      {
+        "from": "2025-07-01",
+        "to": "2026-06-30"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-760118": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2023-03-01",
+        "to": "2024-02-29"
+      },
+      {
+        "from": "2024-03-01",
+        "to": "2025-02-28"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 380000
+  },
+  "HO-760245": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2023-06-01",
+        "to": "2024-05-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 380000
+  },
+  "HO-755890": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2023-02-01",
+        "to": "2024-01-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 360000
+  },
+  "HO-781610": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-01-01",
+        "to": "2024-12-31"
+      },
+      {
+        "from": "2025-02-01",
+        "to": "2026-01-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-781733": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-05-10",
+        "to": "2025-05-09"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-781804": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-07-01",
+        "to": "2025-06-30"
+      }
+    ],
+    "deductible": 500,
+    "policy_limit": 300000
+  },
+  "HO-781950": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-01-01",
+        "to": "2025-12-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "HO-782011": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2024-04-01",
+        "to": "2025-03-31"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  },
+  "DP-552300": {
+    "policy_line": "dwelling_fire",
+    "product": "DP-STD",
+    "terms": [
+      {
+        "from": "2025-03-01",
+        "to": "2026-02-28"
+      }
+    ],
+    "deductible": 1500,
+    "policy_limit": 250000
+  },
+  "HO-782120": {
+    "policy_line": "homeowners",
+    "product": "HO-STD",
+    "terms": [
+      {
+        "from": "2025-03-15",
+        "to": "2026-03-14"
+      }
+    ],
+    "deductible": 1000,
+    "policy_limit": 400000
+  }
+}

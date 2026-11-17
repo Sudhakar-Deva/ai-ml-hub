@@ -1,0 +1,393 @@
+{
+ "trace_id": "tr_21089812ddc0",
+ "ts": "2026-11-16T10:43:10.359+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "2b897eec126a",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2024-02-10",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-760118 (homeowners)\nDate of loss: 2024-02-10\nReported: water damage - kitchen, claimed $11,800\nNotes (names, addresses and injuries redacted at intake):\n- 2024-02-10 ADJ-114: 2024-02-12 site visit. Insured [NAME], [ADDRESS] Buckled kitchen flooring discovered 2024-02-10. Plumber found the cold supply compression fitting under the sink weeping, not burst. Staining shows water escaping for about 20 days before discovery (first escape around 2024-01-21). Estimate: $11,800.",
+ "intake_redaction": [
+  "address",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2024-02-10",
+    "policy_number": "HO-760118"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2024-02-10",
+    "policy_number": "HO-760118"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2024-02-10",
+    "policy_line": "homeowners",
+    "query": "water damage kitchen flooring cold supply compression fitting under sink weeping"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 01-23 | E-22",
+    "HO-0304 ed. 01-23 | E-20",
+    "HO-0304 ed. 01-23 | E-21",
+    "HO-0304 ed. 01-23 | APPLICATION OF THESE EXCLUSIONS",
+    "HO-0304 ed. 01-23 | E-19"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0009",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0006"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-17",
+      "edition": "01-23",
+      "form": "HO-0304",
+      "relevance": "Water damage from a plumbing supply line that ruptures suddenly is covered; the weeping case is not excluded."
+     },
+     {
+      "clause": "E-19",
+      "edition": "01-23",
+      "form": "HO-0304",
+      "relevance": "Weeping for an extended period is covered under E-19, not excluded."
+     },
+     {
+      "clause": "E-22",
+      "edition": "01-23",
+      "form": "HO-0304",
+      "relevance": "Exclusion for sudden and accidental discharge does not apply to this loss."
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water damage in kitchen flooring due to a cold supply compression fitting under the sink that was weeping for about 20 days before discovery. Estimated loss $11,800. Policy was in force on loss date.",
+    "in_force": true,
+    "in_force_basis": "policy term 2023-03-01 to 2024-02-29",
+    "loss_date": "2024-02-10",
+    "policy_limit": 380000,
+    "sub_limit": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-17",
+    "edition": "01-23",
+    "form": "HO-0304",
+    "relevance": "Water damage from a plumbing supply line that ruptures suddenly is covered; the weeping case is not excluded."
+   },
+   {
+    "clause": "E-19",
+    "edition": "01-23",
+    "form": "HO-0304",
+    "relevance": "Weeping for an extended period is covered under E-19, not excluded."
+   },
+   {
+    "clause": "E-22",
+    "edition": "01-23",
+    "form": "HO-0304",
+    "relevance": "Exclusion for sudden and accidental discharge does not apply to this loss."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water damage in kitchen flooring due to a cold supply compression fitting under the sink that was weeping for about 20 days before discovery. Estimated loss $11,800. Policy was in force on loss date.",
+  "in_force": true,
+  "in_force_basis": "policy term 2023-03-01 to 2024-02-29",
+  "loss_date": "2024-02-10",
+  "policy_limit": 380000,
+  "sub_limit": null
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-17",
+    "edition": "01-23",
+    "form": "HO-0304",
+    "relevance": "[removed by the decision-language guard]"
+   },
+   {
+    "clause": "E-19",
+    "edition": "01-23",
+    "form": "HO-0304",
+    "relevance": "[removed by the decision-language guard]"
+   },
+   {
+    "clause": "E-22",
+    "edition": "01-23",
+    "form": "HO-0304",
+    "relevance": "Exclusion for sudden and accidental discharge does not apply to this loss."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water damage in kitchen flooring due to a cold supply compression fitting under the sink that was weeping for about 20 days before discovery. Estimated loss $11,800. Policy was in force on loss date.",
+  "in_force": true,
+  "in_force_basis": "policy term 2023-03-01 to 2024-02-29",
+  "loss_date": "2024-02-10",
+  "policy_limit": 380000,
+  "sub_limit": null
+ },
+ "guard_fired": [
+  {
+   "field": "citations[0].relevance",
+   "word": "covered"
+  },
+  {
+   "field": "citations[1].relevance",
+   "word": "covered"
+  }
+ ],
+ "citations": [
+  {
+   "clause": "E-17",
+   "edition": "01-23",
+   "form": "HO-0304",
+   "relevance": "[removed by the decision-language guard]",
+   "clause_as_cited": "E-17",
+   "exists": true,
+   "edition_in_force": "01-23",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2024-02-10",
+   "source": "data/endorsements/HO-0304-ed-01-23.md#L21"
+  },
+  {
+   "clause": "E-19",
+   "edition": "01-23",
+   "form": "HO-0304",
+   "relevance": "[removed by the decision-language guard]",
+   "clause_as_cited": "E-19",
+   "exists": true,
+   "edition_in_force": "01-23",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2024-02-10",
+   "source": "data/endorsements/HO-0304-ed-01-23.md#L23"
+  },
+  {
+   "clause": "E-22",
+   "edition": "01-23",
+   "form": "HO-0304",
+   "relevance": "Exclusion for sudden and accidental discharge does not apply to this loss.",
+   "clause_as_cited": "E-22",
+   "exists": true,
+   "edition_in_force": "01-23",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2024-02-10",
+   "source": "data/endorsements/HO-0304-ed-01-23.md#L26"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.1,
+   "latency_ms": 28.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 28.3,
+   "latency_ms": 2.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 30.8,
+   "latency_ms": 0.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 31.0,
+   "latency_ms": 8134.6,
+   "tokens_in": 923,
+   "tokens_out": 53,
+   "cost_usd": 8.51e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 8165.7,
+   "latency_ms": 3.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 8168.8,
+   "latency_ms": 10212.9,
+   "tokens_in": 1146,
+   "tokens_out": 51,
+   "cost_usd": 0.0001012,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 18381.8,
+   "latency_ms": 0.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 18381.9,
+   "latency_ms": 7874.7,
+   "tokens_in": 1285,
+   "tokens_out": 65,
+   "cost_usd": 0.0001159,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 26256.7,
+   "latency_ms": 274.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 26531.6,
+   "latency_ms": 19900.5,
+   "tokens_in": 2336,
+   "tokens_out": 309,
+   "cost_usd": 0.0002679,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 46432.1,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 46432.1,
+   "latency_ms": 1.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 2
+  },
+  {
+   "trace_id": "tr_21089812ddc0",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:43:36.887+00:00",
+   "latency_ms": 240.2,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "water damage kitchen flooring cold supply compression fitting under sink weeping",
+    "policy_line": "homeowners",
+    "loss_date": "2024-02-10",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0009",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0006"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 46434.0,
+  "laps": 4,
+  "tokens_in": 5690,
+  "tokens_out": 478,
+  "cost_usd": 0.0005701,
+  "rate_limit_wait_ms": 43000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_21089812ddc0 \u00b7 triage-v2 \u00b7 loss date 2024-02-10\nIn force on the loss date: YES. policy term 2023-03-01 to 2024-02-29\nWording cited, each resolved against loss date 2024-02-10:\n  - [HO-0304 ed. 01-23 \u00b7 E-17](../data/endorsements/HO-0304-ed-01-23.md#L21): [removed by the decision-language guard]\n  - [HO-0304 ed. 01-23 \u00b7 E-19](../data/endorsements/HO-0304-ed-01-23.md#L23): [removed by the decision-language guard]\n  - [HO-0304 ed. 01-23 \u00b7 E-22](../data/endorsements/HO-0304-ed-01-23.md#L26): Exclusion for sudden and accidental discharge does not apply to this loss.\nDeductible: $1,000   Sub-limit: none   Policy limit: $380,000\n  deductible basis: policy deductible\nFacts for the adjuster: Water damage in kitchen flooring due to a cold supply compression fitting under the sink that was weeping for about 20 days before discovery. Estimated loss $11,800. Policy was in force on loss date.\n(decision-language guard removed 2 sentence(s))",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

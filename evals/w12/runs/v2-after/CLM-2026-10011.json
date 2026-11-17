@@ -1,0 +1,321 @@
+{
+ "trace_id": "tr_80f7f579bbc6",
+ "ts": "2026-11-16T10:51:40.702+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "48f5aac3da57",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2026-04-03",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-741902 (homeowners)\nDate of loss: 2026-04-03\nReported: storm damage to ceilings, claimed $9,400\nNotes (names, addresses and injuries redacted at intake):\n- 2026-04-03 ADJ-114: 2026-04-08 site visit. Insured reports a run of heavy spring storms in late March and early April. Water stains and sagging drywall in two upstairs bedroom ceilings; attic insulation saturated over roughly a 3 m by 4 m area under the rear roof slope. Roof inspected: no wind-lifted or missing shingles, no tree or hail impact. The insured's handyman had cut out a section of decking in mid-March to fit a new bathroom vent fan and covered the hole with a plastic sheet held by a few battens pending the roofer's return; the sheet had pulled loose at one edge and rain had been getting in each time it rained for about three weeks. No plumbing involvement; supply lines and HVAC checked and dry. Insured cooperative, photos on file.",
+ "intake_redaction": [],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2026-04-03",
+    "policy_number": "HO-741902"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2026-04-03",
+    "policy_line": "homeowners",
+    "query": "water damage ceiling drywall sagging roof repair decking hole plastic sheet"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-20",
+    "HO-0304 ed. 04-25 | E-19",
+    "HO-0304 ed. 04-25 | E-18",
+    "HO-0304 ed. 04-25 | WATER DAMAGE AND SEEPAGE ENDORSEMENT",
+    "HO-0304 ed. 04-25 | E-17"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0001",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004"
+   ]
+  },
+  {
+   "lap": 3,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2026-04-03",
+    "policy_number": "HO-741902"
+   },
+   "error": null
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-15",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Surface water sub-limit of $15,000 per occurrence, after the deductible."
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 750,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Storm damage to ceilings with water stains and sagging drywall in two upstairs bedrooms; attic insulation saturated over a 3m x 4m area under rear roof slope. Roof had no wind-lifted or missing shingles; a plastic sheet covering a decking hole had pulled loose, allowing rain ingress for about three weeks. No plumbing involvement. Claim amount $9,400.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2026-04-03",
+    "policy_limit": 350000,
+    "sub_limit": 15000,
+    "sub_limit_basis": "Surface water sub-limit per E-15."
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water sub-limit of $15,000 per occurrence, after the deductible."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 750,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Storm damage to ceilings with water stains and sagging drywall in two upstairs bedrooms; attic insulation saturated over a 3m x 4m area under rear roof slope. Roof had no wind-lifted or missing shingles; a plastic sheet covering a decking hole had pulled loose, allowing rain ingress for about three weeks. No plumbing involvement. Claim amount $9,400.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2026-04-03",
+  "policy_limit": 350000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "Surface water sub-limit per E-15."
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water sub-limit of $15,000 per occurrence, after the deductible."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 750,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Storm damage to ceilings with water stains and sagging drywall in two upstairs bedrooms; attic insulation saturated over a 3m x 4m area under rear roof slope. Roof had no wind-lifted or missing shingles; a plastic sheet covering a decking hole had pulled loose, allowing rain ingress for about three weeks. No plumbing involvement. Claim amount $9,400.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2026-04-03",
+  "policy_limit": 350000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "Surface water sub-limit per E-15."
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-15",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "Surface water sub-limit of $15,000 per occurrence, after the deductible.",
+   "clause_as_cited": "E-15",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2026-04-03",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L19"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.1,
+   "latency_ms": 19.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 19.2,
+   "latency_ms": 3.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 22.8,
+   "latency_ms": 0.9,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": []
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 23.7,
+   "latency_ms": 4161.3,
+   "tokens_in": 1007,
+   "tokens_out": 53,
+   "cost_usd": 9.14e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 4185.0,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 4185.3,
+   "latency_ms": 9767.9,
+   "tokens_in": 1234,
+   "tokens_out": 76,
+   "cost_usd": 0.0001153,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 13953.3,
+   "latency_ms": 79.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 14032.9,
+   "latency_ms": 16237.0,
+   "tokens_in": 2246,
+   "tokens_out": 47,
+   "cost_usd": 0.0001825,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 30269.9,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 30270.2,
+   "latency_ms": 21179.4,
+   "tokens_in": 2520,
+   "tokens_out": 270,
+   "cost_usd": 0.00027,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 51449.7,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 51449.7,
+   "latency_ms": 0.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_80f7f579bbc6",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:51:54.732+00:00",
+   "latency_ms": 56.4,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "water damage ceiling drywall sagging roof repair decking hole plastic sheet",
+    "policy_line": "homeowners",
+    "loss_date": "2026-04-03",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0005",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0001",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 51450.8,
+  "laps": 4,
+  "tokens_in": 7007,
+  "tokens_out": 446,
+  "cost_usd": 0.0006593,
+  "rate_limit_wait_ms": 48000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_80f7f579bbc6 \u00b7 triage-v2 \u00b7 loss date 2026-04-03\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2026-04-03:\n  - [HO-0304 ed. 04-25 \u00b7 E-15](../data/endorsements/HO-0304-ed-04-25.md#L19): Surface water sub-limit of $15,000 per occurrence, after the deductible.\nDeductible: $750   Sub-limit: $15,000   Policy limit: $350,000\n  deductible basis: policy deductible\n  sub limit basis: Surface water sub-limit per E-15.\nFacts for the adjuster: Storm damage to ceilings with water stains and sagging drywall in two upstairs bedrooms; attic insulation saturated over a 3m x 4m area under rear roof slope. Roof had no wind-lifted or missing shingles; a plastic sheet covering a decking hole had pulled loose, allowing rain ingress for about three weeks. No plumbing involvement. Claim amount $9,400.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

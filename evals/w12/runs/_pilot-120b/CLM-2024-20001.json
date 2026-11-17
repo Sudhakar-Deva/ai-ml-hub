@@ -1,0 +1,464 @@
+{
+ "trace_id": "tr_fa63f4f41d1e",
+ "ts": "2026-11-16T10:30:14.071+00:00",
+ "triage_version": "triage-v1",
+ "date_filter": false,
+ "model": "openai/gpt-oss-120b",
+ "prompt_sha": "02c16023b3df",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "99a61b116db0",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2024-08-11",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781201 (homeowners)\nDate of loss: 2024-08-11\nReported: water damage - ground floor after heavy rain, claimed $18,600\nNotes (names, addresses and injuries redacted at intake):\n- 2024-08-11 FNOL-INTAKE: First notice of loss: water damage - ground floor after heavy rain, claimed $18,600.\n- 2024-08-11 ADJ-114: 2024-08-13 site visit with insured [NAME] at [ADDRESS] Thunderstorm dropped about 90 mm of rain in three hours. Rain ran off the sloping back garden, pooled against the rear wall and came in under the patio door and through an air brick at ground level; about 5 cm of water across the kitchen and family room. No river, stream or other body of water nearby; the street drains were coping. [NAME] slipped on the wet kitchen floor and has [INJURY], treated at [INJURY]. Estimate for flooring, skirting and lower drywall: $18,600. Insured asks if the policy will pay.",
+ "intake_redaction": [
+  "address",
+  "injury",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2024-08-11",
+    "policy_number": "HO-781201"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2024-08-11",
+    "policy_number": "HO-781201"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "policy_line": "homeowners",
+    "query": "water damage ground floor rain flooding"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-19",
+    "HO-0304 ed. 04-25 | E-20",
+    "HO-0304 ed. 01-23 | E-17",
+    "HO-0304 ed. 04-25 | APPLICATION OF THESE EXCLUSIONS",
+    "HO-0304 ed. 01-23 | E-18"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0005"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "policy_line": "homeowners",
+    "query": "surface water sub-limit $15,000"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-15",
+    "HO-0304 ed. 04-25 | E-16",
+    "HO-0304 ed. 04-25 | E-19",
+    "HO-0304 ed. 04-25 | E-17",
+    "HO-0304 ed. 04-25 | APPLICATION OF THESE EXCLUSIONS"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0002",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012"
+   ]
+  },
+  {
+   "lap": 6,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+      "clause": "SECTION I \u2014 EXCLUSIONS / E-15",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "surface water from rainfall pools on premises and enters dwelling at/above ground level is not excluded and is payable up to sub-limit"
+     },
+     {
+      "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+      "clause": "APPLICATION OF THESE EXCLUSIONS",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "defines surface water and sets $15,000 per occurrence sub-limit"
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible (applies to each occurrence)",
+    "facts_for_adjuster": "Heavy rain (\u224890\u202fmm in 3\u202fh) caused runoff that pooled against rear wall, entered ground\u2011floor kitchen/family room through patio door and air brick at ground level, creating ~5\u202fcm water. No nearby river/stream; street drains coping. Insured slipped, injury treated. Estimated repair cost $18,600 for flooring, skirting, lower drywall.",
+    "in_force": true,
+    "in_force_basis": "Policy term 2024-01-15 to 2025-01-14 covers loss date 2024-08-11",
+    "loss_date": "2024-08-11",
+    "open_questions": [
+     "Confirm that entry points qualify as 'at or above ground level' for surface\u2011water definition.",
+     "Verify no other exclusions apply (e.g., flood under E-15).",
+     "Obtain medical documentation for the injury."
+    ],
+    "policy_limit": 400000,
+    "sub_limit": 15000,
+    "sub_limit_basis": "surface\u2011water sub\u2011limit per occurrence"
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "clause": "SECTION I \u2014 EXCLUSIONS / E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "surface water from rainfall pools on premises and enters dwelling at/above ground level is not excluded and is payable up to sub-limit"
+   },
+   {
+    "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "clause": "APPLICATION OF THESE EXCLUSIONS",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "defines surface water and sets $15,000 per occurrence sub-limit"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible (applies to each occurrence)",
+  "facts_for_adjuster": "Heavy rain (\u224890\u202fmm in 3\u202fh) caused runoff that pooled against rear wall, entered ground\u2011floor kitchen/family room through patio door and air brick at ground level, creating ~5\u202fcm water. No nearby river/stream; street drains coping. Insured slipped, injury treated. Estimated repair cost $18,600 for flooring, skirting, lower drywall.",
+  "in_force": true,
+  "in_force_basis": "Policy term 2024-01-15 to 2025-01-14 covers loss date 2024-08-11",
+  "loss_date": "2024-08-11",
+  "open_questions": [
+   "Confirm that entry points qualify as 'at or above ground level' for surface\u2011water definition.",
+   "Verify no other exclusions apply (e.g., flood under E-15).",
+   "Obtain medical documentation for the injury."
+  ],
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "surface\u2011water sub\u2011limit per occurrence"
+ },
+ "referral": {
+  "citations": [
+   {
+    "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "clause": "SECTION I \u2014 EXCLUSIONS / E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "[removed by the decision-language guard]"
+   },
+   {
+    "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "clause": "APPLICATION OF THESE EXCLUSIONS",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "defines surface water and sets $15,000 per occurrence sub-limit"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible (applies to each occurrence)",
+  "facts_for_adjuster": "Heavy rain (\u224890\u202fmm in 3\u202fh) caused runoff that pooled against rear wall, entered ground\u2011floor kitchen/family room through patio door and air brick at ground level, creating ~5\u202fcm water. No nearby river/stream; street drains coping. Insured slipped, injury treated. Estimated repair cost $18,600 for flooring, skirting, lower drywall.",
+  "in_force": true,
+  "in_force_basis": "Policy term 2024-01-15 to 2025-01-14 covers loss date 2024-08-11",
+  "loss_date": "2024-08-11",
+  "open_questions": [
+   "Confirm that entry points qualify as 'at or above ground level' for surface\u2011water definition.",
+   "Verify no other exclusions apply (e.g., flood under E-15).",
+   "Obtain medical documentation for the injury."
+  ],
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "surface\u2011water sub\u2011limit per occurrence"
+ },
+ "guard_fired": [
+  {
+   "field": "citations[0].relevance",
+   "word": "payable"
+  }
+ ],
+ "citations": [
+  {
+   "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+   "clause": "SECTION I \u2014 EXCLUSIONS / E-15",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "[removed by the decision-language guard]",
+   "exists": false,
+   "edition_in_force": "03-24",
+   "wrong_version": true,
+   "resolved_against_loss_date": "2024-08-11",
+   "source": null
+  },
+  {
+   "chunk_id": "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+   "clause": "APPLICATION OF THESE EXCLUSIONS",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "defines surface water and sets $15,000 per occurrence sub-limit",
+   "exists": false,
+   "edition_in_force": "03-24",
+   "wrong_version": true,
+   "resolved_against_loss_date": "2024-08-11",
+   "source": null
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.3,
+   "latency_ms": 2.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 3.1,
+   "latency_ms": 1.9,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 5.0,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "injury",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 5.5,
+   "latency_ms": 1597.7,
+   "tokens_in": 1098,
+   "tokens_out": 71,
+   "cost_usd": 0.0002073,
+   "lap": 1,
+   "model": "openai/gpt-oss-120b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 1603.2,
+   "latency_ms": 449.7,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 2052.9,
+   "latency_ms": 651.1,
+   "tokens_in": 1359,
+   "tokens_out": 41,
+   "cost_usd": 0.0002284,
+   "lap": 2,
+   "model": "openai/gpt-oss-120b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 2704.0,
+   "latency_ms": 0.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 2704.7,
+   "latency_ms": 1172.1,
+   "tokens_in": 1658,
+   "tokens_out": 60,
+   "cost_usd": 0.0002847,
+   "lap": 3,
+   "model": "openai/gpt-oss-120b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 3876.9,
+   "latency_ms": 73.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 3950.3,
+   "latency_ms": 834.4,
+   "tokens_in": 2825,
+   "tokens_out": 125,
+   "cost_usd": 0.0004987,
+   "lap": 4,
+   "model": "openai/gpt-oss-120b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 4784.7,
+   "latency_ms": 36.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 4821.3,
+   "latency_ms": 13681.9,
+   "tokens_in": 3983,
+   "tokens_out": 634,
+   "cost_usd": 0.0009778,
+   "lap": 5,
+   "model": "openai/gpt-oss-120b"
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 18503.3,
+   "latency_ms": 37419.0,
+   "tokens_in": 4588,
+   "tokens_out": 543,
+   "cost_usd": 0.001014,
+   "lap": 6,
+   "model": "openai/gpt-oss-120b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 55922.4,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 6,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 55922.5,
+   "latency_ms": 1.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 1
+  },
+  {
+   "trace_id": "tr_fa63f4f41d1e",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:30:18.014+00:00",
+   "latency_ms": 52.4,
+   "triage_version": "triage-v1",
+   "date_filter": false,
+   "args": {
+    "query": "water damage ground floor rain flooding",
+    "policy_line": "homeowners",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0005"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  },
+  {
+   "trace_id": "tr_fa63f4f41d1e",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:30:18.891+00:00",
+   "latency_ms": 32.1,
+   "triage_version": "triage-v1",
+   "date_filter": false,
+   "args": {
+    "query": "surface water sub-limit $15,000",
+    "policy_line": "homeowners",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0002",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 55924.8,
+  "laps": 6,
+  "tokens_in": 15511,
+  "tokens_out": 1474,
+  "cost_usd": 0.0032111,
+  "rate_limit_wait_ms": 47000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_fa63f4f41d1e \u00b7 triage-v1 \u00b7 loss date 2024-08-11\nIn force on the loss date: YES. Policy term 2024-01-15 to 2025-01-14 covers loss date 2024-08-11\nWording cited, each resolved against loss date 2024-08-11:\n  - HO-0304 ed. 04-25 \u00b7 SECTION I \u2014 EXCLUSIONS / E-15 (NOT FOUND in that edition): [removed by the decision-language guard]  \u26a0 edition in force on the loss date was ed. 03-24\n  - HO-0304 ed. 04-25 \u00b7 APPLICATION OF THESE EXCLUSIONS (NOT FOUND in that edition): defines surface water and sets $15,000 per occurrence sub-limit  \u26a0 edition in force on the loss date was ed. 03-24\nDeductible: $1,000   Sub-limit: $15,000   Policy limit: $400,000\n  deductible basis: policy deductible (applies to each occurrence)\n  sub limit basis: surface\u2011water sub\u2011limit per occurrence\nFacts for the adjuster: Heavy rain (\u224890\u202fmm in 3\u202fh) caused runoff that pooled against rear wall, entered ground\u2011floor kitchen/family room through patio door and air brick at ground level, creating ~5\u202fcm water. No nearby river/stream; street drains coping. Insured slipped, injury treated. Estimated repair cost $18,600 for flooring, skirting, lower drywall.\n  ? Confirm that entry points qualify as 'at or above ground level' for surface\u2011water definition.\n  ? Verify no other exclusions apply (e.g., flood under E-15).\n  ? Obtain medical documentation for the injury.\n(decision-language guard removed 1 sentence(s))",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

@@ -1,0 +1,63 @@
+{
+  "_note": "Synthetic. The deductible / sub-limit / policy-limit table by product (Week 12). Each sub-limit names the clause that sets it and the window it is in force.",
+  "HO-STD": {
+    "policy_line": "homeowners",
+    "sub_limits": [
+      {
+        "peril": "fungi_remediation",
+        "amount": 10000,
+        "source": "HO-0521 ed. 06-24 A",
+        "from": "2024-06-01",
+        "to": null
+      },
+      {
+        "peril": "theft_jewelry_watches",
+        "amount": 2500,
+        "source": "HO-0521 ed. 06-24 B",
+        "from": "2024-06-01",
+        "to": null
+      },
+      {
+        "peril": "theft_silverware",
+        "amount": 2500,
+        "source": "HO-0521 ed. 06-24 B",
+        "from": "2024-06-01",
+        "to": null
+      },
+      {
+        "peril": "surface_water",
+        "amount": 15000,
+        "source": "HO-0304 ed. 04-25 E-15",
+        "from": "2025-04-01",
+        "to": null
+      }
+    ],
+    "peril_deductibles": []
+  },
+  "DP-STD": {
+    "policy_line": "dwelling_fire",
+    "sub_limits": [],
+    "peril_deductibles": []
+  },
+  "CO-STD": {
+    "policy_line": "condo",
+    "sub_limits": [
+      {
+        "peril": "loss_assessment",
+        "amount": 50000,
+        "source": "CO-0715 ed. 04-24 A",
+        "from": "2024-04-01",
+        "to": null
+      }
+    ],
+    "peril_deductibles": [
+      {
+        "peril": "loss_assessment",
+        "amount": 250,
+        "source": "CO-0715 ed. 04-24",
+        "from": "2024-04-01",
+        "to": null
+      }
+    ]
+  }
+}

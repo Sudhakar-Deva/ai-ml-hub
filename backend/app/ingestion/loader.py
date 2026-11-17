@@ -16,6 +16,9 @@ class Document:
     policy_line: str
     edition_date: str
     text: str
+    # Week 12: the date this edition took effect, as an int YYYYMMDD so Chroma can
+    # range-filter on it. 0 when the header has no parseable Effective: line.
+    effective_from: int = 0
 
     def metadata(self) -> dict:
         return {
@@ -23,7 +26,14 @@ class Document:
             "form_number": self.form_number,
             "policy_line": self.policy_line,
             "edition_date": self.edition_date,
+            "effective_from": self.effective_from,
         }
+
+
+def effective_int(raw: str) -> int:
+    """'03-01-2024' (MM-DD-YYYY, the corpus header format) -> 20240301; else 0."""
+    m = re.match(r"\s*(\d{2})-(\d{2})-(\d{4})", raw or "")
+    return int(f"{m.group(3)}{m.group(1)}{m.group(2)}") if m else 0
 
 
 def _read(path: Path) -> str:
@@ -69,6 +79,7 @@ def load_document(path: Path) -> Document:
             else (effective.group(1).strip() if effective else "UNKNOWN")
         ),
         text=text,
+        effective_from=effective_int(effective.group(1)) if effective else 0,
     )
 
 

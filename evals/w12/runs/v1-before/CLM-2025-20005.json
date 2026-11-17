@@ -1,0 +1,324 @@
+{
+ "trace_id": "tr_4047771fceff",
+ "ts": "2026-11-16T10:38:21.804+00:00",
+ "triage_version": "triage-v1",
+ "date_filter": false,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "4e5179cc4bdf",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2025-06-20",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781502 (homeowners)\nDate of loss: 2025-06-20\nReported: water damage - basement, claimed $9,700\nNotes (names, addresses and injuries redacted at intake):\n- 2025-06-20 ADJ-114: 2025-06-23 site visit at [ADDRESS], insured [NAME]. Ashby Brook overtopped its bank again on 2025-06-20 after a cloudburst upstream; brook water entered the basement through the window wells to about 15 cm. Estimate: $9,700.",
+ "intake_redaction": [
+  "address",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2025-06-20",
+    "policy_number": "HO-781502"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2025-06-20",
+    "policy_number": "HO-781502"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "policy_line": "homeowners",
+    "query": "basement water damage window wells 15 cm"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 01-23 | E-17",
+    "HO-0304 ed. 03-24 | E-17",
+    "HO-0304 ed. 01-23 | E-16",
+    "HO-0304 ed. 03-24 | E-16",
+    "HO-0304 ed. 01-23 | E-19"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0006"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-15",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Surface water exclusion applies to water entering through window wells."
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water entered basement through window wells after Ashby Brook overtopped its bank on 2025-06-20, causing approximately 15 cm of water damage. Estimated loss $9,700.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2025-06-20",
+    "policy_limit": 400000,
+    "sub_limit": 15000,
+    "sub_limit_basis": "Surface water sub-limit per HO-0304 ed. 04-25 E-15"
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water exclusion applies to water entering through window wells."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered basement through window wells after Ashby Brook overtopped its bank on 2025-06-20, causing approximately 15 cm of water damage. Estimated loss $9,700.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2025-06-20",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "Surface water sub-limit per HO-0304 ed. 04-25 E-15"
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water exclusion applies to water entering through window wells."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water entered basement through window wells after Ashby Brook overtopped its bank on 2025-06-20, causing approximately 15 cm of water damage. Estimated loss $9,700.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2025-06-20",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "Surface water sub-limit per HO-0304 ed. 04-25 E-15"
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-15",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "Surface water exclusion applies to water entering through window wells.",
+   "clause_as_cited": "E-15",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-06-20",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L19"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.1,
+   "latency_ms": 17.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 17.1,
+   "latency_ms": 3.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 20.1,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 20.5,
+   "latency_ms": 10048.1,
+   "tokens_in": 877,
+   "tokens_out": 53,
+   "cost_usd": 8.17e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 10068.6,
+   "latency_ms": 0.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 10069.6,
+   "latency_ms": 7762.5,
+   "tokens_in": 1104,
+   "tokens_out": 42,
+   "cost_usd": 9.54e-05,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 17832.1,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 17832.4,
+   "latency_ms": 10189.5,
+   "tokens_in": 1379,
+   "tokens_out": 47,
+   "cost_usd": 0.0001175,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 28021.9,
+   "latency_ms": 258.9,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 28280.8,
+   "latency_ms": 17311.6,
+   "tokens_in": 2402,
+   "tokens_out": 234,
+   "cost_usd": 0.0002504,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 45592.4,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 45592.5,
+   "latency_ms": 0.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_4047771fceff",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:38:50.082+00:00",
+   "latency_ms": 243.7,
+   "triage_version": "triage-v1",
+   "date_filter": false,
+   "args": {
+    "query": "basement water damage window wells 15 cm",
+    "policy_line": "homeowners",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0004",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-03-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-01-23.md:0006"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 45593.6,
+  "laps": 4,
+  "tokens_in": 5762,
+  "tokens_out": 376,
+  "cost_usd": 0.0005449,
+  "rate_limit_wait_ms": 42000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_4047771fceff \u00b7 triage-v1 \u00b7 loss date 2025-06-20\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2025-06-20:\n  - [HO-0304 ed. 04-25 \u00b7 E-15](../data/endorsements/HO-0304-ed-04-25.md#L19): Surface water exclusion applies to water entering through window wells.\nDeductible: $1,000   Sub-limit: $15,000   Policy limit: $400,000\n  deductible basis: policy deductible\n  sub limit basis: Surface water sub-limit per HO-0304 ed. 04-25 E-15\nFacts for the adjuster: Water entered basement through window wells after Ashby Brook overtopped its bank on 2025-06-20, causing approximately 15 cm of water damage. Estimated loss $9,700.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

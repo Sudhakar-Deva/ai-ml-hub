@@ -1,0 +1,381 @@
+{
+ "trace_id": "tr_7dc5655913bc",
+ "ts": "2026-11-16T10:47:00.144+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "fecc45ee59ae",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2026-06-02",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-770391 (homeowners)\nDate of loss: 2026-06-02\nReported: water damage - kitchen, claimed $14,200\nNotes (names, addresses and injuries redacted at intake):\n- 2026-06-02 ADJ-114: 2026-06-04 site visit. Insured discovered buckled flooring in front of the kitchen sink on 2026-06-02. Plumber found the compression fitting on the cold supply line under the sink weeping, not burst. Tide-line staining on the cabinet base and the subfloor indicates water had been escaping for about three weeks before discovery. Insured was home throughout and did not notice. Estimate: $14,200 for cabinets, subfloor and flooring.",
+ "intake_redaction": [],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2026-06-02",
+    "policy_number": "HO-770391"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2026-06-02",
+    "policy_number": "HO-770391"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2026-06-02",
+    "policy_line": "homeowners",
+    "query": "water damage kitchen sink water damage under sink water escaping for three weeks"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-20",
+    "HO-0304 ed. 04-25 | E-22",
+    "HO-0304 ed. 04-25 | APPLICATION OF THESE EXCLUSIONS",
+    "HO-0304 ed. 04-25 | E-21",
+    "HO-0304 ed. 04-25 | E-19"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0009",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-22",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Exclusion does not apply to sudden discharge of plumbing line"
+     },
+     {
+      "clause": "E-20",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Surface water sub-limit applies"
+     },
+     {
+      "clause": "E-21",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Exclusion for water below surface does not apply"
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Insured discovered water escaping from a cold supply line under the kitchen sink on 2026-06-02, with evidence of three weeks of leakage. The damage includes cabinets, subfloor and flooring, estimated at $14,200. The loss is not a sudden rupture but a slow leak. The water source is a plumbing supply line within the dwelling.",
+    "in_force": true,
+    "in_force_basis": "policy in force on loss date",
+    "loss_date": "2026-06-02",
+    "policy_limit": 400000,
+    "sub_limit": 15000,
+    "sub_limit_basis": "surface water sub-limit"
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-22",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Exclusion does not apply to sudden discharge of plumbing line"
+   },
+   {
+    "clause": "E-20",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water sub-limit applies"
+   },
+   {
+    "clause": "E-21",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Exclusion for water below surface does not apply"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Insured discovered water escaping from a cold supply line under the kitchen sink on 2026-06-02, with evidence of three weeks of leakage. The damage includes cabinets, subfloor and flooring, estimated at $14,200. The loss is not a sudden rupture but a slow leak. The water source is a plumbing supply line within the dwelling.",
+  "in_force": true,
+  "in_force_basis": "policy in force on loss date",
+  "loss_date": "2026-06-02",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "surface water sub-limit"
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-22",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Exclusion does not apply to sudden discharge of plumbing line"
+   },
+   {
+    "clause": "E-20",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water sub-limit applies"
+   },
+   {
+    "clause": "E-21",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Exclusion for water below surface does not apply"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Insured discovered water escaping from a cold supply line under the kitchen sink on 2026-06-02, with evidence of three weeks of leakage. The damage includes cabinets, subfloor and flooring, estimated at $14,200. The loss is not a sudden rupture but a slow leak. The water source is a plumbing supply line within the dwelling.",
+  "in_force": true,
+  "in_force_basis": "policy in force on loss date",
+  "loss_date": "2026-06-02",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "surface water sub-limit"
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "E-22",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "Exclusion does not apply to sudden discharge of plumbing line",
+   "clause_as_cited": "E-22",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2026-06-02",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L26"
+  },
+  {
+   "clause": "E-20",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "Surface water sub-limit applies",
+   "clause_as_cited": "E-20",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2026-06-02",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L24"
+  },
+  {
+   "clause": "E-21",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "Exclusion for water below surface does not apply",
+   "clause_as_cited": "E-21",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2026-06-02",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L25"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.0,
+   "latency_ms": 17.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 17.6,
+   "latency_ms": 2.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 19.7,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": []
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 20.0,
+   "latency_ms": 8568.5,
+   "tokens_in": 942,
+   "tokens_out": 50,
+   "cost_usd": 8.56e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 8588.6,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 8589.0,
+   "latency_ms": 10402.2,
+   "tokens_in": 1217,
+   "tokens_out": 44,
+   "cost_usd": 0.0001045,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 18991.3,
+   "latency_ms": 1.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 18992.8,
+   "latency_ms": 3237.2,
+   "tokens_in": 1444,
+   "tokens_out": 67,
+   "cost_usd": 0.0001284,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 22230.1,
+   "latency_ms": 281.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 22511.4,
+   "latency_ms": 13556.3,
+   "tokens_in": 2485,
+   "tokens_out": 335,
+   "cost_usd": 0.0002869,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 36067.7,
+   "latency_ms": 0.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 36067.8,
+   "latency_ms": 0.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_7dc5655913bc",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:47:22.652+00:00",
+   "latency_ms": 249.5,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "water damage kitchen sink water damage under sink water escaping for three weeks",
+    "policy_line": "homeowners",
+    "loss_date": "2026-06-02",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0009",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0012",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 36069.0,
+  "laps": 4,
+  "tokens_in": 6088,
+  "tokens_out": 496,
+  "cost_usd": 0.0006054,
+  "rate_limit_wait_ms": 32500.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_7dc5655913bc \u00b7 triage-v2 \u00b7 loss date 2026-06-02\nIn force on the loss date: YES. policy in force on loss date\nWording cited, each resolved against loss date 2026-06-02:\n  - [HO-0304 ed. 04-25 \u00b7 E-22](../data/endorsements/HO-0304-ed-04-25.md#L26): Exclusion does not apply to sudden discharge of plumbing line\n  - [HO-0304 ed. 04-25 \u00b7 E-20](../data/endorsements/HO-0304-ed-04-25.md#L24): Surface water sub-limit applies\n  - [HO-0304 ed. 04-25 \u00b7 E-21](../data/endorsements/HO-0304-ed-04-25.md#L25): Exclusion for water below surface does not apply\nDeductible: $1,000   Sub-limit: $15,000   Policy limit: $400,000\n  deductible basis: policy deductible\n  sub limit basis: surface water sub-limit\nFacts for the adjuster: Insured discovered water escaping from a cold supply line under the kitchen sink on 2026-06-02, with evidence of three weeks of leakage. The damage includes cabinets, subfloor and flooring, estimated at $14,200. The loss is not a sudden rupture but a slow leak. The water source is a plumbing supply line within the dwelling.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

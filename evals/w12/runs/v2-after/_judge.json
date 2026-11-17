@@ -1,0 +1,219 @@
+{
+ "judge": "v3",
+ "model": "openai/gpt-oss-120b",
+ "params": {
+  "temperature": 0,
+  "max_tokens": 512
+ },
+ "labels_sha": "39faf2a3bb4f",
+ "verdicts": {
+  "CLM-2023-20008": {
+   "verdict": "FAIL",
+   "reason": "The referral incorrectly states that E-17 excludes water damage from a sudden plumbing rupture, but the policy wording for E-17 says it is NOT excluded.",
+   "usage": {
+    "input_tokens": 2403,
+    "output_tokens": 216
+   }
+  },
+  "CLM-2024-20001": {
+   "verdict": "PASS",
+   "reason": "The referral correctly cites the in-force HO-0304\u202fed.\u202f03-24 exclusions (E-15 and E-16), includes the clause directly relevant to the surface-water loss (E-15), and all statements about the wording are supported by the retrieved policy text.",
+   "usage": {
+    "input_tokens": 2379,
+    "output_tokens": 202
+   }
+  },
+  "CLM-2024-20006": {
+   "verdict": "FAIL",
+   "reason": "The referral misstates the wording by attributing the \u201csudden and accidental discharge\u201d exclusion to E-22, which is unrelated, so its statement about the policy wording is unsupported.",
+   "usage": {
+    "input_tokens": 2543,
+    "output_tokens": 271
+   }
+  },
+  "CLM-2024-20007": {
+   "verdict": "FAIL",
+   "reason": "The referral cites E-17, but the facts point to the continuous seepage exclusion (E-19), which is not cited.",
+   "usage": {
+    "input_tokens": 2423,
+    "output_tokens": 137
+   }
+  },
+  "CLM-2024-20010": {
+   "verdict": "FAIL",
+   "reason": "The referral incorrectly states the policy was not in force on the loss date and provides no clause citations, violating the requirement to cite applicable wording.",
+   "usage": {
+    "input_tokens": 765,
+    "output_tokens": 117
+   }
+  },
+  "CLM-2024-20011": {
+   "verdict": "PASS",
+   "reason": "The referral cites the correct HO-0521 ed.\u202f06-24 special limit clause, which is in force on the loss date and directly addresses the theft of jewelry, and its statements about the sub-limit are supported by the retrieved context.",
+   "usage": {
+    "input_tokens": 1570,
+    "output_tokens": 114
+   }
+  },
+  "CLM-2024-20013": {
+   "verdict": "FAIL",
+   "reason": "The referral cites exclusion E-22 (water damage from roof/door openings) instead of the correct E-17 clause governing sudden burst plumbing lines.",
+   "usage": {
+    "input_tokens": 2457,
+    "output_tokens": 65
+   }
+  },
+  "CLM-2025-20002": {
+   "verdict": "FAIL",
+   "reason": "The referral incorrectly cites exclusions (E-17 and E-20) that are not exclusions in the 03-24 edition and misstates their content, violating criteria (a) and (c).",
+   "usage": {
+    "input_tokens": 2608,
+    "output_tokens": 185
+   }
+  },
+  "CLM-2025-20003": {
+   "verdict": "PASS",
+   "reason": "The referral correctly cites the in-force HO-0304 ed.\u202f04-25 E-15 wording, which directly addresses the surface-water damage described, and its interpretation matches the retrieved policy text.",
+   "usage": {
+    "input_tokens": 2567,
+    "output_tokens": 127
+   }
+  },
+  "CLM-2025-20004": {
+   "verdict": "FAIL",
+   "reason": "The referral cites only E-17 (plumbing burst) and omits the applicable flood exclusion E-15, so it does not reference the clause most directly pointed to by the facts.",
+   "usage": {
+    "input_tokens": 2444,
+    "output_tokens": 101
+   }
+  },
+  "CLM-2025-20005": {
+   "verdict": "FAIL",
+   "reason": "The referral misinterprets E-15, claiming river overflow is no longer excluded, which contradicts the policy wording that overflow of a body of water remains excluded.",
+   "usage": {
+    "input_tokens": 2459,
+    "output_tokens": 146
+   }
+  },
+  "CLM-2025-20009": {
+   "verdict": "FAIL",
+   "reason": "The referral incorrectly states that no policy term covers the loss date and provides no cited clause, violating criteria (a) and (b).",
+   "usage": {
+    "input_tokens": 800,
+    "output_tokens": 110
+   }
+  },
+  "CLM-2025-20012": {
+   "verdict": "FAIL",
+   "reason": "The referral incorrectly states that the sub-limit applies as a \u201csurface water\u201d sub-limit, which is not supported by the cited policy wording for a sudden supply-line rupture.",
+   "usage": {
+    "input_tokens": 2761,
+    "output_tokens": 219
+   }
+  },
+  "CLM-2025-20014": {
+   "verdict": "PASS",
+   "reason": "The referral correctly cites the E-17 exclusion from DP-0110 ed.\u202f02-24, which governs the loss date and directly matches the burst supply line fact, and its statement about the exclusion is supported by the retrieved policy text.",
+   "usage": {
+    "input_tokens": 1721,
+    "output_tokens": 123
+   }
+  },
+  "CLM-2025-20015": {
+   "verdict": "FAIL",
+   "reason": "The referral cites only the flood exclusion (E-15) instead of the clause that directly governs hail damage, so it does not include the relevant wording for the loss.",
+   "usage": {
+    "input_tokens": 2481,
+    "output_tokens": 216
+   }
+  },
+  "CLM-2026-10001": {
+   "verdict": "FAIL",
+   "reason": "The referral misinterprets E-22 (a roof-soaking exclusion) as excluding supply-line replacement and cites an irrelevant surface-water exclusion (E-15), so its statements are not supported by the retrieved policy wording.",
+   "usage": {
+    "input_tokens": 2830,
+    "output_tokens": 239
+   }
+  },
+  "CLM-2026-10002": {
+   "verdict": "FAIL",
+   "reason": "The referral misstates E-15, claiming river overflow is not excluded, which contradicts the policy wording that overflow of a body of water remains excluded.",
+   "usage": {
+    "input_tokens": 2683,
+    "output_tokens": 139
+   }
+  },
+  "CLM-2026-10003": {
+   "verdict": "FAIL",
+   "reason": "The referral cites irrelevant exclusions (E-22, E-20, E-21) and omits the correct clause (E-19) that governs the slow-leak, three-week seepage, violating the required policy wording.",
+   "usage": {
+    "input_tokens": 2842,
+    "output_tokens": 138
+   }
+  },
+  "CLM-2026-10004": {
+   "verdict": "PASS",
+   "reason": "The referral correctly cites the E-17 exclusion from the DP-0110 ed.\u202f02-24 policy, which governs the loss date and directly matches the burst supply-line facts.",
+   "usage": {
+    "input_tokens": 1760,
+    "output_tokens": 174
+   }
+  },
+  "CLM-2026-10005": {
+   "verdict": "PASS",
+   "reason": "The referral correctly cites the loss-assessment coverage clause from the in-force CO-0715 ed.\u202f04-24 policy and accurately reflects that the windstorm-related assessment is covered.",
+   "usage": {
+    "input_tokens": 1736,
+    "output_tokens": 198
+   }
+  },
+  "CLM-2026-10006": {
+   "verdict": "FAIL",
+   "reason": "The referral does not cite the exclusion (E-31) that specifically bars coverage for assessments arising from the association\u2019s deductible, which is the clause most directly applicable to the facts.",
+   "usage": {
+    "input_tokens": 1591,
+    "output_tokens": 114
+   }
+  },
+  "CLM-2026-10007": {
+   "verdict": "FAIL",
+   "reason": "The referral cites only E-15 (flood) instead of the relevant E-20 sewer-backup exclusion, so it does not reference the clause that the facts most directly point to.",
+   "usage": {
+    "input_tokens": 2254,
+    "output_tokens": 128
+   }
+  },
+  "CLM-2026-10008": {
+   "verdict": "PASS",
+   "reason": "The referral correctly cites the HO-0521 ed.\u202f06-24 jewelry theft sub-limit clause, which is the applicable wording on the loss date and directly addresses the stolen jewelry.",
+   "usage": {
+    "input_tokens": 1443,
+    "output_tokens": 157
+   }
+  },
+  "CLM-2026-10009": {
+   "verdict": "FAIL",
+   "reason": "The referral cites only E-15, but the facts do not specifically point to surface-water flood, so the clause most directly applicable is not identified.",
+   "usage": {
+    "input_tokens": 2797,
+    "output_tokens": 128
+   }
+  },
+  "CLM-2026-10010": {
+   "verdict": "FAIL",
+   "reason": "The referral omits the relevant exclusion (E-33) for assessments arising from water damage caused by the association\u2019s failure to maintain the plumbing system.",
+   "usage": {
+    "input_tokens": 1631,
+    "output_tokens": 113
+   }
+  },
+  "CLM-2026-10011": {
+   "verdict": "PASS",
+   "reason": "The referral correctly cites the in-force HO-0304 ed.\u202f04-25 E-15 exclusion covering surface water, which directly applies to the rain-water ingress described.",
+   "usage": {
+    "input_tokens": 2605,
+    "output_tokens": 188
+   }
+  }
+ }
+}

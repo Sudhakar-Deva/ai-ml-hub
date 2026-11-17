@@ -1,0 +1,413 @@
+{
+ "trace_id": "tr_8eb24f826e19",
+ "ts": "2026-11-16T10:54:00.209+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "a75c619ab0c7",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2025-05-15",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781950 (homeowners)\nDate of loss: 2025-05-15\nReported: water damage and mould - upstairs bathroom, claimed $19,800\nNotes (names, addresses and injuries redacted at intake):\n- 2025-05-15 ADJ-114: 2025-05-28 site visit. Insured is [NAME], [ADDRESS] Supply line to the upstairs bathroom vanity ruptured suddenly on 2025-05-15 while the insured was at work; water ran for about 6 hours. Drying was delayed and mould is now visible on the bathroom and hall drywall. [NAME] reports [INJURY] since the mould appeared. Estimate: water damage repair $11,300, mould remediation $8,500, total $19,800.",
+ "intake_redaction": [
+  "address",
+  "injury",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2025-05-15",
+    "policy_number": "HO-781950"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2025-05-15",
+    "policy_number": "HO-781950"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2025-05-15",
+    "policy_line": "homeowners",
+    "query": "surface water water damage mould remediation"
+   },
+   "error": null,
+   "returned": [
+    "HO-0304 ed. 04-25 | E-20",
+    "HO-0521 ed. 06-24 | A. Remediation of \"fungi\", wet or dry rot, or bacteria",
+    "HO-0304 ed. 04-25 | E-21",
+    "HO-0304 ed. 04-25 | E-19",
+    "HO-0304 ed. 04-25 | E-17"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004"
+   ]
+  },
+  {
+   "lap": 5,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "E-15",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "Surface water from rainfall that pools on the premises is covered up to the surface-water sub-limit of $15,000 per occurrence."
+     },
+     {
+      "clause": "E-17",
+      "edition": "04-25",
+      "form": "HO-0304",
+      "relevance": "The sudden rupture of a plumbing supply line is not excluded; damage from such a rupture is covered."
+     },
+     {
+      "clause": "A",
+      "edition": "06-24",
+      "form": "HO-0521",
+      "relevance": "Up to $10,000 per policy period is available for remediation of fungi, wet or dry rot, or bacteria that results from a covered water loss."
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 1000,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "Water ran for about 6 hours after a sudden rupture of the supply line to the upstairs bathroom vanity on 2025-05-15. Drying was delayed, leading to visible mould on the bathroom and hall drywall. The insured reports an injury since the mould appeared. Estimated repair costs: water damage $11,300, mould remediation $8,500, total $19,800.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2025-05-15",
+    "policy_limit": 400000,
+    "sub_limit": 15000,
+    "sub_limit_basis": "Surface water sub-limit per occurrence."
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "Surface water from rainfall that pools on the premises is covered up to the surface-water sub-limit of $15,000 per occurrence."
+   },
+   {
+    "clause": "E-17",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "The sudden rupture of a plumbing supply line is not excluded; damage from such a rupture is covered."
+   },
+   {
+    "clause": "A",
+    "edition": "06-24",
+    "form": "HO-0521",
+    "relevance": "Up to $10,000 per policy period is available for remediation of fungi, wet or dry rot, or bacteria that results from a covered water loss."
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water ran for about 6 hours after a sudden rupture of the supply line to the upstairs bathroom vanity on 2025-05-15. Drying was delayed, leading to visible mould on the bathroom and hall drywall. The insured reports an injury since the mould appeared. Estimated repair costs: water damage $11,300, mould remediation $8,500, total $19,800.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2025-05-15",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "Surface water sub-limit per occurrence."
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "E-15",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "[removed by the decision-language guard]"
+   },
+   {
+    "clause": "E-17",
+    "edition": "04-25",
+    "form": "HO-0304",
+    "relevance": "[removed by the decision-language guard]"
+   },
+   {
+    "clause": "A",
+    "edition": "06-24",
+    "form": "HO-0521",
+    "relevance": "[removed by the decision-language guard]"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 1000,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "Water ran for about 6 hours after a sudden rupture of the supply line to the upstairs bathroom vanity on 2025-05-15. Drying was delayed, leading to visible mould on the bathroom and hall drywall. The insured reports an injury since the mould appeared. Estimated repair costs: water damage $11,300, mould remediation $8,500, total $19,800.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2025-05-15",
+  "policy_limit": 400000,
+  "sub_limit": 15000,
+  "sub_limit_basis": "Surface water sub-limit per occurrence."
+ },
+ "guard_fired": [
+  {
+   "field": "citations[0].relevance",
+   "word": "covered"
+  },
+  {
+   "field": "citations[1].relevance",
+   "word": "covered"
+  },
+  {
+   "field": "citations[2].relevance",
+   "word": "covered"
+  }
+ ],
+ "citations": [
+  {
+   "clause": "E-15",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "[removed by the decision-language guard]",
+   "clause_as_cited": "E-15",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-05-15",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L19"
+  },
+  {
+   "clause": "E-17",
+   "edition": "04-25",
+   "form": "HO-0304",
+   "relevance": "[removed by the decision-language guard]",
+   "clause_as_cited": "E-17",
+   "exists": true,
+   "edition_in_force": "04-25",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-05-15",
+   "source": "data/endorsements/HO-0304-ed-04-25.md#L21"
+  },
+  {
+   "clause": "A",
+   "edition": "06-24",
+   "form": "HO-0521",
+   "relevance": "[removed by the decision-language guard]",
+   "clause_as_cited": "A",
+   "exists": true,
+   "edition_in_force": "06-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2025-05-15",
+   "source": "data/endorsements/HO-0521-ed-06-24.md#L12"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.0,
+   "latency_ms": 18.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 18.1,
+   "latency_ms": 2.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 20.4,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "injury",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 20.8,
+   "latency_ms": 9834.8,
+   "tokens_in": 952,
+   "tokens_out": 53,
+   "cost_usd": 8.73e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 9855.6,
+   "latency_ms": 0.3,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 9856.0,
+   "latency_ms": 8732.4,
+   "tokens_in": 1179,
+   "tokens_out": 42,
+   "cost_usd": 0.000101,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 18588.4,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 18588.9,
+   "latency_ms": 10251.5,
+   "tokens_in": 1454,
+   "tokens_out": 69,
+   "cost_usd": 0.0001298,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 28840.4,
+   "latency_ms": 263.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 29103.9,
+   "latency_ms": 15406.0,
+   "tokens_in": 2511,
+   "tokens_out": 642,
+   "cost_usd": 0.0003809,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 44509.9,
+   "latency_ms": 20770.8,
+   "tokens_in": 3092,
+   "tokens_out": 349,
+   "cost_usd": 0.0003366,
+   "lap": 5,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 65280.7,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 5,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 65280.7,
+   "latency_ms": 1.7,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 3
+  },
+  {
+   "trace_id": "tr_8eb24f826e19",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:54:29.309+00:00",
+   "latency_ms": 247.2,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "surface water water damage mould remediation",
+    "policy_line": "homeowners",
+    "loss_date": "2025-05-15",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0007",
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0003",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0008",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0006",
+    "structure_aware:HO-0304:HO-0304-ed-04-25.md:0004"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 65283.0,
+  "laps": 5,
+  "tokens_in": 9188,
+  "tokens_out": 1155,
+  "cost_usd": 0.0010356,
+  "rate_limit_wait_ms": 60000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_8eb24f826e19 \u00b7 triage-v2 \u00b7 loss date 2025-05-15\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2025-05-15:\n  - [HO-0304 ed. 04-25 \u00b7 E-15](../data/endorsements/HO-0304-ed-04-25.md#L19): [removed by the decision-language guard]\n  - [HO-0304 ed. 04-25 \u00b7 E-17](../data/endorsements/HO-0304-ed-04-25.md#L21): [removed by the decision-language guard]\n  - [HO-0521 ed. 06-24 \u00b7 A](../data/endorsements/HO-0521-ed-06-24.md#L12): [removed by the decision-language guard]\nDeductible: $1,000   Sub-limit: $15,000   Policy limit: $400,000\n  deductible basis: policy deductible\n  sub limit basis: Surface water sub-limit per occurrence.\nFacts for the adjuster: Water ran for about 6 hours after a sudden rupture of the supply line to the upstairs bathroom vanity on 2025-05-15. Drying was delayed, leading to visible mould on the bathroom and hall drywall. The insured reports an injury since the mould appeared. Estimated repair costs: water damage $11,300, mould remediation $8,500, total $19,800.\n(decision-language guard removed 3 sentence(s))",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

@@ -44,6 +44,21 @@ ADDRESS_RE = re.compile(
     re.I,
 )
 
+# Week 12: adjuster notes name people without a title or with a capitalised role
+# word ("Insured is Arjun Mehta", "claimant Grace Okafor", "tenant Ms Kara Singh"),
+# and describe injuries. Group 1 is the part replaced.
+ROLE_NAME_W12_RE = re.compile(
+    r"\b(?i:insured|claimant|policyholder|tenant|named insured)\b(?:\s+(?:is|was|named|:))?\s+"
+    r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})"
+)
+_BODY = r"(?:wrist|ankle|arm|forearm|leg|hip|foot|feet|hand|back|ribs?|knee|shoulder|finger|toe|nose|head|neck|face)"
+INJURY_RE = re.compile(
+    r"\b(?:an?\s+|his\s+|her\s+|their\s+)?(?:sprained|fractured|broken|bruised|burned|injured|cut)\s+(?:his\s+|her\s+|their\s+)?" + _BODY + r"\b"
+    r"|\ba burn on (?:his|her|their) " + _BODY + r"\b"
+    r"|\b(?:concussion|whiplash|laceration|stitches|asthma(?: symptoms)?|urgent care|emergency room|hospitali[sz]ed)\b",
+    re.I,
+)
+
 RULES = [
     ("claim_number", CLAIM_RE, "[CLAIM_ID]"),
     ("claim_number", CLAIM_PHRASE_RE, None),   # None -> replace group 1 only
@@ -55,6 +70,8 @@ RULES = [
     ("address", ADDRESS_RE, "[ADDRESS]"),
     ("person_name", TITLE_NAME_RE, "[NAME]"),
     ("person_name", ROLE_NAME_RE, None),
+    ("person_name", ROLE_NAME_W12_RE, None),
+    ("injury", INJURY_RE, "[INJURY]"),
 ]
 
 PLACEHOLDER = {

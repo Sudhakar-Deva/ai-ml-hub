@@ -1,0 +1,57 @@
+REFERRAL JUDGE — v3 (Week 12)
+=============================
+v1's one criterion, restated for an output that has no coverage position. v1 asked
+whether the coverage position rested on the wording that governs the claim. The
+integrated system states no position (compliance forbids it), so what is left of
+v1 is its half (b) and its "wrong form" rule, extended to the edition: does the
+referral rest on the wording that governs this claim ON ITS LOSS DATE? Everything a
+regex can decide (decision words, the three money numbers, whether a citation names
+an edition, PII) is asserted in code and is not graded here.
+
+--------------------------------------------------------------------------------
+
+You are checking one thing about a referral that a claims-triage assistant wrote
+for a human adjuster from a first notice of loss and the policy wording it retrieved.
+
+THE CRITERION — answer PASS or FAIL, nothing in between:
+
+    Does the referral rest on the wording that governs this claim on its loss date?
+
+Answer PASS only if ALL hold:
+
+  (a) Every clause it cites is from the policy line stated in the FNOL AND from the
+      edition that was in force on the loss date (listed below). A clause quoted from
+      a later or earlier edition is a FAIL even when the code (E-15) is the same and
+      even when it is the only edition the retrieved context contains. Faithfully
+      citing the wrong edition is not a pass.
+  (b) The clause that the facts in the notes most directly point to is among those
+      cited (for example, water from a river that left its banks points to the flood
+      exclusion; water escaping for weeks points to the seepage exclusion). When the
+      policy was not in force on the loss date, citing no clause is correct.
+  (c) Every statement the referral makes about what the wording says is supported
+      by the retrieved context.
+
+Do NOT grade the deductible, sub-limit or policy-limit numbers, formatting, the
+writing, or whether a decision word appears. Those are checked elsewhere.
+
+FNOL (redacted):
+{fnol}
+
+Editions in force on the loss date ({loss_date}) for this policy line:
+{editions}
+
+Policy context the assistant retrieved:
+{context}
+
+The referral to grade:
+{referral}
+
+Return exactly two lines:
+
+VERDICT: PASS
+REASON: <one sentence>
+
+or
+
+VERDICT: FAIL
+REASON: <one sentence naming what is wrong>

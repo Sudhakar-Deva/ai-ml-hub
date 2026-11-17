@@ -1,0 +1,327 @@
+{
+ "trace_id": "tr_362e24e3c3f5",
+ "ts": "2026-11-16T10:53:14.253+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "ce08d2b9d2ee",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2024-10-12",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781804 (homeowners)\nDate of loss: 2024-10-12\nReported: theft, claimed $7,800\nNotes (names, addresses and injuries redacted at intake):\n- 2024-10-12 ADJ-114: 2024-10-14 call and police report. Burglary on 2024-10-12 at [ADDRESS] while insured [NAME] was away; a rear window was forced. Taken: a diamond ring appraised at $5,200 and a wristwatch appraised at $2,600, total $7,800. Nothing else taken or damaged.",
+ "intake_redaction": [
+  "address",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2024-10-12",
+    "policy_number": "HO-781804"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2024-10-12",
+    "policy_number": "HO-781804"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "policy-docs__search_policy",
+   "args": {
+    "k": 5,
+    "loss_date": "2024-10-12",
+    "policy_line": "homeowners",
+    "query": "theft jewelry watch"
+   },
+   "error": null,
+   "returned": [
+    "HO-0521 ed. 06-24 | B. Other special limits",
+    "HO-0608 ed. 01-24 | E. Inventory. Prepare an inventory of damaged personal property showing",
+    "HO-0417 ed. 05-24 | A. \"Sudden and accidental\"",
+    "HO-0608 ed. 01-24 | SECTION II \u2014 SUIT AGAINST US",
+    "HO-0608 ed. 01-24 | A. Notice. Give prompt notice to us or our agent. Notice by any reasonable"
+   ],
+   "chunk_ids": [
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0004",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0007",
+    "structure_aware:HO-0417:HO-0417-ed-05-24.md:0002",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0008",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0003"
+   ]
+  },
+  {
+   "lap": 4,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [
+     {
+      "clause": "B. Other special limits",
+      "edition": "06-24",
+      "form": "HO-0521",
+      "relevance": "Jewelry, watches, and precious stones, for loss by theft $2,500"
+     }
+    ],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": 500,
+    "deductible_basis": "policy deductible",
+    "facts_for_adjuster": "The insured reports theft of a diamond ring appraised at $5,200 and a wristwatch appraised at $2,600, total $7,800, taken through forced rear window on 2024-10-12. The loss is loss by theft of jewelry and watches. The policy has a sub-limit of $2,500 for jewelry, watches, and precious stones for loss by theft. The policy deductible is $500. The policy limit is $300,000. The policy was in force on the loss date.",
+    "in_force": true,
+    "in_force_basis": "Policy was in force on the loss date.",
+    "loss_date": "2024-10-12",
+    "policy_limit": 300000,
+    "sub_limit": 2500,
+    "sub_limit_basis": "HO-0521 ed. 06-24 B"
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [
+   {
+    "clause": "B. Other special limits",
+    "edition": "06-24",
+    "form": "HO-0521",
+    "relevance": "Jewelry, watches, and precious stones, for loss by theft $2,500"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 500,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "The insured reports theft of a diamond ring appraised at $5,200 and a wristwatch appraised at $2,600, total $7,800, taken through forced rear window on 2024-10-12. The loss is loss by theft of jewelry and watches. The policy has a sub-limit of $2,500 for jewelry, watches, and precious stones for loss by theft. The policy deductible is $500. The policy limit is $300,000. The policy was in force on the loss date.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-10-12",
+  "policy_limit": 300000,
+  "sub_limit": 2500,
+  "sub_limit_basis": "HO-0521 ed. 06-24 B"
+ },
+ "referral": {
+  "citations": [
+   {
+    "clause": "B. Other special limits",
+    "edition": "06-24",
+    "form": "HO-0521",
+    "relevance": "Jewelry, watches, and precious stones, for loss by theft $2,500"
+   }
+  ],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": 500,
+  "deductible_basis": "policy deductible",
+  "facts_for_adjuster": "The insured reports theft of a diamond ring appraised at $5,200 and a wristwatch appraised at $2,600, total $7,800, taken through forced rear window on 2024-10-12. The loss is loss by theft of jewelry and watches. The policy has a sub-limit of $2,500 for jewelry, watches, and precious stones for loss by theft. The policy deductible is $500. The policy limit is $300,000. The policy was in force on the loss date.",
+  "in_force": true,
+  "in_force_basis": "Policy was in force on the loss date.",
+  "loss_date": "2024-10-12",
+  "policy_limit": 300000,
+  "sub_limit": 2500,
+  "sub_limit_basis": "HO-0521 ed. 06-24 B"
+ },
+ "guard_fired": [],
+ "citations": [
+  {
+   "clause": "B. OTHER SPECIAL LIMITS",
+   "edition": "06-24",
+   "form": "HO-0521",
+   "relevance": "Jewelry, watches, and precious stones, for loss by theft $2,500",
+   "clause_as_cited": "B. Other special limits",
+   "exists": true,
+   "edition_in_force": "06-24",
+   "wrong_version": false,
+   "resolved_against_loss_date": "2024-10-12",
+   "source": "data/endorsements/HO-0521-ed-06-24.md#L23"
+  }
+ ],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.0,
+   "latency_ms": 25.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 25.7,
+   "latency_ms": 4.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 29.9,
+   "latency_ms": 0.4,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 30.4,
+   "latency_ms": 7256.7,
+   "tokens_in": 918,
+   "tokens_out": 53,
+   "cost_usd": 8.48e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 7287.1,
+   "latency_ms": 0.5,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 7287.6,
+   "latency_ms": 10710.1,
+   "tokens_in": 1151,
+   "tokens_out": 42,
+   "cost_usd": 9.89e-05,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 17997.8,
+   "latency_ms": 0.6,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 17998.4,
+   "latency_ms": 10716.9,
+   "tokens_in": 1392,
+   "tokens_out": 58,
+   "cost_usd": 0.0001218,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "mcp.policy-docs.search_policy",
+   "side": "host",
+   "start_ms": 28715.3,
+   "latency_ms": 376.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 29091.4,
+   "latency_ms": 16846.6,
+   "tokens_in": 2259,
+   "tokens_out": 302,
+   "cost_usd": 0.00026,
+   "lap": 4,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 45938.0,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 4,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 45938.0,
+   "latency_ms": 6.9,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 0
+  },
+  {
+   "trace_id": "tr_362e24e3c3f5",
+   "span": "mcp.policy-docs.search_policy",
+   "side": "server",
+   "ts": "2026-11-16T10:53:43.337+00:00",
+   "latency_ms": 285.6,
+   "triage_version": "triage-v2",
+   "date_filter": true,
+   "args": {
+    "query": "theft jewelry watch",
+    "policy_line": "homeowners",
+    "loss_date": "2024-10-12",
+    "k": 5
+   },
+   "returned_ids": [
+    "structure_aware:HO-0521:HO-0521-ed-06-24.md:0004",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0007",
+    "structure_aware:HO-0417:HO-0417-ed-05-24.md:0002",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0008",
+    "structure_aware:HO-0608:HO-0608-ed-01-24.md:0003"
+   ],
+   "error": null,
+   "cost_usd": 0.0,
+   "redaction": []
+  }
+ ],
+ "totals": {
+  "latency_ms": 45945.7,
+  "laps": 4,
+  "tokens_in": 5720,
+  "tokens_out": 455,
+  "cost_usd": 0.0005655,
+  "rate_limit_wait_ms": 39500.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_362e24e3c3f5 \u00b7 triage-v2 \u00b7 loss date 2024-10-12\nIn force on the loss date: YES. Policy was in force on the loss date.\nWording cited, each resolved against loss date 2024-10-12:\n  - [HO-0521 ed. 06-24 \u00b7 B. OTHER SPECIAL LIMITS](../data/endorsements/HO-0521-ed-06-24.md#L23): Jewelry, watches, and precious stones, for loss by theft $2,500\nDeductible: $500   Sub-limit: $2,500   Policy limit: $300,000\n  deductible basis: policy deductible\n  sub limit basis: HO-0521 ed. 06-24 B\nFacts for the adjuster: The insured reports theft of a diamond ring appraised at $5,200 and a wristwatch appraised at $2,600, total $7,800, taken through forced rear window on 2024-10-12. The loss is loss by theft of jewelry and watches. The policy has a sub-limit of $2,500 for jewelry, watches, and precious stones for loss by theft. The policy deductible is $500. The policy limit is $300,000. The policy was in force on the loss date.",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}

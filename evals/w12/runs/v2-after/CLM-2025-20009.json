@@ -1,0 +1,229 @@
+{
+ "trace_id": "tr_623f26ea23f1",
+ "ts": "2026-11-16T10:52:32.166+00:00",
+ "triage_version": "triage-v2",
+ "date_filter": true,
+ "model": "openai/gpt-oss-20b",
+ "prompt_sha": "9c5ee417c3c7",
+ "reasoning_effort": "low",
+ "temperature": 0,
+ "claim_ref": "c055b55f8cec",
+ "claim_number": "[CLAIM_ID]",
+ "policy_line": "homeowners",
+ "loss_date": "2025-01-20",
+ "status": "ok",
+ "fnol_redacted": "FNOL\nClaim: [CLAIM_ID]\nPolicy: HO-781610 (homeowners)\nDate of loss: 2025-01-20\nReported: water damage - frozen pipe, claimed $7,600\nNotes (names, addresses and injuries redacted at intake):\n- 2025-01-20 ADJ-114: 2025-01-22 site visit. Insured [NAME], [ADDRESS] Pipe in an exterior wall froze and split on 2025-01-20 during a cold snap; the house was occupied and heated. Estimate: $7,600. Note: renewal premium was received late; renewal term starts 2025-02-01.",
+ "intake_redaction": [
+  "address",
+  "person_name"
+ ],
+ "tools_offered": [
+  "lookup_policy",
+  "check_coverage_in_force",
+  "policy-docs__search_policy",
+  "refer_to_adjuster"
+ ],
+ "mcp_discovered": [
+  "policy-docs__search_policy"
+ ],
+ "steps": [
+  {
+   "lap": 1,
+   "tool": "check_coverage_in_force",
+   "args": {
+    "loss_date": "2025-01-20",
+    "policy_number": "HO-781610"
+   },
+   "error": null
+  },
+  {
+   "lap": 2,
+   "tool": "lookup_policy",
+   "args": {
+    "loss_date": "2025-01-20",
+    "policy_number": "HO-781610"
+   },
+   "error": null
+  },
+  {
+   "lap": 3,
+   "tool": "refer_to_adjuster",
+   "args": {
+    "citations": [],
+    "claim_number": "[CLAIM_ID]",
+    "deductible": null,
+    "deductible_basis": null,
+    "facts_for_adjuster": "Water damage from a frozen pipe that split in an exterior wall on 2025-01-20. The house was occupied and heated. The loss occurred before the renewal term began on 2025-02-01, and no policy term covered the loss date.",
+    "in_force": false,
+    "in_force_basis": "No policy term covers the loss date.",
+    "loss_date": "2025-01-20",
+    "open_questions": [],
+    "policy_limit": null,
+    "sub_limit": null,
+    "sub_limit_basis": null
+   },
+   "error": null
+  }
+ ],
+ "referral_raw": {
+  "citations": [],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": null,
+  "deductible_basis": null,
+  "facts_for_adjuster": "Water damage from a frozen pipe that split in an exterior wall on 2025-01-20. The house was occupied and heated. The loss occurred before the renewal term began on 2025-02-01, and no policy term covered the loss date.",
+  "in_force": false,
+  "in_force_basis": "No policy term covers the loss date.",
+  "loss_date": "2025-01-20",
+  "open_questions": [],
+  "policy_limit": null,
+  "sub_limit": null,
+  "sub_limit_basis": null
+ },
+ "referral": {
+  "citations": [],
+  "claim_number": "[CLAIM_ID]",
+  "deductible": null,
+  "deductible_basis": null,
+  "facts_for_adjuster": "Water damage from a frozen pipe that split in an exterior wall on 2025-01-20. The house was occupied and heated. [removed by the decision-language guard]",
+  "in_force": false,
+  "in_force_basis": "No policy term covers the loss date.",
+  "loss_date": "2025-01-20",
+  "open_questions": [],
+  "policy_limit": null,
+  "sub_limit": null,
+  "sub_limit_basis": null
+ },
+ "guard_fired": [
+  {
+   "field": "facts_for_adjuster",
+   "word": "covered"
+  }
+ ],
+ "citations": [],
+ "spans": [
+  {
+   "span": "mcp.claims-system.get_claim_status",
+   "side": "host",
+   "start_ms": 0.0,
+   "latency_ms": 25.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "mcp.claims-system.get_adjuster_notes",
+   "side": "host",
+   "start_ms": 25.3,
+   "latency_ms": 4.7,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "error": null
+  },
+  {
+   "span": "redact.intake",
+   "side": "host",
+   "start_ms": 30.0,
+   "latency_ms": 0.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "redaction": [
+    "address",
+    "person_name"
+   ]
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 30.3,
+   "latency_ms": 7610.1,
+   "tokens_in": 917,
+   "tokens_out": 53,
+   "cost_usd": 8.47e-05,
+   "lap": 1,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.check_coverage_in_force",
+   "side": "host",
+   "start_ms": 7640.4,
+   "latency_ms": 0.2,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 1,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 7640.6,
+   "latency_ms": 9954.6,
+   "tokens_in": 1192,
+   "tokens_out": 44,
+   "cost_usd": 0.0001026,
+   "lap": 2,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.lookup_policy",
+   "side": "host",
+   "start_ms": 17595.2,
+   "latency_ms": 2.1,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 2,
+   "error": null
+  },
+  {
+   "span": "llm.generation",
+   "side": "host",
+   "start_ms": 17597.3,
+   "latency_ms": 11008.8,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "model": "openai/gpt-oss-20b"
+  },
+  {
+   "span": "tool.refer_to_adjuster",
+   "side": "host",
+   "start_ms": 28606.2,
+   "latency_ms": 0.0,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "lap": 3,
+   "error": null
+  },
+  {
+   "span": "guard.decision_language+citation_check",
+   "side": "host",
+   "start_ms": 28606.3,
+   "latency_ms": 0.9,
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "cost_usd": 0.0,
+   "fired": 1
+  }
+ ],
+ "totals": {
+  "latency_ms": 28608.4,
+  "laps": 3,
+  "tokens_in": 2109,
+  "tokens_out": 97,
+  "cost_usd": 0.0001873,
+  "rate_limit_wait_ms": 27000.0
+ },
+ "rendered": "REFERRAL TO ADJUSTER: no coverage decision has been made by this system\ntrace tr_623f26ea23f1 \u00b7 triage-v2 \u00b7 loss date 2025-01-20\nIn force on the loss date: NO. No policy term covers the loss date.\nWording cited, each resolved against loss date 2025-01-20:\n  (none)\nDeductible: none   Sub-limit: none   Policy limit: none\nFacts for the adjuster: Water damage from a frozen pipe that split in an exterior wall on 2025-01-20. The house was occupied and heated. [removed by the decision-language guard]\n(decision-language guard removed 1 sentence(s))",
+ "redaction": {
+  "when": "pre-write",
+  "hits": [
+   "claim_number"
+  ]
+ }
+}
